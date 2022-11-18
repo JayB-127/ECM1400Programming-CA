@@ -23,10 +23,9 @@ def maxvalue(values):
     Keyword arguments:
         values -- the list/array of values"""
     maxIndex = 0
-    max = 0
+    max = values[0]
     i = 0
     while i < len(values):
-        #TODO: raise exception for nonnumerical
         if type(values[i]) == int or type(values[i]) == float or type(values[i]) == complex: #TODO: better syntax than this
             if values[i] > max:
                 maxIndex = i
@@ -42,8 +41,18 @@ def minvalue(values):
     
     Keyword arguments:
         values -- the list/array of values"""
-    ## Your code goes here
-
+    minIndex = 0
+    min = values[0]
+    i = 0
+    while i < len(values):
+        if type(values[i]) == int or type(values[i]) == float or type(values[i]) == complex: #TODO: better syntax than this
+            if values[i] < min:
+                minIndex = i
+                min = values[i]
+            i += 1
+        else:
+            raise Exception("All values in sequence must be numerical. Wrong data type given.")
+    return minIndex
 
 def meannvalue(values):
     """Receives a list/array, returning the arithmetic mean value in that sequence.
