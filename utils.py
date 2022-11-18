@@ -4,10 +4,10 @@
 
 
 def sumvalues(values):
-    """Receives a list/array and returns the sum of the values in that sequence.
+    """Receives a list/array, returning the sum of the values in that sequence.
 
     Keyword arguments:
-        values -- the list/array of values that are to be summed"""
+        values -- the list/array of values"""
     sum = 0
     for item in values:
         if type(item) != int:
@@ -16,24 +16,31 @@ def sumvalues(values):
             sum += item
     return sum
 
-array = [3, 2, 4, 65, "asd"]
-print(sumvalues(array))
 
 def maxvalue(values):
-    """Your documentation goes here"""    
+    """Receives a list/array, returning the index of the maximum value in that sequence.
+    
+    Keyword arguments:
+        values -- the list/array of values"""    
     ## Your code goes here
 
 
 def minvalue(values):
-    """Your documentation goes here"""    
+    """Receives a list/array, returning the index of the minimum value in that sequence.
+    
+    Keyword arguments:
+        values -- the list/array of values"""
     ## Your code goes here
 
 
 def meannvalue(values):
-    """Your documentation goes here"""    
+    """Receives a list/array, returning the arithmetic mean value in that sequence.
+    
+    Keyword arguments:
+        values -- the list/array of values"""    
     ## Your code goes here
 
 
-def countvalue(values,xw):
-    """Your documentation goes here"""    
+def countvalue(values,x):
+    """documentation here"""    
     ## Your code goes here
