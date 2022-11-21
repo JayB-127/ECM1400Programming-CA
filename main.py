@@ -4,7 +4,11 @@
 
 
 def main_menu():
-    """Displays text-based options to the user, providing information on different actions available."""
+    """Displays text-based options to the user, providing information on different actions available.
+    
+    Inputs:
+        R, I, M, A, Q: The function for the corresponding action is performed
+        Other: A statement is printed to the user, requesting a valid input"""
     print("R - Access the PR module")
     print("I - Access the MI module")
     print("M - Access the RM module")
@@ -28,7 +32,8 @@ def main_menu():
             #Quit application
             quit()
         case _:
-            print("Invalid input given. Select an option listed above.")
+            print("Invalid input given. Try again.")
+            main_menu()
 
 def reporting_menu():
     """Your documentation goes here"""
@@ -43,12 +48,20 @@ def intelligence_menu():
     # Your code goes here
 
 def about():
-    """Your documentation goes here"""
-    # Your code goes here
+    """Displays text informing the user about the project.
+    
+    Inputs:
+        [enter key]: Returns the user back to the Main Menu"""
+    print("-- ABOUT --")
+    print("Module Code: ECM1400")
+    print("Candidate Number: 231682")
+    print("-----------")
+    input("Press Enter to return to Main Menu.")
+    main_menu()
 
 def quit():
-    """Your documentation goes here"""
-    return
+    """Exits the currently running program."""
+    exit()
 
 
 
