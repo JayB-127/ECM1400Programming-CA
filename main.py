@@ -5,12 +5,38 @@
 
 def main_menu():
     """Your documentation goes here"""
+    print("R - Access the PR module")
+    print("I - Access the MI module")
+    print("M - Access the RM module")
+    print("A - Print the About text")
+    print("Q - Quit the Application")
+    choice = input("Select one of the options above: ")
+    match choice:
+        case "R":
+            #PR module
+            reporting_menu()
+        case "I":
+            #MI module
+            monitoring_menu()
+        case "M":
+            #RM module
+            intelligence_menu()
+        case "A":
+            #About text
+            about()
+        case "Q":
+            #Quit application
+            quit()
+        case _:
+            print("Invalid input given. Select an option listed above.")
+
+def reporting_menu():
+    """Your documentation goes here"""
     # Your code goes here
 
 def monitoring_menu():
     """Your documentation goes here"""
     # Your code goes here
-
 
 def intelligence_menu():
     """Your documentation goes here"""
@@ -22,7 +48,7 @@ def about():
 
 def quit():
     """Your documentation goes here"""
-    # Your code goes here
+    return
 
 
 
