@@ -4,7 +4,7 @@
 
 
 def main_menu():
-    """Your documentation goes here"""
+    """Displays text-based options to the user, providing information on different actions available."""
     print("R - Access the PR module")
     print("I - Access the MI module")
     print("M - Access the RM module")

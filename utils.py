@@ -13,7 +13,7 @@ def sumvalues(values):
         sum: The sum of all the values."""
     sum = 0
     for item in values:
-        if type(item) == int or type(item) == float or type(item) == complex: #TODO: better syntax than this
+        if type(item) in [int, float, complex]:
             sum += item
         else:
             raise Exception("All values in sequence must be numerical. Wrong data type given.")
@@ -32,7 +32,7 @@ def maxvalue(values):
     max = values[0]
     i = 0
     while i < len(values):
-        if type(values[i]) == int or type(values[i]) == float or type(values[i]) == complex: #TODO: better syntax than this
+        if type(values[i]) in [int, float, complex]:
             if values[i] > max:
                 maxIndex = i
                 max = values[i]
@@ -54,7 +54,7 @@ def minvalue(values):
     min = values[0]
     i = 0
     while i < len(values):
-        if type(values[i]) == int or type(values[i]) == float or type(values[i]) == complex: #TODO: better syntax than this
+        if type(values[i]) in [int, float, complex]:
             if values[i] < min:
                 minIndex = i
                 min = values[i]
@@ -74,7 +74,7 @@ def meannvalue(values):
         mean: The mean value."""    
     sum = 0
     for item in values:
-        if type(item) == int or type(item) == float or type(item) == complex: #TODO: better syntax than this
+        if type(item) in [int, float, complex]:
             sum += item
         else:
             raise Exception("All values in sequence must be numerical. Wrong data type given.")
