@@ -3,6 +3,7 @@
 # the signatures determined by the project specification
 
 
+
 def main_menu():
     """Displays text-based options to the user, providing information on different actions available.
     
@@ -171,8 +172,9 @@ def intelligence_menu():
 
 
 def monitoring_menu():
-    """Your documentation goes here"""
-    # Your code goes here
+    # TODO: documentation
+    # TODO: everything else lol
+    pass
 
 
 def about():
