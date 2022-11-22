@@ -173,7 +173,6 @@ def intelligence_menu():
 
 def monitoring_menu():
     # TODO: documentation
-    # TODO: everything else lol
     pass
 
 
