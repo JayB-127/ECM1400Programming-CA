@@ -92,6 +92,8 @@ def pollutantChoice():
             pollutantChoice()
 
 def functionChoice(site, pollutant):
+    site = site
+    pollutant = pollutant
     print("--- Pollution Reporting ---")
     print("| Analysis Functions |")
     print("1 - Daily Average")
@@ -131,7 +133,7 @@ def functionChoice(site, pollutant):
             main_menu()
         case _:
             print("Invalid input given. Try again.")
-    functionChoice()
+    functionChoice(site, pollutant)
 
 
 def monitoring_menu():
