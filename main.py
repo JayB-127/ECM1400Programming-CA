@@ -8,8 +8,9 @@ def main_menu():
     """Displays text-based options to the user, providing information on different actions available.
     
     Inputs:
-        [R, I, M, A, Q]: The function for the corresponding action is run
-        Other: A statement is printed to the user, requesting a valid input"""
+        [R, I, M, A, Q]: Strings representing the different actions available
+        Other: Invalid input, user is informed to try again."""
+    #prints text-based interface
     print("--- Main Menu ---")
     print("R - Access the PR module")
     print("I - Access the MI module")
@@ -18,6 +19,7 @@ def main_menu():
     print("Q - Quit the Application")
     print("-----------------")
     choice = input("Select one of the options above: ")
+    #checks input against different cases, executing the respective case block
     match choice:
         case "R":
             reporting_menu()
@@ -32,17 +34,25 @@ def main_menu():
         case _:
             print("Invalid input given. Try again.")
             main_menu()
-            exit()
 
 
 def reporting_menu():
-    # TODO: documentation
+    """Runs functions responsible for the Pollution Reporting module."""
     site = siteChoice()
     pollutant = pollutantChoice()
     functionChoice(site, pollutant)
 
 def siteChoice():
-    # TODO: documentation
+    """Displays text-based options to select the monitoring site to the user.
+    
+    Inputs:
+        [M, N, H]: Strings representing the different monitoring sites that can be selected
+        ?: Returns user to main menu
+        Other: Invalid input, user is informed to try again.
+        
+    Returns:
+        String: Name of the monitoring site selected"""
+    #prints text-based interface
     print("--- Pollution Reporting ---")
     print("| MONITORING SITES |")
     print("M - Marylebone Road")
@@ -51,6 +61,7 @@ def siteChoice():
     print("---------------------------")
     print("? - Main Menu")
     siteChoice = input("Select a monitoring site, or return to main menu: ")
+    #checks input against different cases, executing the respective case block
     match siteChoice:
         case "M":
             print("[Marlybone Road SELECTED]")
@@ -68,7 +79,16 @@ def siteChoice():
             reporting_menu()
 
 def pollutantChoice():
-    # TODO: documentation
+    """Displays text-based options to select the pollutant to the user.
+    
+    Inputs:
+        [NO, PM10, PM25]: Strings representing the different pollutants that can be selected
+        ?: Returns user to main menu
+        Other: Invalid input, user is informed to try again.
+        
+    Returns:
+        String: Name of the pollutant selected"""
+    #prints text-based interface
     print("--- Pollution Reporting ---")
     print("| Pollutant |")
     print("NO - Nitric Oxide")
@@ -77,6 +97,7 @@ def pollutantChoice():
     print("---------------------------")
     print("? - Main Menu")
     pollChoice = input("Select a pollutant, or return to main menu: ")
+    #checks input against different cases, executing the respective case block
     match pollChoice:
         case "NO":
             print("[Nitric Oxide SELECTED]")
@@ -94,9 +115,19 @@ def pollutantChoice():
             pollutantChoice()
 
 def functionChoice(site, pollutant):
-    # TODO: documentation
+    """Displays text-based options to select the function to be performed, to the user
+    
+    Keyword arguments:
+        site: String representing the monitoring site that was selected
+        pollutant: String representing the pollutant that was selected
+
+    Inputs:
+        [1, 2, 3, 4, 5, 6, 7]: Strings representing the different functions that can be selected
+        ?: Returns user to main menu
+        Other: Invalid input, user is informed to try again."""
     site = site
     pollutant = pollutant
+    #prints text-based interface
     print("--- Pollution Reporting ---")
     print("| Analysis Functions |")
     print("1 - Daily Average")
@@ -110,6 +141,7 @@ def functionChoice(site, pollutant):
     print("---------------------------")
     print("? - Main Menu")
     funcChoice = input("Select a function, or return to main menu: ")
+    #checks input against different cases, executing the respective case block
     match funcChoice:
         case "1":
             from reporting import daily_average
@@ -140,7 +172,13 @@ def functionChoice(site, pollutant):
 
 
 def intelligence_menu():
-    # TODO: documentation
+    """Displays text-based options to the user, providing information on different actions available.
+
+    Inputs:
+        [R, C, 1, 2]: Strings representing the different functions that can be selected
+        ?: Returns user to main menu
+        Other: Invalid input, user is informed to try again."""
+    #prints text-based interface
     print("--- Mobility Intelligence ---")
     print("| Find Pixels |")
     print("R - Find Red Pixels")
@@ -151,6 +189,7 @@ def intelligence_menu():
     print("-----------------------------")
     print("? - Main Menu")
     choice = input("Select a function, or return to main menu: ")
+    #checks input against different cases, executing the respective case block
     match choice:
         case "R":
             from intelligence import find_red_pixels
@@ -181,6 +220,7 @@ def about():
     
     Inputs:
         [enter key]: Returns the user back to the Main Menu"""
+    #prints text-based interface
     print("--- About ---")
     print("Module Code: ECM1400")
     print("Candidate Number: 231682")

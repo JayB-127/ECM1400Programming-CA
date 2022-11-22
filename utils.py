@@ -10,7 +10,10 @@ def sumvalues(values):
         values: The list/array of values.
         
     Returns:
-        sum: The sum of all the values."""
+        sum: The sum of all the values.
+        
+    Raises:
+        Exception: If list/array contains non-numerical values"""
     sum = 0
     #iterate through each item of list/array, checking type of each item
     for item in values:
@@ -31,7 +34,10 @@ def maxvalue(values):
         values: The list/array of values.
         
     Returns:
-        maxIndex: The index of the maximum value."""
+        maxIndex: The index of the maximum value.
+            
+    Raises:
+        Exception: If list/array contains non-numerical values"""
     maxIndex = 0
     max = values[0] #set maximum to first value in list/array
     i = 0
@@ -57,7 +63,10 @@ def minvalue(values):
         values: The list/array of values.
         
     Returns:
-        minIndex: The index of the minimum value."""
+        minIndex: The index of the minimum value.
+            
+    Raises:
+        Exception: If list/array contains non-numerical values"""
     minIndex = 0
     min = values[0] #set minimum to first value in list/array
     i = 0
@@ -83,7 +92,10 @@ def meannvalue(values):
         values: The list/array of values.
         
     Returns:
-        mean: The mean value."""    
+        mean: The mean value.
+            
+    Raises:
+        Exception: If list/array contains non-numerical values"""    
     sum = 0
     #iterate through each item of list/array, checking type of each item
     for item in values:
