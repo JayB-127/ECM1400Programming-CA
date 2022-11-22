@@ -21,9 +21,9 @@ def main_menu():
         case "R":
             reporting_menu()
         case "I":
-            monitoring_menu()
-        case "M":
             intelligence_menu()
+        case "M":
+            monitoring_menu()
         case "A":
             about()
         case "Q":
@@ -31,6 +31,7 @@ def main_menu():
         case _:
             print("Invalid input given. Try again.")
             main_menu()
+            exit()
 
 
 def reporting_menu():
@@ -74,7 +75,7 @@ def pollutantChoice():
     print("PM25 - PM2.5 Inhalable Particulate Matter")
     print("---------------------------")
     print("? - Main Menu")
-    pollChoice = input("Select a pollutant, go back or return to main menu: ")
+    pollChoice = input("Select a pollutant, or return to main menu: ")
     match pollChoice:
         case "NO":
             print("[Nitric Oxide SELECTED]")
@@ -92,6 +93,7 @@ def pollutantChoice():
             pollutantChoice()
 
 def functionChoice(site, pollutant):
+    # TODO: documentation
     site = site
     pollutant = pollutant
     print("--- Pollution Reporting ---")
@@ -136,12 +138,39 @@ def functionChoice(site, pollutant):
     functionChoice(site, pollutant)
 
 
-def monitoring_menu():
-    """Your documentation goes here"""
-    # Your code goes here
-
-
 def intelligence_menu():
+    # TODO: documentation
+    print("--- Mobility Intelligence ---")
+    print("| Find Pixels |")
+    print("R - Find Red Pixels")
+    print("C - Find Cyan Pixels")
+    print("| Connected Components |")
+    print("1 - Detect Connected Components")
+    print("2 - Sort Connected Components")
+    print("-----------------------------")
+    print("? - Main Menu")
+    choice = input("Select a function, or return to main menu: ")
+    match choice:
+        case "R":
+            from intelligence import find_red_pixels
+            find_red_pixels()
+        case "C":
+            from intelligence import find_cyan_pixels
+            find_cyan_pixels()
+        case "1":
+            from intelligence import detect_connected_components
+            detect_connected_components()
+        case "2":
+            from intelligence import detect_connected_components_sorted
+            detect_connected_components_sorted()
+        case "?":
+            main_menu()
+        case _:
+            print("Invalid input given. Try again.")
+    intelligence_menu()
+
+
+def monitoring_menu():
     """Your documentation goes here"""
     # Your code goes here
 
@@ -162,7 +191,6 @@ def about():
 def quit():  
     """Exits the currently running program."""
     exit()
-
 
 
 
