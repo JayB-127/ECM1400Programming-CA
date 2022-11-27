@@ -18,7 +18,7 @@ def get_data(monitoring_station):
 def daily_average(data, monitoring_station, pollutant):
     """Your documentation goes here"""
     
-    
+    # USE UTIL FUNCTIONS
 
 
 def daily_median(data, monitoring_station, pollutant):
