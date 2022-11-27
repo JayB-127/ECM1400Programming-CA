@@ -3,10 +3,10 @@
 # the signatures determined by the project specification
 
 import numpy
-from datetime import date, time
 
 def get_data(monitoring_station):
     # TODO: documentation
+
     #create filename specific to each monitoring station selected in main menu
     filename = "data\Pollution-London " + monitoring_station + ".csv"
     #create a 2d array with the data from the csv file, removing the first row
@@ -18,7 +18,7 @@ def get_data(monitoring_station):
 def daily_average(data, monitoring_station, pollutant):
     """Your documentation goes here"""
     
-    ## Your code goes here
+    
 
 
 def daily_median(data, monitoring_station, pollutant):
