@@ -68,22 +68,22 @@ def reporting_menu():
         #checks user input against different cases, executing the respective case block
         match siteChoice:
             case "M":
+                validSite = True
                 print("[Marlybone Road SELECTED]")
                 site = "Marlybone Road"
-                validSite = True
             case "N":
+                validSite = True
                 print("[N. Kensington SELECTED]")
                 site = "N. Kensington"
-                validSite = True
             case "H":
+                validSite = True
                 print("[Harlington SELECTED]")
                 site = "Harlington"
-                validSite = True
             case "?":
                 return
             case _:
-                print("Invalid input given. Try again.")
                 validSite = False
+                print("Invalid input given. Try again.")
 
     validPoll = False
     #loops until a valid input is given
@@ -101,22 +101,22 @@ def reporting_menu():
         #checks user input against different cases, executing the respective case block
         match pollChoice:
             case "NO":
+                validPoll = True
                 print("[Nitric Oxide SELECTED]")
                 pollutant = "no"
-                validPoll = True
             case "PM10":
+                validPoll = True
                 print("[PM10 SELECTED]")
                 pollutant = "pm10"
-                validPoll = True
             case "PM25":
+                validPoll = True
                 print("[PM2.5 SELECTED]")
                 pollutant = "pm25"
-                validPoll = True
             case "?":
                 return
             case _:
-                print("Invalid input given. Try again.")
                 validPoll = False
+                print("Invalid input given. Try again.")
         
     validFunc = False
     #loops until a valid input is given
@@ -140,32 +140,36 @@ def reporting_menu():
         match funcChoice:
             case "1":
                 validFunc = True
-                from reporting import daily_average
-                daily_average() # TODO: parse in correct data, including site and pollutant above
+                from reporting import daily_average, get_data
+                daily_average(get_data(site), site, pollutant)
             case "2":
                 validFunc = True
-                from reporting import daily_median
-                daily_median() # TODO: parse in correct data, including site and pollutant above
+                from reporting import daily_median, get_data
+                daily_median(get_data(site), site, pollutant)
             case "3":
                 validFunc = True
-                from reporting import hourly_average
-                hourly_average() # TODO: parse in correct data, including site and pollutant above
+                from reporting import hourly_average, get_data
+                hourly_average(get_data(site), site, pollutant)
             case "4":
                 validFunc = True
-                from reporting import monthly_average
-                monthly_average() # TODO: parse in correct data, including site and pollutant above
+                from reporting import monthly_average, get_data
+                monthly_average(get_data(site), site, pollutant)
             case "5":
                 validFunc = True
-                from reporting import peak_hour_date
-                peak_hour_date() # TODO: parse in correct data, including site and pollutant above
+                from reporting import peak_hour_date, get_data
+                get_data(site) # TODO: PARSE THIS INTO FUNCTION BELOW
+                # TODO: get user input for date
+                peak_hour_date()
             case "6":
                 validFunc = True
-                from reporting import count_missing_data
-                count_missing_data() # TODO: parse in correct data, including site and pollutant above
+                from reporting import count_missing_data, get_data
+                count_missing_data(get_data(site), site, pollutant)
             case "7":
                 validFunc = True
-                from reporting import fill_missing_data
-                fill_missing_data() # TODO: parse in correct data, including site and pollutant above
+                from reporting import fill_missing_data, get_data
+                get_data(site) # TODO: PARSE THIS INTO FUNCTION BELOW
+                # TODO: get user input for new value
+                fill_missing_data()
             case "?":
                 return
             case _:
