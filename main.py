@@ -69,12 +69,12 @@ def reporting_menu():
         match siteChoice:
             case "M":
                 validSite = True
-                print("[Marlybone Road SELECTED]")
-                site = "Marlybone Road"
+                print("[Marylebone Road SELECTED]")
+                site = "Marylebone Road"
             case "N":
                 validSite = True
                 print("[N. Kensington SELECTED]")
-                site = "N. Kensington"
+                site = "N Kensington"
             case "H":
                 validSite = True
                 print("[Harlington SELECTED]")

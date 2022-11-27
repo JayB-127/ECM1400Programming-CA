@@ -5,46 +5,51 @@
 import numpy
 from datetime import date, time
 
-def get_data():
-    filename = "data\Pollution-London Harlington.csv"
-    # TODO: returns 2d array of csv file for that monitoring station
-    data = numpy.loadtxt(
-        filename,
-        dtype = {
-            "names": ("date", "time", "no", "pm10", "pm25"),
-            "formats": (date, time, float, float, float)},
-        skiprows = 1,
-        delimiter = ",")
-    print(data)
+def get_data(monitoring_station):
+    # TODO: documentation
+    #create filename specific to each monitoring station selected in main menu
+    filename = "data\Pollution-London " + monitoring_station + ".csv"
+    #create a 2d array with the data from the csv file, removing the first row
+    csv = numpy.genfromtxt(filename, delimiter=",", dtype=None).astype("U13")
+    data = numpy.delete(csv, 0, 0)
+    return data
 
-get_data()
 
 def daily_average(data, monitoring_station, pollutant):
     """Your documentation goes here"""
     
     ## Your code goes here
 
+
 def daily_median(data, monitoring_station, pollutant):
     """Your documentation goes here"""
     
     ## Your code goes here
+
+
 def hourly_average(data, monitoring_station, pollutant):
     """Your documentation goes here"""
     
     ## Your code goes here
+
+
 def monthly_average(data, monitoring_station, pollutant):
     """Your documentation goes here"""
     
     ## Your code goes here
+
+
 def peak_hour_date(data, date, monitoring_station,pollutant):
     """Your documentation goes here"""
     
     ## Your code goes here
 
+
 def count_missing_data(data,  monitoring_station,pollutant):
     """Your documentation goes here"""
     
     ## Your code goes here
+
 
 def fill_missing_data(data, new_value,  monitoring_station,pollutant):
     """Your documentation goes here"""
