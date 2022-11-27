@@ -3,19 +3,19 @@
 # the signatures determined by the project specification
 
 import numpy
-import datetime
+from datetime import date, time
 
 def get_data():
     filename = "data\Pollution-London Harlington.csv"
     # TODO: returns 2d array of csv file for that monitoring station
-    array = numpy.loadtxt(
+    data = numpy.loadtxt(
         filename,
         dtype = {
             "names": ("date", "time", "no", "pm10", "pm25"),
-            "formats": (datetime.date, datetime.time, float, float, float)},
+            "formats": (date, time, float, float, float)},
         skiprows = 1,
         delimiter = ",")
-    print(array)
+    print(data)
 
 get_data()
 
