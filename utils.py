@@ -7,10 +7,10 @@ def sumvalues(values):
     """Receives a list/array, returning the sum of the values in that sequence.
 
     Keyword arguments:
-        values: The list/array of values.
+        (Array/List) values: The list/array of values.
         
     Returns:
-        sum: The sum of all the values.
+        (Int) sum: The sum of all the values.
         
     Raises:
         Exception: If list/array contains non-numerical values"""
@@ -31,10 +31,10 @@ def maxvalue(values):
     """Receives a list/array, returning the index of the maximum value in that sequence.
     
     Keyword arguments:
-        values: The list/array of values.
+        (Array/List) values: The list/array of values.
         
     Returns:
-        maxIndex: The index of the maximum value.
+        (Int) maxIndex: The index of the maximum value.
             
     Raises:
         Exception: If list/array contains non-numerical values"""
@@ -60,10 +60,10 @@ def minvalue(values):
     """Receives a list/array, returning the index of the minimum value in that sequence.
 
     Keyword arguments:
-        values: The list/array of values.
+        (Array/List) values: The list/array of values.
         
     Returns:
-        minIndex: The index of the minimum value.
+        (Int) minIndex: The index of the minimum value.
             
     Raises:
         Exception: If list/array contains non-numerical values"""
@@ -89,10 +89,10 @@ def meannvalue(values):
     """Receives a list/array, returning the arithmetic mean value in that sequence.
     
     Keyword arguments:
-        values: The list/array of values.
+        (Array/List) values: The list/array of values.
         
     Returns:
-        mean: The mean value.
+        (Float) mean: The mean value.
             
     Raises:
         Exception: If list/array contains non-numerical values"""    
@@ -114,11 +114,11 @@ def countvalue(values,x):
     """Receives a list/array values and a value x, returning the number of occurrences of the value x in that sequence.
     
     Keyword arguments:
-        values: The list/array of values.
-        x: The value to find in the sequence.
+        (Array/List) values: The list/array of values.
+        (String) x: The value to find in the sequence.
         
     Returns:
-        occurences: The amount of times x is present in the sequence."""
+        (Int) occurences: The amount of times x is present in the sequence."""
     occurences = 0
     #iterate through each item of list/array
     for item in values:
