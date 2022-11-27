@@ -11,48 +11,33 @@ def main_menu():
         [R, I, M, A, Q]: Strings representing the different actions available
         Other: Invalid input, user is informed to try again."""
     #prints text-based interface
-    print("--- Main Menu ---")
-    print("R - Access the PR module")
-    print("I - Access the MI module")
-    print("M - Access the RM module")
-    print("A - Print the About text")
-    print("Q - Quit the Application")
-    print("-----------------")
-    choice = input("Select one of the options above: ")
-    #checks input against different cases, executing the respective case block
-    match choice:
-        case "R":
-            reporting_menu()
-        case "I":
-            intelligence_menu()
-        case "M":
-            monitoring_menu()
-        case "A":
-            about()
-        case "Q":
-            quit()
-        case _:
-            print("Invalid input given. Try again.")
-            main_menu()
+    while True:
+        print("--- Main Menu ---")
+        print("R - Access the PR module")
+        print("I - Access the MI module")
+        print("M - Access the RM module")
+        print("A - Print the About text")
+        print("Q - Quit the Application")
+        print("-----------------")
+        choice = input("Select one of the options above: ")
+        #checks input against different cases, executing the respective case block
+        match choice:
+            case "R":
+                reporting_menu()
+            case "I":
+                intelligence_menu()
+            case "M":
+                monitoring_menu()
+            case "A":
+                about()
+            case "Q":
+                quit()
+            case _:
+                print("Invalid input given. Try again.")
 
 
 def reporting_menu():
     """Runs functions responsible for the Pollution Reporting module."""
-    site = siteChoice()
-    pollutant = pollutantChoice()
-    functionChoice(site, pollutant)
-
-def siteChoice():
-    """Displays text-based options to select the monitoring site to the user.
-    
-    Inputs:
-        [M, N, H]: Strings representing the different monitoring sites that can be selected
-        ?: Returns user to main menu
-        Other: Invalid input, user is informed to try again.
-        
-    Returns:
-        String: Name of the monitoring site selected"""
-    #prints text-based interface
     print("--- Pollution Reporting ---")
     print("| MONITORING SITES |")
     print("M - Marylebone Road")
@@ -60,35 +45,29 @@ def siteChoice():
     print("H - Harlington")
     print("---------------------------")
     print("? - Main Menu")
-    siteChoice = input("Select a monitoring site, or return to main menu: ")
-    #checks input against different cases, executing the respective case block
-    match siteChoice:
-        case "M":
-            print("[Marlybone Road SELECTED]")
-            return "Marlybone Road"
-        case "N":
-            print("[N. Kensington SELECTED]")
-            return "N. Kensington"
-        case "H":
-            print("[Harlington SELECTED]")
-            return "Harlington"
-        case "?":
-            main_menu()
-        case _:
-            print("Invalid input given. Try again.")
-            reporting_menu()
+    valid1 = False
+    while valid1 == False:
+        siteChoice = input("Select a monitoring site, or return to main menu: ")
+        #checks input against different cases, executing the respective case block
+        match siteChoice:
+            case "M":
+                print("[Marlybone Road SELECTED]")
+                site = "Marlybone Road"
+                valid1 = True
+            case "N":
+                print("[N. Kensington SELECTED]")
+                site = "N. Kensington"
+                valid1 = True
+            case "H":
+                print("[Harlington SELECTED]")
+                site = "Harlington"
+                valid1 = True
+            case "?":
+                return
+            case _:
+                print("Invalid input given. Try again.")
+                valid1 = False
 
-def pollutantChoice():
-    """Displays text-based options to select the pollutant to the user.
-    
-    Inputs:
-        [NO, PM10, PM25]: Strings representing the different pollutants that can be selected
-        ?: Returns user to main menu
-        Other: Invalid input, user is informed to try again.
-        
-    Returns:
-        String: Name of the pollutant selected"""
-    #prints text-based interface
     print("--- Pollution Reporting ---")
     print("| Pollutant |")
     print("NO - Nitric Oxide")
@@ -96,38 +75,29 @@ def pollutantChoice():
     print("PM25 - PM2.5 Inhalable Particulate Matter")
     print("---------------------------")
     print("? - Main Menu")
-    pollChoice = input("Select a pollutant, or return to main menu: ")
-    #checks input against different cases, executing the respective case block
-    match pollChoice:
-        case "NO":
-            print("[Nitric Oxide SELECTED]")
-            return "no"
-        case "PM10":
-            print("[PM10 SELECTED]")
-            return "pm10"
-        case "PM25":
-            print("[PM2.5 SELECTED]")
-            return "pm25"
-        case "?":
-            main_menu()
-        case _:
-            print("Invalid input given. Try again.")
-            pollutantChoice()
-
-def functionChoice(site, pollutant):
-    """Displays text-based options to select the function to be performed, to the user
-    
-    Keyword arguments:
-        site: String representing the monitoring site that was selected
-        pollutant: String representing the pollutant that was selected
-
-    Inputs:
-        [1, 2, 3, 4, 5, 6, 7]: Strings representing the different functions that can be selected
-        ?: Returns user to main menu
-        Other: Invalid input, user is informed to try again."""
-    site = site
-    pollutant = pollutant
-    #prints text-based interface
+    valid2 = False
+    while valid2 == False:
+        pollChoice = input("Select a pollutant, or return to main menu: ")
+        #checks input against different cases, executing the respective case block
+        match pollChoice:
+            case "NO":
+                print("[Nitric Oxide SELECTED]")
+                pollutant = "no"
+                valid2 = True
+            case "PM10":
+                print("[PM10 SELECTED]")
+                pollutant = "pm10"
+                valid2 = True
+            case "PM25":
+                print("[PM2.5 SELECTED]")
+                pollutant = "pm25"
+                valid2 = True
+            case "?":
+                return
+            case _:
+                print("Invalid input given. Try again.")
+                valid2 = False
+        
     print("--- Pollution Reporting ---")
     print("| Analysis Functions |")
     print("1 - Daily Average")
@@ -140,35 +110,45 @@ def functionChoice(site, pollutant):
     print("7 - Fill Missing Data")
     print("---------------------------")
     print("? - Main Menu")
-    funcChoice = input("Select a function, or return to main menu: ")
-    #checks input against different cases, executing the respective case block
-    match funcChoice:
-        case "1":
-            from reporting import daily_average
-            daily_average() # TODO: parse in correct data, including site and pollutant above
-        case "2":
-            from reporting import daily_median
-            daily_median() # TODO: parse in correct data, including site and pollutant above
-        case "3":
-            from reporting import hourly_average
-            hourly_average() # TODO: parse in correct data, including site and pollutant above
-        case "4":
-            from reporting import monthly_average
-            monthly_average() # TODO: parse in correct data, including site and pollutant above
-        case "5":
-            from reporting import peak_hour_date
-            peak_hour_date() # TODO: parse in correct data, including site and pollutant above
-        case "6":
-            from reporting import count_missing_data
-            count_missing_data() # TODO: parse in correct data, including site and pollutant above
-        case "7":
-            from reporting import fill_missing_data
-            fill_missing_data() # TODO: parse in correct data, including site and pollutant above
-        case "?":
-            main_menu()
-        case _:
-            print("Invalid input given. Try again.")
-    functionChoice(site, pollutant)
+
+    valid3 = False
+    while valid3 == False:
+        funcChoice = input("Select a function, or return to main menu: ")
+        #checks input against different cases, executing the respective case block
+        match funcChoice:
+            case "1":
+                valid3 = True
+                from reporting import daily_average
+                daily_average() # TODO: parse in correct data, including site and pollutant above
+            case "2":
+                valid3 = True
+                from reporting import daily_median
+                daily_median() # TODO: parse in correct data, including site and pollutant above
+            case "3":
+                valid3 = True
+                from reporting import hourly_average
+                hourly_average() # TODO: parse in correct data, including site and pollutant above
+            case "4":
+                valid3 = True
+                from reporting import monthly_average
+                monthly_average() # TODO: parse in correct data, including site and pollutant above
+            case "5":
+                valid3 = True
+                from reporting import peak_hour_date
+                peak_hour_date() # TODO: parse in correct data, including site and pollutant above
+            case "6":
+                valid3 = True
+                from reporting import count_missing_data
+                count_missing_data() # TODO: parse in correct data, including site and pollutant above
+            case "7":
+                valid3 = True
+                from reporting import fill_missing_data
+                fill_missing_data() # TODO: parse in correct data, including site and pollutant above
+            case "?":
+                return
+            case _:
+                valid3 = False
+                print("Invalid input given. Try again.")
 
 
 def intelligence_menu():
