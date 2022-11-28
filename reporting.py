@@ -2,53 +2,50 @@
 # You should modify the functions below to match
 # the signatures determined by the project specification
 
-import numpy
+import pandas
+import json
 
-def get_data(monitoring_station):
+def get_data():
     # TODO: documentation
 
-    #create filename specific to each monitoring station selected in main menu
-    filename = "data\Pollution-London " + monitoring_station + ".csv"
-    #create a 2d array with the data from the csv file, removing the first row
-    csv = numpy.genfromtxt(filename, delimiter=",", dtype=None).astype("U13")
-    data = numpy.delete(csv, 0, 0)
+    filename = "data\Pollution-London Harlington.csv"
+    hdataframe = pandas.read_csv(filename)
+    hdata = hdataframe.to_dict("records")
+
+    filename = "data\Pollution-London Marylebone Road.csv"
+    mdataframe = pandas.read_csv(filename)
+    mdata = mdataframe.to_dict("records")
+
+    filename = "data\Pollution-London N Kensington.csv"
+    ndataframe = pandas.read_csv(filename)
+    ndata = ndataframe.to_dict("records")
+
+    data = {"Harlington" : hdata, "Marylebone Road" : mdata, "N Kensington" : ndata}
+
     return data
 
 
 def daily_average(data, monitoring_station, pollutant):
-    """Your documentation goes here"""
-    # TODO: change pollutant based on param
-    arrLength = len(data)
+    # TODO: documentation
+
+    siteData = data[monitoring_station]
 
     i = 0
-    index = 0
-    days = []
-    while i <= arrLength:
-        days.append([])
-        for x in data[i:i+24]:
-            days[index].append(x[2])
-        index += 1
-        i += 24
-
     means = []
-
-    for day in days:
-        sum = 0
-        mean = 0
-        count = 0
-        for hour in day:
-            if hour != "No data":
-                sum += float(hour)
+    while i < len(siteData):
+        temp = siteData[i:i+24]
+        sum, count, mean = 0, 0, 0
+        for dict in temp:
+            if dict[pollutant] != "No data":
+                sum += float(dict[pollutant])
                 count += 1
-        print(sum)
+        i += 24
         mean = sum / count
         means.append(mean)
 
-    print(means)
-    #print(days)
-
-
-daily_average(get_data("Harlington"), "Harlington", "no")
+    return means
+    
+daily_average(get_data(), "Marylebone", "no")
 
 
 def daily_median(data, monitoring_station, pollutant):

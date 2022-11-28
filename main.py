@@ -141,7 +141,7 @@ def reporting_menu():
             case "1":
                 validFunc = True
                 from reporting import daily_average, get_data
-                daily_average(get_data(site), site, pollutant)
+                print(daily_average(get_data(), site, pollutant))
             case "2":
                 validFunc = True
                 from reporting import daily_median, get_data
