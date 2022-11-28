@@ -65,18 +65,19 @@ def daily_median(data, monitoring_station, pollutant):
         i += 24
         values = numpy.sort(values)
         n = len(values)
-        if n % 2 == 0:
-            median = 0.5 * (values[(n / 2)] + values[(n / 2) + 1]) # NOT WORKING
-        elif n % 2 != 0:
-            median = values[(n + 1) / 2]
-            medians.append(median)
-        elif n == 0:
+        if n == 0:
             medians.append("N/A")
+        elif n % 2 == 0:
+            n = int(n / 2)
+            median = 0.5 * (values[n - 1] + values[n])
+            medians.append(median)
+        elif n % 2 != 0:
+            n = int((n + 1) / 2)
+            median = values[n-1]
+            medians.append(median)
 
-    print(medians)
     return medians
-
-    #IF VALUES EMPTY, PRINT N/A
+    
 
 daily_median(get_data(), "Marylebone Road", "no")
 
