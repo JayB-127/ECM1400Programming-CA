@@ -17,8 +17,38 @@ def get_data(monitoring_station):
 
 def daily_average(data, monitoring_station, pollutant):
     """Your documentation goes here"""
-    
-    # USE UTIL FUNCTIONS
+    # TODO: change pollutant based on param
+    arrLength = len(data)
+
+    i = 0
+    index = 0
+    days = []
+    while i <= arrLength:
+        days.append([])
+        for x in data[i:i+24]:
+            days[index].append(x[2])
+        index += 1
+        i += 24
+
+    means = []
+
+    for day in days:
+        sum = 0
+        mean = 0
+        count = 0
+        for hour in day:
+            if hour != "No data":
+                sum += float(hour)
+                count += 1
+        print(sum)
+        mean = sum / count
+        means.append(mean)
+
+    print(means)
+    #print(days)
+
+
+daily_average(get_data("Harlington"), "Harlington", "no")
 
 
 def daily_median(data, monitoring_station, pollutant):
