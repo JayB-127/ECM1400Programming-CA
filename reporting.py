@@ -3,7 +3,7 @@
 # the signatures determined by the project specification
 
 import pandas
-import json
+import numpy
 
 def get_data():
     # TODO: documentation
@@ -30,15 +30,14 @@ def daily_average(data, monitoring_station, pollutant):
 
     siteData = data[monitoring_station]
 
-    # TODO: rewrite to prevent / 0 when a whole day is No data
     i = 0
     means = []
     while i < len(siteData):
-        temp = siteData[i:i+24]
+        day = siteData[i:i+24]
         sum, count, mean = 0, 0, 0
-        for dict in temp:
-            if dict[pollutant] != "No data":
-                sum += float(dict[pollutant])
+        for hour in day:
+            if hour[pollutant] != "No data":
+                sum += float(hour[pollutant])
                 count += 1
         i += 24
         if count == 0:
@@ -51,9 +50,35 @@ def daily_average(data, monitoring_station, pollutant):
 
 
 def daily_median(data, monitoring_station, pollutant):
-    """Your documentation goes here"""
-    
-    ## Your code goes here
+    # TODO: documentation
+
+    siteData = data[monitoring_station]
+
+    i = 0
+    medians = []
+    while i < len(siteData):
+        values = []
+        day = siteData[i:i+24]
+        for hour in day:
+            if hour[pollutant] != "No data":
+                values.append(float(hour[pollutant]))
+        i += 24
+        values = numpy.sort(values)
+        n = len(values)
+        if n % 2 == 0:
+            median = 0.5 * (values[(n / 2)] + values[(n / 2) + 1]) # NOT WORKING
+        elif n % 2 != 0:
+            median = values[(n + 1) / 2]
+            medians.append(median)
+        elif n == 0:
+            medians.append("N/A")
+
+    print(medians)
+    return medians
+
+    #IF VALUES EMPTY, PRINT N/A
+
+daily_median(get_data(), "Marylebone Road", "no")
 
 
 def hourly_average(data, monitoring_station, pollutant):
