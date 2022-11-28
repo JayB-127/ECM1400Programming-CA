@@ -145,29 +145,29 @@ def reporting_menu():
             case "2":
                 validFunc = True
                 from reporting import daily_median, get_data
-                daily_median(get_data(site), site, pollutant)
+                daily_median(get_data(), site, pollutant)
             case "3":
                 validFunc = True
                 from reporting import hourly_average, get_data
-                hourly_average(get_data(site), site, pollutant)
+                hourly_average(get_data(), site, pollutant)
             case "4":
                 validFunc = True
                 from reporting import monthly_average, get_data
-                monthly_average(get_data(site), site, pollutant)
+                monthly_average(get_data(), site, pollutant)
             case "5":
                 validFunc = True
                 from reporting import peak_hour_date, get_data
-                get_data(site) # TODO: PARSE THIS INTO FUNCTION BELOW
+                get_data() # TODO: PARSE THIS INTO FUNCTION BELOW
                 # TODO: get user input for date
                 peak_hour_date()
             case "6":
                 validFunc = True
                 from reporting import count_missing_data, get_data
-                count_missing_data(get_data(site), site, pollutant)
+                count_missing_data(get_data(), site, pollutant)
             case "7":
                 validFunc = True
                 from reporting import fill_missing_data, get_data
-                get_data(site) # TODO: PARSE THIS INTO FUNCTION BELOW
+                get_data() # TODO: PARSE THIS INTO FUNCTION BELOW
                 # TODO: get user input for new value
                 fill_missing_data()
             case "?":

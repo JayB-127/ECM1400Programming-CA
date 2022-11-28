@@ -30,6 +30,7 @@ def daily_average(data, monitoring_station, pollutant):
 
     siteData = data[monitoring_station]
 
+    # TODO: rewrite to prevent / 0 when a whole day is No data
     i = 0
     means = []
     while i < len(siteData):
@@ -40,12 +41,13 @@ def daily_average(data, monitoring_station, pollutant):
                 sum += float(dict[pollutant])
                 count += 1
         i += 24
-        mean = sum / count
-        means.append(mean)
+        if count == 0:
+            means.append("N/A")
+        else:
+            mean = sum / count
+            means.append(mean)
 
     return means
-    
-daily_average(get_data(), "Marylebone", "no")
 
 
 def daily_median(data, monitoring_station, pollutant):
