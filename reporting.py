@@ -92,7 +92,7 @@ def hourly_average(data, monitoring_station, pollutant):
     means = []
     i = 1
     while i < 25:
-        time = '%02d:%02d:%02d' % (i, 0, 0)
+        time = "%02d:%02d:%02d" %(i, 0, 0)
         values = []
         for hour in siteData:
             if hour["time"] == time:
