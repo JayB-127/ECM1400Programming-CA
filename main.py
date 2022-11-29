@@ -149,7 +149,7 @@ def reporting_menu():
             case "3":
                 validFunc = True
                 from reporting import hourly_average, get_data
-                hourly_average(get_data(), site, pollutant)
+                print(hourly_average(get_data(), site, pollutant))
             case "4":
                 validFunc = True
                 from reporting import monthly_average, get_data

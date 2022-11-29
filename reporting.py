@@ -4,6 +4,7 @@
 
 import pandas
 import numpy
+from datetime import datetime, timedelta
 
 def get_data():
     # TODO: documentation
@@ -28,6 +29,8 @@ def get_data():
 def daily_average(data, monitoring_station, pollutant):
     # TODO: documentation
 
+    from utils import meannvalue
+
     siteData = data[monitoring_station]
 
     i = 0
@@ -43,7 +46,6 @@ def daily_average(data, monitoring_station, pollutant):
         if len(values) == 0:
             means.append("N/A")
         else:
-            from utils import meannvalue
             means.append(meannvalue(values))
 
     return means
@@ -63,6 +65,7 @@ def daily_median(data, monitoring_station, pollutant):
             if hour[pollutant] != "No data":
                 values.append(float(hour[pollutant]))
         i += 24
+
         values = numpy.sort(values)
         n = len(values)
         if n == 0:
@@ -77,15 +80,33 @@ def daily_median(data, monitoring_station, pollutant):
             medians.append(median)
 
     return medians
-    
-
-daily_median(get_data(), "Marylebone Road", "no")
 
 
 def hourly_average(data, monitoring_station, pollutant):
-    """Your documentation goes here"""
+    # TODO: documentation
+
+    from utils import meannvalue
     
-    ## Your code goes here
+    siteData = data[monitoring_station]
+
+    means = []
+    i = 1
+    while i < 25:
+        time = '%02d:%02d:%02d' % (i, 0, 0)
+        values = []
+        for hour in siteData:
+            if hour["time"] == time:
+                if hour[pollutant] != "No data":
+                    values.append(float(hour[pollutant]))
+
+        i += 1 #increments hour by one
+
+        if len(values) == 0:
+            means.append("N/A")
+        else:
+            means.append(meannvalue(values))
+
+    return means
 
 
 def monthly_average(data, monitoring_station, pollutant):
