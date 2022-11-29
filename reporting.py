@@ -34,17 +34,17 @@ def daily_average(data, monitoring_station, pollutant):
     means = []
     while i < len(siteData):
         day = siteData[i:i+24]
-        sum, count, mean = 0, 0, 0
+        values = []
         for hour in day:
             if hour[pollutant] != "No data":
-                sum += float(hour[pollutant])
-                count += 1
+                values.append(float(hour[pollutant]))
         i += 24
-        if count == 0:
+        
+        if len(values) == 0:
             means.append("N/A")
         else:
-            mean = sum / count
-            means.append(mean)
+            from utils import meannvalue
+            means.append(meannvalue(values))
 
     return means
 
