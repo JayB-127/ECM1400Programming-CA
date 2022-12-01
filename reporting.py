@@ -253,7 +253,7 @@ def count_missing_data(data, monitoring_station, pollutant):
 
 
 def fill_missing_data(data, new_value, monitoring_station, pollutant):
-    """Returns a copy of the data with the missing values replaced by the value in the parameter new_value.
+    """Returns a copy of the data with the missing values replaced by the value in the parameter new_value for a particular pollutant and monitoring station.
     
     Keyword arguments:
         (Dict) data: Dictionary containing three keys, each being mapped to a list of dictionaries of data for a monitoring station.
@@ -269,4 +269,4 @@ def fill_missing_data(data, new_value, monitoring_station, pollutant):
     #write stationData to new csv file
         #for each dictionary:
             #write data to correct columns
-    #search through file and rewrite any no data entries
+    #search through file and rewrite any no data entries for particular pollutant
