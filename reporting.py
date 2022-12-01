@@ -2,23 +2,23 @@
 # You should modify the functions below to match
 # the signatures determined by the project specification
 
-import pandas
+from pandas import read_csv
 import numpy
-from datetime import datetime, timedelta
+from datetime import datetime
 
 def get_data():
     # TODO: documentation
 
     filename = "data\Pollution-London Harlington.csv"
-    hdataframe = pandas.read_csv(filename)
+    hdataframe = read_csv(filename)
     hdata = hdataframe.to_dict("records")
 
     filename = "data\Pollution-London Marylebone Road.csv"
-    mdataframe = pandas.read_csv(filename)
+    mdataframe = read_csv(filename)
     mdata = mdataframe.to_dict("records")
 
     filename = "data\Pollution-London N Kensington.csv"
-    ndataframe = pandas.read_csv(filename)
+    ndataframe = read_csv(filename)
     ndata = ndataframe.to_dict("records")
 
     data = {"Harlington" : hdata, "Marylebone Road" : mdata, "N Kensington" : ndata}
@@ -109,9 +109,42 @@ def hourly_average(data, monitoring_station, pollutant):
   
 
 def monthly_average(data, monitoring_station, pollutant):
-    """Your documentation goes here"""
+    # TODO: documentation
     
-    ## Your code goes here
+    from utils import meannvalue
+
+    siteData = data[monitoring_station]
+
+    means = []
+    i = 1
+    while i < 13:
+        """
+        dateString = "2021-%02d-01" %i
+        date = datetime.strptime(dateString, "%Y-%m-%d") #converts string into date obj
+        print(dateString)
+        print(date.month)
+        i += 1
+        """
+        values = []
+        for hour in siteData:
+            date = datetime.strptime(hour["date"], "%Y-%m-%d")
+            print(f"date month: {date.month}")
+            print(f"i: {i}")
+            if date.month == i:
+                if hour[pollutant] != "No data":
+                    values.append(float(hour[pollutant]))
+        i += 1 #increments month by one
+
+        if len(values) == 0:
+            means.append("N/A")
+        else:
+            means.append(meannvalue(values))
+
+        print(means)
+        return means
+
+
+monthly_average(get_data(), "Marylebone Road", "no")
 
 
 def peak_hour_date(data, date, monitoring_station,pollutant):
