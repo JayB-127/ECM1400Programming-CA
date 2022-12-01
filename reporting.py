@@ -13,7 +13,8 @@ def get_data():
     Returns:
         (Dict) data: Dictionary containing three keys, each being mapped to a list of dictionaries of data for a monitoring station."""
 
-    #reads csv files into dataframes, then converts the dataframes to a list of dictionaries
+    #read csv files into dataframes
+    #convert the dataframes to a list of dictionaries
     hdataframe = read_csv("data\Pollution-London Harlington.csv")
     hdata = hdataframe.to_dict("records")
 
@@ -23,7 +24,7 @@ def get_data():
     ndataframe = read_csv("data\Pollution-London N Kensington.csv")
     ndata = ndataframe.to_dict("records")
 
-    #creates a dictionary that maps the list of dictionaries for each monitoring station to a key
+    #create a dictionary that maps the list of dictionaries for each monitoring station to a key
     data = {"Harlington" : hdata, "Marylebone Road" : mdata, "N Kensington" : ndata}
 
     return data
@@ -38,56 +39,69 @@ def daily_average(data, monitoring_station, pollutant):
         (String) pollutant: String representing the pollutant chosen by the user.
         
     Returns:
-        (List/Array) means: List/Array containing 365 daily mean averages for a particular pollutant and monitoring station"""
+        (List/Array) means: List/Array containing 365 daily mean averages for a particular pollutant and monitoring station."""
 
     from utils import meannvalue
 
-    #retrieves a list of dictionaries of data for the specified monitoring station
+    #retrieve a list of dictionaries of data for the specified monitoring station
     stationData = data[monitoring_station]
 
     i = 0
     means = []
-    #loops until end of list of dictionaries
     while i < len(stationData):
+        values = []
         #retrieve dictionaries in lists of 24 every iteration. This is due to there being 24 hours each day
         day = stationData[i:i+24]
-        values = []
         #iterate through each dictionary (hour) in the list of 24 dictionaries
         for hour in day:
-            #append the float value of the pollutant level, if there is data present (not 'No data')
             if hour[pollutant] != "No data":
                 values.append(float(hour[pollutant]))
+        #increment i so that the dictionaries for the next day are retrieved
         i += 24
         
-        #if there are no values to calculate the mean of, the average will be N/A
         if len(values) == 0:
             means.append("N/A")
         #calculate the mean on the list of values for that day, appending the result to the list/array of mean averages
         else:
+            #use util.py function to calculate mean value
             means.append(meannvalue(values))
 
     return means
 
 
 def daily_median(data, monitoring_station, pollutant):
-    # TODO: documentation
+    """Returns a list/array containing the daily median values for a particular pollutant and monitoring station.
+    
+    Keyword arguments:
+        (Dict) data: Dictionary containing three keys, each being mapped to a list of dictionaries of data for a monitoring station.
+        (String) monitoring_station: String representing the monitoring station chosen by the user.
+        (String) pollutant: String representing the pollutant chosen by the user.
+        
+    Returns:
+        (List/Array) medians: List/Array containing 365 daily median values for a particular pollutant and monitoring station."""
 
+    #retrieve a list of dictionaries of data for the specified monitoring station
     stationData = data[monitoring_station]
 
     i = 0
     medians = []
     while i < len(stationData):
         values = []
+        #retrieve dictionaries in lists of 24 every iteration. This is due to there being 24 hours each day.
         day = stationData[i:i+24]
+        #iterate through each dictionary (hour) in the list of 24 dictionaries
         for hour in day:
             if hour[pollutant] != "No data":
                 values.append(float(hour[pollutant]))
+        #increment i so that the dictionaries for the next day are retrieved
         i += 24
 
+        #order the list of different values of pollutant for that day in ascending order
         values = numpy.sort(values)
         n = len(values)
         if n == 0:
             medians.append("N/A")
+        #calculate median on the values depending on if there are an even or odd amount of values, appending the result to the list/array
         elif n % 2 == 0:
             n = int(n / 2)
             median = 0.5 * (values[n - 1] + values[n])
@@ -101,66 +115,105 @@ def daily_median(data, monitoring_station, pollutant):
 
 
 def hourly_average(data, monitoring_station, pollutant):
-    # TODO: documentation
+    """Returns a list/array containing the hourly averages for a particular pollutant and monitoring station.
+    
+    Keyword arguments:
+        (Dict) data: Dictionary containing three keys, each being mapped to a list of dictionaries of data for a monitoring station.
+        (String) monitoring_station: String representing the monitoring station chosen by the user.
+        (String) pollutant: String representing the pollutant chosen by the user.
+        
+    Returns:
+        (List/Array) means: List/Array containing 24 hourly mean averages for a particular pollutant and monitoring station."""
 
     from utils import meannvalue
     
+    #retrieve a list of dictionaries of data for the specified monitoring station
     stationData = data[monitoring_station]
 
     means = []
     i = 1
     while i < 25:
+        #set time to standard format, i representing the current hour. To start, i is set to 1 representing the time 01:00:00
         time = "%02d:00:00" %i
         values = []
+        #iterate through each dictionary (hour) in the list of dictionaries
         for hour in stationData:
             if hour["time"] == time:
                 if hour[pollutant] != "No data":
                     values.append(float(hour[pollutant]))
-        i += 1 #increments hour by one
+        #increment hour by one
+        i += 1
 
         if len(values) == 0:
             means.append("N/A")
         else:
+            #use util.py function to calculate mean value
             means.append(meannvalue(values))
 
     return means
   
 
 def monthly_average(data, monitoring_station, pollutant):
-    # TODO: documentation
+    """Returns a list/array containing the monthly averages for a particular pollutant and monitoring station.
+    
+    Keyword arguments:
+        (Dict) data: Dictionary containing three keys, each being mapped to a list of dictionaries of data for a monitoring station.
+        (String) monitoring_station: String representing the monitoring station chosen by the user.
+        (String) pollutant: String representing the pollutant chosen by the user.
+        
+    Returns:
+        (List/Array) means: List/Array containing 12 monthly mean averages for a particular pollutant and monitoring station."""
     
     from utils import meannvalue
 
+    #retrieve a list of dictionaries of data for the specified monitoring station
     stationData = data[monitoring_station]
 
     means = []
     i = 1
     while i < 13:
         values = []
+        #iterate through each dictionary (hour) in the list of dictionaries
         for hour in stationData:
-            date = datetime.strptime(hour["date"], "%Y-%m-%d") #converts string into date obj
+            #convert string value of date in dictionary into a date object
+            date = datetime.strptime(hour["date"], "%Y-%m-%d")
+            #check if month part of the date value matches that of the current month
             if date.month == i:
                 if hour[pollutant] != "No data":
                     values.append(float(hour[pollutant]))
-        i += 1 #increments month by one
+        #increment month by one
+        i += 1
 
         if len(values) == 0:
             means.append("N/A")
         else:
+            #use util.py function to calculate mean value
             means.append(meannvalue(values))
 
     return means
 
 
 def peak_hour_date(data, date, monitoring_station, pollutant):
-    # TODO: documentation
+    """Returns the hour of the day with the highest pollutant level and its corresponding value for a particular pollutant and monitoring station
+    
+    Keyword arguments:
+        (Dict) data: Dictionary containing three keys, each being mapped to a list of dictionaries of data for a monitoring station.
+        (String) date: String representing a date chosen by the user, in the format YY:MM:DD
+        (String) monitoring_station: String representing the monitoring station chosen by the user.
+        (String) pollutant: String representing the pollutant chosen by the user.
+        
+    Returns:
+        (String) times[maxvalue(pollLevels)]: String representing the time at which the pollutant level is at its maximum on the date given.
+        (Float) pollLevels[maxvalue(pollLevels)]: Float representing the maximum pollutant level on the date given."""
 
     from utils import maxvalue
 
+    #retrieve a list of dictionaries of data for the specified monitoring station
     stationData = data[monitoring_station]
 
     times = []
     pollLevels = []
+    #iterate through each dictionary (hour) in the list of dictionaries
     for hour in stationData:
         if hour["date"] == date:
             if hour[pollutant] != "No data":
@@ -170,27 +223,50 @@ def peak_hour_date(data, date, monitoring_station, pollutant):
     if len(times) == 0:
         return "No data for this day. Try another date."
     else:
+        #the return value of maxvalue() will be the index at which the maximum pollutant level is in the list pollLevels
+        #since the order of index in times and pollLevels is the same, the time and pollutant value are at the same index
         return times[maxvalue(pollLevels)], pollLevels[maxvalue(pollLevels)]
 
 
 def count_missing_data(data, monitoring_station, pollutant):
-    # TODO: documentation
+    """Returns the number of "No data" entries there are in the data for a particular pollutant and monitoring station.
+    
+    Keyword arguments:
+        (Dict) data: Dictionary containing three keys, each being mapped to a list of dictionaries of data for a monitoring station.
+        (String) monitoring_station: String representing the monitoring station chosen by the user.
+        (String) pollutant: String representing the pollutant chosen by the user.
+        
+    Returns:
+        (Int) count: Integer representing the amount of occurences of "No data" entries in the data."""
 
+    #retrieve a list of dictionaries of data for the specified monitoring station
     stationData = data[monitoring_station]
 
     count = 0
+    #iterate through each dictionary (hour) in the list of dictionaries
     for hour in stationData:
         if hour[pollutant] == "No data":
+            #increment count by one everytime a "No data" entry is found
             count += 1
 
     return count
 
 
 def fill_missing_data(data, new_value, monitoring_station, pollutant):
-    # TODO: documentation
+    """Returns a copy of the data with the missing values replaced by the value in the parameter new_value.
     
+    Keyword arguments:
+        (Dict) data: Dictionary containing three keys, each being mapped to a list of dictionaries of data for a monitoring station.
+        (String) new_value: String representing the value that will replace all instances of "No data" in the data.
+        (String) monitoring_station: String representing the monitoring station chosen by the user.
+        (String) pollutant: String representing the pollutant chosen by the user.
+        
+    """ # TODO: returns docstring
+
+    #retrieves a list of dictionaries of data for the specified monitoring station
     stationData = data[monitoring_station]
 
-    for hour in stationData:
-        if hour[pollutant] == "No data":
-            pass
+    #write stationData to new csv file
+        #for each dictionary:
+            #write data to correct columns
+    #search through file and rewrite any no data entries
