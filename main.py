@@ -23,20 +23,19 @@ def main_menu():
         print("Q - Quit the Application")
         print("-----------------")
         choice = input("Select one of the options above: ")
-        #checks user input against different cases, executing the respective case block
-        match choice:
-            case "R":
-                reporting_menu()
-            case "I":
-                intelligence_menu()
-            case "M":
-                monitoring_menu()
-            case "A":
-                about()
-            case "Q":
-                quit()
-            case _:
-                print("Invalid input given. Try again.")
+        #checks user input against different conditions, executing the respective block
+        if choice.upper() == "R":
+            reporting_menu()
+        elif choice.upper() == "I":
+            intelligence_menu()
+        elif choice.upper() == "M":
+            monitoring_menu()
+        elif choice.upper() == "A":
+            about()
+        elif choice.upper() == "Q":
+            quit()
+        else:
+            print("Invalid input given. Try again.")
 
 
 def reporting_menu():
@@ -65,25 +64,24 @@ def reporting_menu():
         print("? - Main Menu")
 
         siteChoice = input("Select a monitoring site, or return to main menu: ")
-        #checks user input against different cases, executing the respective case block
-        match siteChoice:
-            case "M":
-                validSite = True
-                print("[Marylebone Road SELECTED]")
-                site = "Marylebone Road"
-            case "N":
-                validSite = True
-                print("[N. Kensington SELECTED]")
-                site = "N Kensington"
-            case "H":
-                validSite = True
-                print("[Harlington SELECTED]")
-                site = "Harlington"
-            case "?":
-                return
-            case _:
-                validSite = False
-                print("Invalid input given. Try again.")
+        #checks user input against different conditions, executing the respective block
+        if siteChoice.upper() == "M":
+            validSite = True
+            print("[Marylebone Road SELECTED]")
+            site = "Marylebone Road"
+        elif siteChoice.upper() == "N":
+            validSite = True
+            print("[N. Kensington SELECTED]")
+            site = "N Kensington"
+        elif siteChoice.upper() == "H":
+            validSite = True
+            print("[Harlington SELECTED]")
+            site = "Harlington"
+        elif siteChoice == "?":
+            return
+        else:
+            validSite = False
+            print("Invalid input given. Try again.")
 
     validPoll = False
     #loops until a valid input is given
@@ -99,24 +97,23 @@ def reporting_menu():
 
         pollChoice = input("Select a pollutant, or return to main menu: ")
         #checks user input against different cases, executing the respective case block
-        match pollChoice:
-            case "NO":
-                validPoll = True
-                print("[Nitric Oxide SELECTED]")
-                pollutant = "no"
-            case "PM10":
-                validPoll = True
-                print("[PM10 SELECTED]")
-                pollutant = "pm10"
-            case "PM25":
-                validPoll = True
-                print("[PM2.5 SELECTED]")
-                pollutant = "pm25"
-            case "?":
-                return
-            case _:
-                validPoll = False
-                print("Invalid input given. Try again.")
+        if pollChoice.upper() == "NO":
+            validPoll = True
+            print("[Nitric Oxide SELECTED]")
+            pollutant = "no"
+        elif pollChoice.upper() == "PM10":
+            validPoll = True
+            print("[PM10 SELECTED]")
+            pollutant = "pm10"
+        elif pollChoice.upper() == "PM25":
+            validPoll = True
+            print("[PM2.5 SELECTED]")
+            pollutant = "pm25"
+        elif pollChoice == "?":
+            return
+        else:
+            validPoll = False
+            print("Invalid input given. Try again.")
         
     validFunc = False
     #loops until a valid input is given
@@ -137,44 +134,45 @@ def reporting_menu():
 
         funcChoice = input("Select a function, or return to main menu: ")
         #checks user input against different cases, executing the respective case block
-        match funcChoice:
-            case "1":
-                validFunc = True
-                from reporting import daily_average, get_data
-                print(daily_average(get_data(), site, pollutant))
-            case "2":
-                validFunc = True
-                from reporting import daily_median, get_data
-                print(daily_median(get_data(), site, pollutant))
-            case "3":
-                validFunc = True
-                from reporting import hourly_average, get_data
-                print(hourly_average(get_data(), site, pollutant))
-            case "4":
-                validFunc = True
-                from reporting import monthly_average, get_data
-                monthly_average(get_data(), site, pollutant)
-            case "5":
-                validFunc = True
-                from reporting import peak_hour_date, get_data
-                get_data() # TODO: PARSE THIS INTO FUNCTION BELOW
-                # TODO: get user input for date
-                peak_hour_date()
-            case "6":
-                validFunc = True
-                from reporting import count_missing_data, get_data
-                count_missing_data(get_data(), site, pollutant)
-            case "7":
-                validFunc = True
-                from reporting import fill_missing_data, get_data
-                get_data() # TODO: PARSE THIS INTO FUNCTION BELOW
-                # TODO: get user input for new value
-                fill_missing_data()
-            case "?":
-                return
-            case _:
-                validFunc = False
-                print("Invalid input given. Try again.")
+        if funcChoice == "1":
+            validFunc = True
+            from reporting import daily_average, get_data
+            list = daily_average(get_data(), site, pollutant)
+            for x in list:
+                print(x)
+        elif funcChoice == "2":
+            validFunc = True
+            from reporting import daily_median, get_data
+            print(daily_median(get_data(), site, pollutant))
+        elif funcChoice == "3":
+            validFunc = True
+            from reporting import hourly_average, get_data
+            print(hourly_average(get_data(), site, pollutant))
+        elif funcChoice == "4":
+            validFunc = True
+            from reporting import monthly_average, get_data
+            monthly_average(get_data(), site, pollutant)
+        elif funcChoice == "5":
+            validFunc = True
+            from reporting import peak_hour_date, get_data
+            get_data() # TODO: PARSE THIS INTO FUNCTION BELOW
+            # TODO: get user input for date
+            peak_hour_date()
+        elif funcChoice == "6":
+            validFunc = True
+            from reporting import count_missing_data, get_data
+            count_missing_data(get_data(), site, pollutant)
+        elif funcChoice == "7":
+            validFunc = True
+            from reporting import fill_missing_data, get_data
+            get_data() # TODO: PARSE THIS INTO FUNCTION BELOW
+            # TODO: get user input for new value
+            fill_missing_data()
+        elif funcChoice == "?":
+            return
+        else:
+            validFunc = False
+            print("Invalid input given. Try again.")
 
 
 def intelligence_menu():
@@ -202,30 +200,29 @@ def intelligence_menu():
         print("-----------------------------")
         print("? - Main Menu")
 
-        choice = input("Select a function, or return to main menu: ")
+        funcChoice = input("Select a function, or return to main menu: ")
         #checks user input against different cases, executing the respective case block
-        match choice:
-            case "R":
-                intelValid = True
-                from intelligence import find_red_pixels
-                find_red_pixels()
-            case "C":
-                intelValid = True
-                from intelligence import find_cyan_pixels
-                find_cyan_pixels()
-            case "1":
-                intelValid = True
-                from intelligence import detect_connected_components
-                detect_connected_components()
-            case "2":
-                intelValid = True
-                from intelligence import detect_connected_components_sorted
-                detect_connected_components_sorted()
-            case "?":
-                return
-            case _:
-                intelValid = False
-                print("Invalid input given. Try again.")
+        if funcChoice.upper() == "R":
+            intelValid = True
+            from intelligence import find_red_pixels
+            find_red_pixels()
+        elif funcChoice.upper() == "C":
+            intelValid = True
+            from intelligence import find_cyan_pixels
+            find_cyan_pixels()
+        elif funcChoice == "1":
+            intelValid = True
+            from intelligence import detect_connected_components
+            detect_connected_components()
+        elif funcChoice == "2":
+            intelValid = True
+            from intelligence import detect_connected_components_sorted
+            detect_connected_components_sorted()
+        elif funcChoice == "?":
+            return
+        else:
+            intelValid = False
+            print("Invalid input given. Try again.")
 
 
 def monitoring_menu():
