@@ -162,13 +162,17 @@ def reporting_menu():
         elif funcChoice == "4":
             validFunc = True
             from reporting import monthly_average, get_data
-            monthly_average(get_data(), site, pollutant)
+            list = monthly_average(get_data(), site, pollutant)
+            i = 1
+            for x in list:
+                print(f"Month {i}: {x}")
+                i += 1
         elif funcChoice == "5":
             validFunc = True
             from reporting import peak_hour_date, get_data
-            get_data() # TODO: PARSE THIS INTO FUNCTION BELOW
-            # TODO: get user input for date
-            peak_hour_date()
+            date = input("Enter a date in YY-MM-DD format: ")
+            hour, value = peak_hour_date(get_data(), date, site, pollutant)
+            print(f"Peak hour for {date}: {hour} with a value of {value}")
         elif funcChoice == "6":
             validFunc = True
             from reporting import count_missing_data, get_data
@@ -176,9 +180,9 @@ def reporting_menu():
         elif funcChoice == "7":
             validFunc = True
             from reporting import fill_missing_data, get_data
-            get_data() # TODO: PARSE THIS INTO FUNCTION BELOW
             # TODO: get user input for new value
-            fill_missing_data()
+            new_value = input("Enter a value to replace 'No data': ")
+            fill_missing_data(get_data(), new_value, site, pollutant)
         elif funcChoice == "?":
             return
         else:

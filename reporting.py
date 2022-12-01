@@ -118,18 +118,9 @@ def monthly_average(data, monitoring_station, pollutant):
     means = []
     i = 1
     while i < 13:
-        """
-        dateString = "2021-%02d-01" %i
-        date = datetime.strptime(dateString, "%Y-%m-%d") #converts string into date obj
-        print(dateString)
-        print(date.month)
-        i += 1
-        """
         values = []
         for hour in siteData:
-            date = datetime.strptime(hour["date"], "%Y-%m-%d")
-            print(f"date month: {date.month}")
-            print(f"i: {i}")
+            date = datetime.strptime(hour["date"], "%Y-%m-%d") #converts string into date obj
             if date.month == i:
                 if hour[pollutant] != "No data":
                     values.append(float(hour[pollutant]))
@@ -140,17 +131,28 @@ def monthly_average(data, monitoring_station, pollutant):
         else:
             means.append(meannvalue(values))
 
-        print(means)
-        return means
-
-
-monthly_average(get_data(), "Marylebone Road", "no")
+    return means
 
 
 def peak_hour_date(data, date, monitoring_station,pollutant):
-    """Your documentation goes here"""
-    
-    ## Your code goes here
+    # TODO: documentation
+
+    from utils import maxvalue
+
+    siteData = data[monitoring_station]
+
+    times = []
+    pollLevels = []
+    for hour in siteData:
+        if hour["date"] == date:
+            if hour[pollutant] != "No data":
+                times.append(hour["time"])
+                pollLevels.append(float(hour[pollutant]))
+
+    if len(times) == 0:
+        return "No data for this day. Try another date."
+    else:
+        return times[maxvalue(pollLevels)], pollLevels[maxvalue(pollLevels)]
 
 
 def count_missing_data(data,  monitoring_station,pollutant):
