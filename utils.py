@@ -7,7 +7,7 @@ def sumvalues(values):
     """Receives a list/array, returning the sum of the values in that sequence.
 
     Keyword arguments:
-        (Array/List) values: The list/array of values.
+        (List/Array) values: The list/array of values.
         
     Returns:
         (Int) sum: The sum of all the values.
@@ -31,7 +31,7 @@ def maxvalue(values):
     """Receives a list/array, returning the index of the maximum value in that sequence.
     
     Keyword arguments:
-        (Array/List) values: The list/array of values.
+        (List/Array) values: The list/array of values.
         
     Returns:
         (Int) maxIndex: The index of the maximum value.
@@ -60,7 +60,7 @@ def minvalue(values):
     """Receives a list/array, returning the index of the minimum value in that sequence.
 
     Keyword arguments:
-        (Array/List) values: The list/array of values.
+        (List/Array) values: The list/array of values.
         
     Returns:
         (Int) minIndex: The index of the minimum value.
@@ -89,7 +89,7 @@ def meannvalue(values):
     """Receives a list/array, returning the arithmetic mean value in that sequence.
     
     Keyword arguments:
-        (Array/List) values: The list/array of values.
+        (List/Array) values: The list/array of values.
         
     Returns:
         (Float) mean: The mean value.
@@ -114,7 +114,7 @@ def countvalue(values,x):
     """Receives a list/array values and a value x, returning the number of occurrences of the value x in that sequence.
     
     Keyword arguments:
-        (Array/List) values: The list/array of values.
+        (List/Array) values: The list/array of values.
         (String) x: The value to find in the sequence.
         
     Returns:

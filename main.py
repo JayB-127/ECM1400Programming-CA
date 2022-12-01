@@ -42,7 +42,7 @@ def reporting_menu():
     """Displays text-based options to the user, providing information on different actions available.
 
     User Inputs:
-        (String) [M, N, H]: Selects one of three different monitoring sites.
+        (String) [M, N, H]: Selects one of three different monitoring stations.
         (String) [NO, PM10, PM25]: Selects one of three diffenent pollutants.
         (String) [1, 2, 3, 4, 5, 6, 7]: Selects one of seven different functions to perform.
         (String) ?: Returns user to main menu.
@@ -51,36 +51,36 @@ def reporting_menu():
     Returns:
         (None): Exits the current function to return to main menu."""
 
-    validSite = False
+    validStation = False
     #loops until a valid input is given
-    while validSite == False:
+    while validStation == False:
         #prints text-based interface
         print("--- Pollution Reporting ---")
-        print("| MONITORING SITES |")
+        print("| MONITORING STATIONS |")
         print("M - Marylebone Road")
         print("N - N. Kensington")
         print("H - Harlington")
         print("---------------------------")
         print("? - Main Menu")
 
-        siteChoice = input("Select a monitoring site, or return to main menu: ")
+        stationChoice = input("Select a monitoring station , or return to main menu: ")
         #checks user input against different conditions, executing the respective block
-        if siteChoice.upper() == "M":
-            validSite = True
+        if stationChoice.upper() == "M":
+            validStation = True
             print("[Marylebone Road SELECTED]")
-            site = "Marylebone Road"
-        elif siteChoice.upper() == "N":
-            validSite = True
+            station = "Marylebone Road"
+        elif stationChoice.upper() == "N":
+            validStation = True
             print("[N. Kensington SELECTED]")
-            site = "N Kensington"
-        elif siteChoice.upper() == "H":
-            validSite = True
+            station = "N Kensington"
+        elif stationChoice.upper() == "H":
+            validStation = True
             print("[Harlington SELECTED]")
-            site = "Harlington"
-        elif siteChoice == "?":
+            station = "Harlington"
+        elif stationChoice == "?":
             return
         else:
-            validSite = False
+            validStation = False
             print("Invalid input given. Try again.")
 
     validPoll = False
@@ -137,7 +137,7 @@ def reporting_menu():
         if funcChoice == "1":
             validFunc = True
             from reporting import daily_average, get_data
-            list = daily_average(get_data(), site, pollutant)
+            list = daily_average(get_data(), station , pollutant)
             i = 1
             for x in list:
                 print(f"Day {i}: {x}")
@@ -145,7 +145,7 @@ def reporting_menu():
         elif funcChoice == "2":
             validFunc = True
             from reporting import daily_median, get_data
-            list = daily_median(get_data(), site, pollutant)
+            list = daily_median(get_data(), station , pollutant)
             i = 1
             for x in list:
                 print(f"Day {i}: {x}")
@@ -153,7 +153,7 @@ def reporting_menu():
         elif funcChoice == "3":
             validFunc = True
             from reporting import hourly_average, get_data
-            list = hourly_average(get_data(), site, pollutant)
+            list = hourly_average(get_data(), station , pollutant)
             i = 1
             for x in list:
                 time = "%02d:00:00" %i
@@ -162,7 +162,7 @@ def reporting_menu():
         elif funcChoice == "4":
             validFunc = True
             from reporting import monthly_average, get_data
-            list = monthly_average(get_data(), site, pollutant)
+            list = monthly_average(get_data(), station , pollutant)
             i = 1
             for x in list:
                 print(f"Month {i}: {x}")
@@ -171,19 +171,19 @@ def reporting_menu():
             validFunc = True
             from reporting import peak_hour_date, get_data
             date = input("Enter a date in YY-MM-DD format: ")
-            hour, value = peak_hour_date(get_data(), date, site, pollutant)
+            hour, value = peak_hour_date(get_data(), date, station , pollutant)
             print(f"Peak hour for {date}: {hour} with a value of {value}")
         elif funcChoice == "6":
             validFunc = True
             from reporting import count_missing_data, get_data
-            count = count_missing_data(get_data(), site, pollutant)
-            print(f"There are {count} occurences of 'No data' for {pollutant} in {site}")
+            count = count_missing_data(get_data(), station , pollutant)
+            print(f"There are {count} occurences of 'No data' for {pollutant} in {station}")
         elif funcChoice == "7":
             validFunc = True
             from reporting import fill_missing_data, get_data
             # TODO: get user input for new value
             new_value = input("Enter a value to replace 'No data': ")
-            fill_missing_data(get_data(), new_value, site, pollutant)
+            fill_missing_data(get_data(), new_value, station , pollutant)
         elif funcChoice == "?":
             return
         else:
