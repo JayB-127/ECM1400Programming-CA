@@ -134,7 +134,7 @@ def monthly_average(data, monitoring_station, pollutant):
     return means
 
 
-def peak_hour_date(data, date, monitoring_station,pollutant):
+def peak_hour_date(data, date, monitoring_station, pollutant):
     # TODO: documentation
 
     from utils import maxvalue
@@ -155,13 +155,20 @@ def peak_hour_date(data, date, monitoring_station,pollutant):
         return times[maxvalue(pollLevels)], pollLevels[maxvalue(pollLevels)]
 
 
-def count_missing_data(data,  monitoring_station,pollutant):
-    """Your documentation goes here"""
+def count_missing_data(data, monitoring_station, pollutant):
+    # TODO: documentation
     
-    ## Your code goes here
+    siteData = data[monitoring_station]
+
+    count = 0
+    for hour in siteData:
+        if hour[pollutant] == "No data":
+            count += 1
+
+    return count
 
 
-def fill_missing_data(data, new_value,  monitoring_station,pollutant):
+def fill_missing_data(data, new_value, monitoring_station, pollutant):
     """Your documentation goes here"""
     
     ## Your code goes here

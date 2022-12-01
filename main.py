@@ -176,7 +176,8 @@ def reporting_menu():
         elif funcChoice == "6":
             validFunc = True
             from reporting import count_missing_data, get_data
-            count_missing_data(get_data(), site, pollutant)
+            count = count_missing_data(get_data(), site, pollutant)
+            print(f"There are {count} occurences of 'No data' for {pollutant} in {site}")
         elif funcChoice == "7":
             validFunc = True
             from reporting import fill_missing_data, get_data
