@@ -138,16 +138,27 @@ def reporting_menu():
             validFunc = True
             from reporting import daily_average, get_data
             list = daily_average(get_data(), site, pollutant)
+            i = 1
             for x in list:
-                print(x)
+                print(f"Day {i}: {x}")
+                i += 1
         elif funcChoice == "2":
             validFunc = True
             from reporting import daily_median, get_data
-            print(daily_median(get_data(), site, pollutant))
+            list = daily_median(get_data(), site, pollutant)
+            i = 1
+            for x in list:
+                print(f"Day {i}: {x}")
+                i += 1
         elif funcChoice == "3":
             validFunc = True
             from reporting import hourly_average, get_data
-            print(hourly_average(get_data(), site, pollutant))
+            list = hourly_average(get_data(), site, pollutant)
+            i = 1
+            for x in list:
+                time = "%02d:%02d:%02d" %(i, 0, 0)
+                print(f"{time}: {x}")
+                i += 1
         elif funcChoice == "4":
             validFunc = True
             from reporting import monthly_average, get_data
