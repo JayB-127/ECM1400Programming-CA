@@ -156,7 +156,7 @@ def reporting_menu():
             list = hourly_average(get_data(), site, pollutant)
             i = 1
             for x in list:
-                time = "%02d:%02d:%02d" %(i, 0, 0)
+                time = "%02d:00:00" %i
                 print(f"{time}: {x}")
                 i += 1
         elif funcChoice == "4":

@@ -92,13 +92,12 @@ def hourly_average(data, monitoring_station, pollutant):
     means = []
     i = 1
     while i < 25:
-        time = "%02d:%02d:%02d" %(i, 0, 0)
+        time = "%02d:00:00" %i
         values = []
         for hour in siteData:
             if hour["time"] == time:
                 if hour[pollutant] != "No data":
                     values.append(float(hour[pollutant]))
-
         i += 1 #increments hour by one
 
         if len(values) == 0:
