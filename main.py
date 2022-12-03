@@ -181,7 +181,6 @@ def reporting_menu():
         elif funcChoice == "7":
             validFunc = True
             from reporting import fill_missing_data, get_data
-            # TODO: get user input for new value
             new_value = input("Enter a value to replace 'No data': ")
             fill_missing_data(get_data(), new_value, station , pollutant)
         elif funcChoice == "?":

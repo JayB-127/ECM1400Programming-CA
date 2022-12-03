@@ -5,6 +5,7 @@
 from pandas import read_csv
 import numpy
 from datetime import datetime
+from csv import DictWriter
 
 def get_data():
     """Reads all csv files and returns a dictionary containing three keys for each monitoring station.
@@ -261,12 +262,29 @@ def fill_missing_data(data, new_value, monitoring_station, pollutant):
         (String) monitoring_station: String representing the monitoring station chosen by the user.
         (String) pollutant: String representing the pollutant chosen by the user.
         
-    """ # TODO: returns docstring
+    Returns:
+        (List) stationData: List of dictionaries of data for the specified monitoring station where 'No data' entries for a particular pollutant are replaced by value of new_value parameter.
+    """
 
-    #retrieves a list of dictionaries of data for the specified monitoring station
+    #retrieve a list of dictionaries of data for the specified monitoring station
     stationData = data[monitoring_station]
 
-    #write stationData to new csv file
-        #for each dictionary:
-            #write data to correct columns
-    #search through file and rewrite any no data entries for particular pollutant
+    #loop through each hour, updating any 'No data' values to that of the new_value parameter
+    for hour in stationData:
+        if hour[pollutant] == "No data":
+            hour.update({pollutant:new_value})
+
+    #create (or overwrite) a csv file, writing the new modified data to it
+    filename = f"data/{monitoring_station}, {pollutant} - fill_missing_data.csv"
+    with open(filename, "w", newline="") as f:
+        #create dictionary writer
+        writer = DictWriter(f, stationData[0].keys())
+        #write key names at the top of the csv file
+        writer.writeheader()
+        #write values into file
+        writer.writerows(stationData)
+
+    #print confirmation of creating new file to user
+    print(f"[All 'No data' entries replaced by '{new_value}' and file copied to data folder]")
+
+    return stationData
