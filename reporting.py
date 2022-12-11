@@ -3,7 +3,7 @@
 # the signatures determined by the project specification
 
 from pandas import read_csv
-import numpy
+import numpy as np
 from datetime import datetime
 from csv import DictWriter
 
@@ -98,7 +98,7 @@ def daily_median(data, monitoring_station, pollutant):
         i += 24
 
         #order the list of different values of pollutant for that day in ascending order
-        values = numpy.sort(values)
+        values = np.sort(values)
         n = len(values)
         if n == 0:
             medians.append("N/A")

@@ -221,7 +221,11 @@ def intelligence_menu():
         if funcChoice.upper() == "R":
             intelValid = True
             from intelligence import find_red_pixels
-            find_red_pixels()
+            map_filename = "data/map.png"
+
+            # TODO: take data input for filename, raising error if filenotfound
+
+            find_red_pixels(map_filename, upper_threshold = 100, lower_threshold = 50)
         elif funcChoice.upper() == "C":
             intelValid = True
             from intelligence import find_cyan_pixels
