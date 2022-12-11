@@ -54,7 +54,7 @@ def reporting_menu():
 
     validStation = False
     #loops until a valid input is given
-    while validStation == False:
+    while not validStation:
         #prints text-based interface
         print("--- Pollution Reporting ---")
         print("| MONITORING STATIONS |")
@@ -86,7 +86,7 @@ def reporting_menu():
 
     validPoll = False
     #loops until a valid input is given
-    while validPoll == False:
+    while not validPoll:
         #prints text-based interface
         print("--- Pollution Reporting ---")
         print("| Pollutant |")
@@ -118,7 +118,7 @@ def reporting_menu():
         
     validFunc = False
     #loops until a valid input is given
-    while validFunc == False:
+    while not validFunc:
         #prints text-based interface
         print("--- Pollution Reporting ---")
         print("| Analysis Functions |")
@@ -204,7 +204,7 @@ def intelligence_menu():
 
     intelValid = False
     #loops until a valid input is given
-    while intelValid == False:
+    while not intelValid:
         #prints text-based interface
         print("--- Mobility Intelligence ---")
         print("| Find Pixels |")
@@ -222,14 +222,21 @@ def intelligence_menu():
             intelValid = True
             from intelligence import find_red_pixels
             map_filename = "data/map.png"
-            # TODO: take data input for filename, raising error if filenotfound
-            find_red_pixels(map_filename, upper_threshold = 100, lower_threshold = 50)
+            #get user input for filename, catching an exception if the file is not found
+            try:
+                map_filename = "data/" + input("Enter a filename for an existing city map image (exclude file extension): ") + ".png"
+                find_red_pixels(map_filename, upper_threshold = 100, lower_threshold = 50)
+            except FileNotFoundError:
+                print("File Not Found. Try again.")
         elif funcChoice.upper() == "C":
             intelValid = True
             from intelligence import find_cyan_pixels
-            map_filename = "data/map.png"
-            # TODO: take data input for filename, raising error if filenotfound
-            find_cyan_pixels(map_filename, upper_threshold = 100, lower_threshold = 50)
+            #get user input for filename, catching an exception if the file is not found
+            try:
+                map_filename = "data/" + input("Enter a filename for an existing city map image (exclude file extension): ") + ".png"
+                find_cyan_pixels(map_filename, upper_threshold = 100, lower_threshold = 50)
+            except FileNotFoundError:
+                print("File Not Found. Try again.")
         elif funcChoice == "1":
             intelValid = True
             from intelligence import detect_connected_components
