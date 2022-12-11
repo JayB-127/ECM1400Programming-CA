@@ -22,7 +22,7 @@ def sumvalues(values):
             sum += item
         #if item is incorrect type, raise exception
         else:
-            raise Exception("All values in sequence must be numerical. Wrong data type given.")
+            raise TypeError("All values in sequence must be numerical. Wrong data type given.")
     #return sum of all values in list/array
     return sum
 
@@ -51,7 +51,7 @@ def maxvalue(values):
             i += 1
         #if item is incorrect type, raise exception
         else:
-            raise Exception("All values in sequence must be numerical. Wrong data type given.")
+            raise TypeError("All values in sequence must be numerical. Wrong data type given.")
     #return index of maximum value in list/array
     return maxIndex
 
@@ -80,7 +80,7 @@ def minvalue(values):
             i += 1
         #if item is incorrect type, raise exception
         else:
-            raise Exception("All values in sequence must be numerical. Wrong data type given.")
+            raise TypeError("All values in sequence must be numerical. Wrong data type given.")
     #return index of minimum value in list/array
     return minIndex
 
@@ -104,7 +104,7 @@ def meannvalue(values):
             sum += item
         #if item is incorrect type, raise exception
         else:
-            raise Exception("All values in sequence must be numerical. Wrong data type given.")
+            raise TypeError("All values in sequence must be numerical. Wrong data type given.")
     #calculate mean by dividing sum by amount of values in list/array, returning result
     mean = sum / len(values)
     return mean
