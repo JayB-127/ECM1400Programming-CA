@@ -97,7 +97,7 @@ def reporting_menu():
         print("? - Main Menu")
 
         pollChoice = input("Select a pollutant, or return to main menu: ")
-        #checks user input against different cases, executing the respective case block
+        #checks user input against different conditions, executing the respective block
         if pollChoice.upper() == "NO":
             validPoll = True
             print("[Nitric Oxide SELECTED]")
@@ -134,7 +134,7 @@ def reporting_menu():
         print("? - Main Menu")
 
         funcChoice = input("Select a function, or return to main menu: ")
-        #checks user input against different cases, executing the respective case block
+        #checks user input against different conditions, executing the respective block
         if funcChoice == "1":
             validFunc = True
             from reporting import daily_average, get_data
@@ -217,7 +217,7 @@ def intelligence_menu():
         print("? - Main Menu")
 
         funcChoice = input("Select a function, or return to main menu: ")
-        #checks user input against different cases, executing the respective case block
+        #checks user input against different conditions, executing the respective block
         if funcChoice.upper() == "R":
             intelValid = True
             from intelligence import find_red_pixels
