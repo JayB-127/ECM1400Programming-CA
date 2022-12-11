@@ -36,6 +36,7 @@ def main_menu():
             quit()
         else:
             print("Invalid input given. Try again.")
+        # TODO: try...except for ctrl+c quiit (prompt user to use q or Q instead)
 
 
 def reporting_menu():
