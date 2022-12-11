@@ -42,8 +42,37 @@ def find_red_pixels(*args,**kwargs):
 
 
 def find_cyan_pixels(*args,**kwargs):
-    """Your documentation goes here"""
-    # Your code goes here
+    # TODO: documentation
+
+    filename = args[0]
+    upperThresh = kwargs["upper_threshold"]
+    lowerThresh = kwargs["lower_threshold"]
+
+    rgb_img = mat_plot.imread(filename) #per row, per column, rgba values
+    rgb_img *= 255 #scale rgb values
+
+    height = len(rgb_img) #rows
+    width = len(rgb_img[0]) #columns
+    #2d numpy array size of map img
+    binaryImg = np.zeros([height, width], dtype = int)
+
+    rowCount = 0
+    for i in rgb_img: #for each row
+        pixelCount = 0
+        for j in i: #for each pixel in row
+            if j[0] < lowerThresh and j[1] > upperThresh and j[2] > upperThresh:
+                #set pixel in binary img to white
+                binaryImg[rowCount][pixelCount] = 1
+            else:
+                #set pixel in binary img to black
+                binaryImg[rowCount][pixelCount] = 0
+            pixelCount += 1
+        rowCount += 1
+
+    mat_plot.imsave("data/map-cyan-pixels.jpg", binaryImg, cmap = cm.gray)
+    print("[Found all cyan pixels and saved binary image to data folder]")
+
+    return binaryImg
 
 
 def detect_connected_components(*args,**kwargs):

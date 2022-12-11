@@ -222,14 +222,14 @@ def intelligence_menu():
             intelValid = True
             from intelligence import find_red_pixels
             map_filename = "data/map.png"
-
             # TODO: take data input for filename, raising error if filenotfound
-
             find_red_pixels(map_filename, upper_threshold = 100, lower_threshold = 50)
         elif funcChoice.upper() == "C":
             intelValid = True
             from intelligence import find_cyan_pixels
-            find_cyan_pixels()
+            map_filename = "data/map.png"
+            # TODO: take data input for filename, raising error if filenotfound
+            find_cyan_pixels(map_filename, upper_threshold = 100, lower_threshold = 50)
         elif funcChoice == "1":
             intelValid = True
             from intelligence import detect_connected_components
