@@ -93,7 +93,7 @@ def detect_connected_components(*args,**kwargs):
     rowCount = 0
     for row in img:
         pixelCount = 0
-        for pixel in row:   
+        for pixel in row:
             #??? componentSize = 0 ???
             componentSize = 0
             if pixel == 1 and mark[rowCount][pixelCount] == 0: #unvisited and pavement pixel
