@@ -87,30 +87,51 @@ def detect_connected_components(*args,**kwargs):
 
     mark = np.zeros([len(img), len(img[0])], dtype = int)
 
-    queue = np.zeros(len(img) * len(img[0]), dtype=int) #set queue size to amount of pixels in img (max value it will need to be)
-    fpoint = 0 #front pointer for queue
-    bpoint = 0 #back pointer for queue
+    queue = np.zeros((len(img) * len(img[0]), 2), dtype=int) #set queue size to amount of pixels in img (max value it will need to be)
+    fpointer = 0 #front pointer for queue
+    bpointer = 0 #back pointer for queue
+    print(queue)
+
+    visitedDigit = 1
+    components = []
 
     rowCount = 0
     for row in img:
         pixelCount = 0
-        for pixel in row:
+        for pixel in row:   
             #??? componentSize = 0 ???
+            componentSize = 0
             if pixel == 1 and mark[rowCount][pixelCount] == 0: #unvisited and pavement pixel
                 #set mark[rowCount][pixelCount] as visited digit
+                mark[rowCount][pixelCount] = visitedDigit
                 #add pixel position to queue
+                queue[bpointer] = [rowCount, pixelCount]
+                bpointer += 1
                 #while queue not empty
+                while queue[fpointer].any() != 0:
+                    componentSize += 1
+                    print(f"fPointer: {fpointer}, bpointer: {bpointer}")
                     #remove first item from queue and set as current pixel
+                    currentRow, currentColumn = queue[fpointer]
+                    fpointer += 1
                     #for each 8-neighbour of current pixel
                         #if unvisited and pavement pixel
                             #set pixel as visited
                             #add pixel to queue
-                        #??? increment componentSize by 1 ???
+
+                    #??? increment componentSize by 1 ???
+                    #componentSize += 1
+
                 #increment visited digit by one since connected component is finished
-                #??? append "Connected Component {visited digit}, number of pixels = {componentSize}" ???
+                visitedDigit += 1
+                #??? append "Connected Component {visited digit}, number of pixels = {componentSize}" to array???
+                components.append(f"Connected Component {visitedDigit}, number of pixels = {componentSize}")
                 pass
             pixelCount += 1
         rowCount += 1
+
+    #write components array to file
+    print(components)
 
 detect_connected_components("cyan")
 
