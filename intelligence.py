@@ -77,7 +77,7 @@ def find_cyan_pixels(*args,**kwargs):
 
 def detect_connected_components(*args,**kwargs):
     # TODO: documentation
-    # TODO: explain how algorithm was improved and modified in documentation (switched if statement conditions for faster performance)
+    # TODO: explain how algorithm was improved and modified in documentation
 
     colour = args[0]
     if colour == "red":
@@ -95,7 +95,19 @@ def detect_connected_components(*args,**kwargs):
     for row in img:
         pixelCount = 0
         for pixel in row:
-            if pixel == 1 and mark[rowCount][pixelCount] == 0: #pavement pixel and unvisited
+            #??? componentSize = 0 ???
+            if pixel == 1 and mark[rowCount][pixelCount] == 0: #unvisited and pavement pixel
+                #set mark[rowCount][pixelCount] as visited digit
+                #add pixel position to queue
+                #while queue not empty
+                    #remove first item from queue and set as current pixel
+                    #for each 8-neighbour of current pixel
+                        #if unvisited and pavement pixel
+                            #set pixel as visited
+                            #add pixel to queue
+                        #??? increment componentSize by 1 ???
+                #increment visited digit by one since connected component is finished
+                #??? append "Connected Component {visited digit}, number of pixels = {componentSize}" ???
                 pass
             pixelCount += 1
         rowCount += 1
