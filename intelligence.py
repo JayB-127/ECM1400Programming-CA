@@ -108,10 +108,6 @@ def detect_connected_components(*args,**kwargs):
                     currentRow, currentColumn = queue[fpointer]
                     fpointer += 1
                     #for each 8-neighbour of current pixel
-                        #if unvisited and pavement pixel
-                            #set pixel as visited
-                            #add pixel to queue
-
                     for y in range(-1, 2):
                         for x in range(-1, 2):
                             #check index out of range
@@ -120,9 +116,10 @@ def detect_connected_components(*args,**kwargs):
                             elif y == 0 and x == 0: #current pixel
                                 continue
                             else:
+                                #if unvisited and pavement pixel
                                 if mark[currentRow + y][currentColumn + x] == 0 and img[currentRow + y][currentColumn + x] == 1:
-                                    mark[currentRow + y][currentColumn + x] = visitedDigit
-                                    queue[bpointer] = [currentRow + y, currentColumn + x]
+                                    mark[currentRow + y][currentColumn + x] = visitedDigit #set pixel as visited
+                                    queue[bpointer] = [currentRow + y, currentColumn + x] #add pixel to queue
                                     bpointer += 1
 
                     #??? increment componentSize by 1 ???
@@ -140,7 +137,7 @@ def detect_connected_components(*args,**kwargs):
     with open("output/cc-output-2a.txt", "w") as file:
         for line in components:
             file.write(line + "\n")
-        file.write(f"Total number of connected components = {len(components)}")
+        file.write(f"Total number of connected components = {visitedDigit - 1}")
 
     print("[Detected all connected components. Saved .txt file to output folder]")
 
@@ -148,5 +145,6 @@ def detect_connected_components(*args,**kwargs):
 
 
 def detect_connected_components_sorted(*args,**kwargs):
-    """Your documentation goes here"""
-    # Your code goes here
+    # TODO: documentation
+
+    mark = args[0]

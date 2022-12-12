@@ -239,12 +239,22 @@ def intelligence_menu():
             intelValid = True
             from intelligence import detect_connected_components
             colourChoice = input("Red - [R] or Cyan - [C]: ")
-            map_filename = "data/" + input("Enter a filename for an existing city map image (exclude file extension): ") + ".png"
             if colourChoice.upper() == "R":
-                img = find_red_pixels(map_filename, upper_threshold = 100, lower_threshold = 50)
+                try:
+                    map_filename = "data/" + input("Enter a filename for an existing city map image (exclude file extension): ") + ".png"
+                    img = find_red_pixels(map_filename, upper_threshold = 100, lower_threshold = 50)
+                    detect_connected_components(img)
+                except FileNotFoundError:
+                    print("File Not Found. Try again.")
             elif colourChoice.upper() == "C":
-                img = find_cyan_pixels(map_filename, upper_threshold = 100, lower_threshold = 50)
-            detect_connected_components(img)
+                try:
+                    map_filename = "data/" + input("Enter a filename for an existing city map image (exclude file extension): ") + ".png"
+                    img = find_cyan_pixels(map_filename, upper_threshold = 100, lower_threshold = 50)
+                    detect_connected_components(img)
+                except FileNotFoundError:
+                    print("File Not Found. Try again.")
+            else:
+                print("Invalid input given. Try again.")
         elif funcChoice == "2":
             intelValid = True
             from intelligence import detect_connected_components_sorted
