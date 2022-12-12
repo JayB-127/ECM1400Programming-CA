@@ -148,3 +148,18 @@ def detect_connected_components_sorted(*args,**kwargs):
     # TODO: documentation
 
     mark = args[0]
+
+    print(mark)
+
+    #for row in mark
+        #for pixel in row
+            #if pixel != 0:
+                #dictionary.update(key = pixel, value += 1)
+
+    #read dictionary into 2darray (i index: key, j index: value)
+    #sort array based on j indexes (values) - high to low
+    #for item in array
+        #write f"Connected Component {i index}, number of pixels = {j index}" to cc-output-2b.txt
+    #write f"Total number of connected components = {last i index}" to cc-output-2b.txt
+
+    # TODO: display two largest connected components in jpg file
