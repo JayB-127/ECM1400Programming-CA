@@ -170,7 +170,7 @@ def reporting_menu():
         elif funcChoice == "5":
             validFunc = True
             from reporting import peak_hour_date, get_data
-            date = input("Enter a date in YY-MM-DD format: ")
+            date = input("Enter a date in YYYY-MM-DD format: ")
             hour, value = peak_hour_date(get_data(), date, station , pollutant)
             print(f"Peak hour for {date}: {hour} with a value of {value}")
         elif funcChoice == "6":
@@ -220,7 +220,6 @@ def intelligence_menu():
         if funcChoice.upper() == "R":
             intelValid = True
             from intelligence import find_red_pixels
-            map_filename = "data/map.png"
             #get user input for filename, catching an exception if the file is not found
             try:
                 map_filename = "data/" + input("Enter a filename for an existing city map image (exclude file extension): ") + ".png"
@@ -239,6 +238,7 @@ def intelligence_menu():
         elif funcChoice == "1":
             intelValid = True
             from intelligence import detect_connected_components
+            # TODO: take user input for which binary img to use (red or cyan)
             detect_connected_components()
         elif funcChoice == "2":
             intelValid = True
