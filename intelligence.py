@@ -139,7 +139,7 @@ def detect_connected_components(*args,**kwargs):
             file.write(line + "\n")
         file.write(f"Total number of connected components = {visitedDigit - 1}")
 
-    print("[Detected all connected components. Saved .txt file to output folder]")
+    print(f"[Detected all {visitedDigit - 1} connected components. Saved .txt file to output folder]")
 
     return mark
 
