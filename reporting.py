@@ -275,7 +275,7 @@ def fill_missing_data(data, new_value, monitoring_station, pollutant):
             hour.update({pollutant:new_value})
 
     #create (or overwrite) a csv file, writing the new modified data to it
-    filename = f"data/{monitoring_station}, {pollutant} - fill_missing_data.csv"
+    filename = f"output/{monitoring_station}, {pollutant} - fill_missing_data.csv"
     with open(filename, "w", newline="") as f:
         #create dictionary writer
         writer = DictWriter(f, stationData[0].keys())
@@ -285,6 +285,6 @@ def fill_missing_data(data, new_value, monitoring_station, pollutant):
         writer.writerows(stationData)
 
     #print confirmation of creating new file to user
-    print(f"[All 'No data' entries replaced by '{new_value}' and file copied to data folder]")
+    print(f"[All 'No data' entries replaced by '{new_value}' and file copied to output folder]")
 
     return stationData

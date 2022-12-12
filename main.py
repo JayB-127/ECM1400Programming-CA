@@ -215,11 +215,12 @@ def intelligence_menu():
         print("-----------------------------")
         print("? - Main Menu")
 
+        from intelligence import find_red_pixels, find_cyan_pixels
+
         funcChoice = input("Select a function, or return to main menu: ")
         #checks user input against different conditions, executing the respective block
         if funcChoice.upper() == "R":
             intelValid = True
-            from intelligence import find_red_pixels
             #get user input for filename, catching an exception if the file is not found
             try:
                 map_filename = "data/" + input("Enter a filename for an existing city map image (exclude file extension): ") + ".png"
@@ -228,7 +229,6 @@ def intelligence_menu():
                 print("File Not Found. Try again.")
         elif funcChoice.upper() == "C":
             intelValid = True
-            from intelligence import find_cyan_pixels
             #get user input for filename, catching an exception if the file is not found
             try:
                 map_filename = "data/" + input("Enter a filename for an existing city map image (exclude file extension): ") + ".png"
@@ -239,7 +239,12 @@ def intelligence_menu():
             intelValid = True
             from intelligence import detect_connected_components
             # TODO: take user input for which binary img to use (red or cyan)
-            detect_connected_components()
+            colourChoice = input("Red - [R] or Cyan - [C]: ")
+            if colourChoice.upper() == "R":
+                img = find_red_pixels("data/map.png", upper_threshold = 100, lower_threshold = 50)
+            elif colourChoice.upper() == "C":
+                img = find_cyan_pixels("data/map.png", upper_threshold = 100, lower_threshold = 50)
+            detect_connected_components(img)
         elif funcChoice == "2":
             intelValid = True
             from intelligence import detect_connected_components_sorted
