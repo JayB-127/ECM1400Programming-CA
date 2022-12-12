@@ -238,12 +238,12 @@ def intelligence_menu():
         elif funcChoice == "1":
             intelValid = True
             from intelligence import detect_connected_components
-            # TODO: take user input for which binary img to use (red or cyan)
             colourChoice = input("Red - [R] or Cyan - [C]: ")
+            map_filename = "data/" + input("Enter a filename for an existing city map image (exclude file extension): ") + ".png"
             if colourChoice.upper() == "R":
-                img = find_red_pixels("data/map.png", upper_threshold = 100, lower_threshold = 50)
+                img = find_red_pixels(map_filename, upper_threshold = 100, lower_threshold = 50)
             elif colourChoice.upper() == "C":
-                img = find_cyan_pixels("data/map.png", upper_threshold = 100, lower_threshold = 50)
+                img = find_cyan_pixels(map_filename, upper_threshold = 100, lower_threshold = 50)
             detect_connected_components(img)
         elif funcChoice == "2":
             intelValid = True
