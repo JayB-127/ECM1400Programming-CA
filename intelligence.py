@@ -83,7 +83,7 @@ def detect_connected_components(*args,**kwargs):
 
     mark = np.zeros([len(img), len(img[0])], dtype = int)
 
-    queue = np.zeros((len(img) * len(img[0]), 2), dtype=int) #set queue size to amount of pixels in img (max value it will need to be)
+    queue = np.zeros([len(img) * len(img[0]), 2], dtype = int) #set queue size to amount of pixels in img (max value it will need to be)
     fpointer = 0 #front pointer for queue
     bpointer = 0 #back pointer for queue
 
@@ -149,13 +149,27 @@ def detect_connected_components_sorted(*args,**kwargs):
 
     mark = args[0]
 
-    print(mark)
-
+    componentsDict = {}
     #for row in mark
+    for row in mark:
         #for pixel in row
+        for pixel in row:
             #if pixel != 0:
-                #dictionary.update(key = pixel, value += 1)
+            if pixel != 0:
+                if pixel in componentsDict:
+                    componentsDict[pixel] += 1
+                else:
+                    componentsDict.update({pixel:1})
 
+    print(componentsDict)
+
+    items = []
+    for i in componentsDict.keys():
+        items.append([i, componentsDict[i]])
+
+    bubble2d(items) #sorted in descending order of pixel count (component size)
+
+    
     #read dictionary into 2darray (i index: key, j index: value)
     #sort array based on j indexes (values) - high to low
     #for item in array
@@ -163,3 +177,17 @@ def detect_connected_components_sorted(*args,**kwargs):
     #write f"Total number of connected components = {last i index}" to cc-output-2b.txt
 
     # TODO: display two largest connected components in jpg file
+
+def bubble2d(items):
+
+    swap = False
+    for i in range(len(items) - 1, 0, -1):
+        for j in range(len(items) - 1, len(items) - 1 - i, -1):
+            if items[j][1] > items[j - 1][1]:
+                items[j - 1], items[j] = items[j], items[j - 1]
+                swap = True
+
+            if swap == False:
+                return
+
+    return items
