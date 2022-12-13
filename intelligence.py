@@ -7,14 +7,10 @@ from matplotlib import pyplot as mat_plot
 from matplotlib import cm
 
 
-def find_red_pixels(*args,**kwargs):
+def find_red_pixels(map_filename, upper_threshold = 100, lower_threshold = 50):
     # TODO: documentation
 
-    filename = args[0]
-    upperThresh = kwargs["upper_threshold"]
-    lowerThresh = kwargs["lower_threshold"]
-
-    rgb_img = mat_plot.imread(filename) #per row, per column, rgba values
+    rgb_img = mat_plot.imread(map_filename) #per row, per column, rgba values
     rgb_img *= 255 #scale rgb values
 
     height = len(rgb_img) #rows
@@ -23,10 +19,10 @@ def find_red_pixels(*args,**kwargs):
     binaryImg = np.zeros([height, width], dtype = int)
     
     rowCount = 0
-    for i in rgb_img: #for each row
+    for row in rgb_img: #for each row
         pixelCount = 0
-        for j in i: #for each pixel in row
-            if j[0] > upperThresh and j[1] < lowerThresh and j[2] < lowerThresh:
+        for pixel in row: #for each pixel in row
+            if pixel[0] > upper_threshold and pixel[1] < lower_threshold and pixel[2] < lower_threshold:
                 #set pixel in binary img to white
                 binaryImg[rowCount][pixelCount] = 1
             else:
@@ -41,14 +37,10 @@ def find_red_pixels(*args,**kwargs):
     return binaryImg
 
 
-def find_cyan_pixels(*args,**kwargs):
+def find_cyan_pixels(map_filename, upper_threshold = 100, lower_threshold = 50):
     # TODO: documentation
 
-    filename = args[0]
-    upperThresh = kwargs["upper_threshold"]
-    lowerThresh = kwargs["lower_threshold"]
-
-    rgb_img = mat_plot.imread(filename) #per row, per column, rgba values
+    rgb_img = mat_plot.imread(map_filename) #per row, per column, rgba values
     rgb_img *= 255 #scale rgb values
 
     height = len(rgb_img) #rows
@@ -60,7 +52,7 @@ def find_cyan_pixels(*args,**kwargs):
     for row in rgb_img: #for each row
         pixelCount = 0
         for pixel in row: #for each pixel in row
-            if pixel[0] < lowerThresh and pixel[1] > upperThresh and pixel[2] > upperThresh:
+            if pixel[0] < lower_threshold and pixel[1] > upper_threshold and pixel[2] > upper_threshold:
                 #set pixel in binary img to white
                 binaryImg[rowCount][pixelCount] = 1
             else:
@@ -75,15 +67,13 @@ def find_cyan_pixels(*args,**kwargs):
     return binaryImg
 
 
-def detect_connected_components(*args,**kwargs):
+def detect_connected_components(IMG):
     # TODO: documentation
     # TODO: explain how algorithm was improved and modified in documentation
 
-    img = args[0]
+    mark = np.zeros([len(IMG), len(IMG[0])], dtype = int)
 
-    mark = np.zeros([len(img), len(img[0])], dtype = int)
-
-    queue = np.zeros([len(img) * len(img[0]), 2], dtype = int) #set queue size to amount of pixels in img (max value it will need to be)
+    queue = np.zeros([len(IMG) * len(IMG[0]), 2], dtype = int) #set queue size to amount of pixels in img (max value it will need to be)
     fpointer = 0 #front pointer for queue
     bpointer = 0 #back pointer for queue
 
@@ -91,7 +81,7 @@ def detect_connected_components(*args,**kwargs):
     components = []
 
     rowCount = 0
-    for row in img:
+    for row in IMG:
         pixelCount = 0
         for pixel in row:
             #??? componentSize = 0 ???
@@ -111,13 +101,13 @@ def detect_connected_components(*args,**kwargs):
                     for y in range(-1, 2):
                         for x in range(-1, 2):
                             #check index out of range
-                            if (currentRow + y) < 0 or (currentRow + y) > (len(img) - 1) or (currentColumn + x) < 0 or (currentColumn + x) > (len(img[0]) - 1):
+                            if (currentRow + y) < 0 or (currentRow + y) > (len(IMG) - 1) or (currentColumn + x) < 0 or (currentColumn + x) > (len(IMG[0]) - 1):
                                 continue
                             elif y == 0 and x == 0: #current pixel
                                 continue
                             else:
                                 #if unvisited and pavement pixel
-                                if mark[currentRow + y][currentColumn + x] == 0 and img[currentRow + y][currentColumn + x] == 1:
+                                if mark[currentRow + y][currentColumn + x] == 0 and IMG[currentRow + y][currentColumn + x] == 1:
                                     mark[currentRow + y][currentColumn + x] = visitedDigit #set pixel as visited
                                     queue[bpointer] = [currentRow + y, currentColumn + x] #add pixel to queue
                                     bpointer += 1
@@ -144,14 +134,12 @@ def detect_connected_components(*args,**kwargs):
     return mark
 
 
-def detect_connected_components_sorted(*args,**kwargs):
+def detect_connected_components_sorted(MARK):
     # TODO: documentation
-
-    mark = args[0]
 
     componentsDict = {}
     #for row in mark
-    for row in mark:
+    for row in MARK:
         #for pixel in row
         for pixel in row:
             #if pixel != 0:
@@ -177,19 +165,19 @@ def detect_connected_components_sorted(*args,**kwargs):
     largest2Size = items[1][0]
 
     rowCount = 0
-    for row in mark:
+    for row in MARK:
         pixelCount = 0
         for pixel in row:
             if pixel == largest1Size or pixel == largest2Size:
-                mark[rowCount][pixelCount] = 1
+                MARK[rowCount][pixelCount] = 1
             else:
-                mark[rowCount][pixelCount] = 0
+                MARK[rowCount][pixelCount] = 0
             pixelCount += 1
         rowCount += 1
 
-    mat_plot.imsave("output/cc-top-2b.jpg", mark, cmap = cm.gray)
+    mat_plot.imsave("output/cc-top-2b.jpg", MARK, cmap = cm.gray)
 
-
+  
 def bubble2d(items):
 
     swap = False

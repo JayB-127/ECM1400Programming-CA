@@ -224,7 +224,7 @@ def intelligence_menu():
             #get user input for filename, catching an exception if the file is not found
             try:
                 map_filename = "data/" + input("Enter a filename for an existing city map image (exclude file extension): ") + ".png"
-                find_red_pixels(map_filename, upper_threshold = 100, lower_threshold = 50)
+                find_red_pixels(map_filename, 100, 50)
             except FileNotFoundError:
                 print("File Not Found. Try again.")
         elif funcChoice.upper() == "C":
@@ -232,7 +232,7 @@ def intelligence_menu():
             #get user input for filename, catching an exception if the file is not found
             try:
                 map_filename = "data/" + input("Enter a filename for an existing city map image (exclude file extension): ") + ".png"
-                find_cyan_pixels(map_filename, upper_threshold = 100, lower_threshold = 50)
+                find_cyan_pixels(map_filename, 100, 50)
             except FileNotFoundError:
                 print("File Not Found. Try again.")
         elif funcChoice == "1":
@@ -242,14 +242,14 @@ def intelligence_menu():
             if colourChoice.upper() == "R":
                 try:
                     map_filename = "data/" + input("Enter a filename for an existing city map image (exclude file extension): ") + ".png"
-                    img = find_red_pixels(map_filename, upper_threshold = 100, lower_threshold = 50)
+                    img = find_red_pixels(map_filename, 100, 50)
                     detect_connected_components(img)
                 except FileNotFoundError:
                     print("File Not Found. Try again.")
             elif colourChoice.upper() == "C":
                 try:
                     map_filename = "data/" + input("Enter a filename for an existing city map image (exclude file extension): ") + ".png"
-                    img = find_cyan_pixels(map_filename, upper_threshold = 100, lower_threshold = 50)
+                    img = find_cyan_pixels(map_filename, 100, 50)
                     detect_connected_components(img)
                 except FileNotFoundError:
                     print("File Not Found. Try again.")
@@ -262,7 +262,7 @@ def intelligence_menu():
             if colourChoice.upper() == "R":
                 try:
                     map_filename = "data/" + input("Enter a filename for an existing city map image (exclude file extension): ") + ".png"
-                    img = find_red_pixels(map_filename, upper_threshold = 100, lower_threshold = 50)
+                    img = find_red_pixels(map_filename, 100, 50)
                     mark = detect_connected_components(img)
                     detect_connected_components_sorted(mark)
                 except FileNotFoundError:
@@ -270,8 +270,8 @@ def intelligence_menu():
             elif colourChoice.upper() == "C":
                 try:
                     map_filename = "data/" + input("Enter a filename for an existing city map image (exclude file extension): ") + ".png"
-                    img = find_cyan_pixels(map_filename, upper_threshold = 100, lower_threshold = 50)
-                    mark = detect_connected_components(img)
+                    img = find_cyan_pixels(map_filename, 100, 50)
+                    img = detect_connected_components(img)
                     detect_connected_components_sorted(mark)
                 except FileNotFoundError:
                     print("File Not Found. Try again.")
