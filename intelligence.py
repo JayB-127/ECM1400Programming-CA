@@ -173,14 +173,21 @@ def detect_connected_components_sorted(*args,**kwargs):
             file.write(str)
         file.write(f"Total number of connected components = {items[0][0]}")
 
-    #obtain two largest pairs from items
-    #for every pixel in mark
-        #if pixel is connected component number
-            #set pixel as 1
-        #else
-            #set pixel as 0
-    #mat_plot.imsave("output/cc-top-2b.jpg", binaryImg, cmap = cm.gray)
-    # TODO: above
+    largest1Size = items[0][0]
+    largest2Size = items[1][0]
+
+    rowCount = 0
+    for row in mark:
+        pixelCount = 0
+        for pixel in row:
+            if pixel == largest1Size or pixel == largest2Size:
+                mark[rowCount][pixelCount] = 1
+            else:
+                mark[rowCount][pixelCount] = 0
+            pixelCount += 1
+        rowCount += 1
+
+    mat_plot.imsave("output/cc-top-2b.jpg", mark, cmap = cm.gray)
 
 
 def bubble2d(items):
