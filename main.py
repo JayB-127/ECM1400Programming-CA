@@ -271,7 +271,7 @@ def intelligence_menu():
                 try:
                     map_filename = "data/" + input("Enter a filename for an existing city map image (exclude file extension): ") + ".png"
                     img = find_cyan_pixels(map_filename, 100, 50)
-                    img = detect_connected_components(img)
+                    mark = detect_connected_components(img)
                     detect_connected_components_sorted(mark)
                 except FileNotFoundError:
                     print("File Not Found. Try again.")
