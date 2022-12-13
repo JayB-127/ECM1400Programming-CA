@@ -161,22 +161,27 @@ def detect_connected_components_sorted(*args,**kwargs):
                 else:
                     componentsDict.update({pixel:1})
 
-    print(componentsDict)
-
     items = []
     for i in componentsDict.keys():
         items.append([i, componentsDict[i]])
 
     bubble2d(items) #sorted in descending order of pixel count (component size)
 
-    
-    #read dictionary into 2darray (i index: key, j index: value)
-    #sort array based on j indexes (values) - high to low
-    #for item in array
-        #write f"Connected Component {i index}, number of pixels = {j index}" to cc-output-2b.txt
-    #write f"Total number of connected components = {last i index}" to cc-output-2b.txt
+    with open("output/cc-output-2b.txt", "w") as file:
+        for pair in items:
+            str = f"Connected Component {pair[0]}, number of pixels = {pair[1]}\n"
+            file.write(str)
+        file.write(f"Total number of connected components = {items[0][0]}")
 
-    # TODO: display two largest connected components in jpg file
+    #obtain two largest pairs from items
+    #for every pixel in mark
+        #if pixel is connected component number
+            #set pixel as 1
+        #else
+            #set pixel as 0
+    #mat_plot.imsave("output/cc-top-2b.jpg", binaryImg, cmap = cm.gray)
+    # TODO: above
+
 
 def bubble2d(items):
 
