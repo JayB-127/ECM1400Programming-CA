@@ -36,6 +36,11 @@ def get_live_data_from_api(site_code='MY1',species_code='NO',start_date=None,end
     return res.json()
 
 
+import json
+with open("output/data.json", "w") as file:
+    json.dump(get_live_data_from_api(), file, indent=2)
+
+
 def rm_function_1(*args,**kwargs):
     """Your documentation goes here"""
     # Your code goes here
