@@ -180,7 +180,6 @@ def detect_connected_components(IMG):
 
 
 def detect_connected_components_sorted(MARK):
-    # TODO: documentation
     """Iterates through a 2D ndarray containing positional information on each connected component, writing information on all connected components in a .txt file in descending order of size.
     It also saves the two largest connected components to a .jpg file as a binary image.
     
