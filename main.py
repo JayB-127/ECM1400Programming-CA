@@ -138,6 +138,7 @@ def reporting_menu():
             validFunc = True
             from reporting import daily_average, get_data
             list = daily_average(get_data(), station , pollutant)
+            #display data appropriately
             i = 1
             for x in list:
                 print(f"Day {i}: {x}")
@@ -146,6 +147,7 @@ def reporting_menu():
             validFunc = True
             from reporting import daily_median, get_data
             list = daily_median(get_data(), station , pollutant)
+            #display data appropriately
             i = 1
             for x in list:
                 print(f"Day {i}: {x}")
@@ -154,6 +156,7 @@ def reporting_menu():
             validFunc = True
             from reporting import hourly_average, get_data
             list = hourly_average(get_data(), station , pollutant)
+            #display data appropriately
             i = 1
             for x in list:
                 time = "%02d:00:00" %i
@@ -163,6 +166,7 @@ def reporting_menu():
             validFunc = True
             from reporting import monthly_average, get_data
             list = monthly_average(get_data(), station , pollutant)
+            #display data appropriately
             i = 1
             for x in list:
                 print(f"Month {i}: {x}")
@@ -170,17 +174,21 @@ def reporting_menu():
         elif funcChoice == "5":
             validFunc = True
             from reporting import peak_hour_date, get_data
+            #get user input
             date = input("Enter a date in YYYY-MM-DD format: ")
             hour, value = peak_hour_date(get_data(), date, station , pollutant)
+            #display data appropriately
             print(f"Peak hour for {date}: {hour} with a value of {value}")
         elif funcChoice == "6":
             validFunc = True
             from reporting import count_missing_data, get_data
             count = count_missing_data(get_data(), station , pollutant)
+            #display data appropriately
             print(f"There are {count} occurences of 'No data' for {pollutant} in {station}")
         elif funcChoice == "7":
             validFunc = True
             from reporting import fill_missing_data, get_data
+            #get user input
             new_value = input("Enter a value to replace 'No data': ")
             fill_missing_data(get_data(), new_value, station , pollutant)
         elif funcChoice == "?":
@@ -238,7 +246,9 @@ def intelligence_menu():
         elif funcChoice == "1":
             intelValid = True
             from intelligence import detect_connected_components
+            #get user input for colour
             colourChoice = input("Red - [R] or Cyan - [C]: ")
+            #get user input for filename, catching an exception if the file is nout found
             if colourChoice.upper() == "R":
                 try:
                     map_filename = "data/" + input("Enter a filename for an existing city map image (exclude file extension): ") + ".png"
@@ -258,7 +268,9 @@ def intelligence_menu():
         elif funcChoice == "2":
             intelValid = True
             from intelligence import detect_connected_components, detect_connected_components_sorted
+            #get user input for colour
             colourChoice = input("Red - [R] or Cyan - [C]: ")
+            #get user input for filename, catching an exception if the file is nout found
             if colourChoice.upper() == "R":
                 try:
                     map_filename = "data/" + input("Enter a filename for an existing city map image (exclude file extension): ") + ".png"
