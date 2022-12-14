@@ -38,7 +38,7 @@ def get_live_data_from_api(site_code='MY1',species_code='NO',start_date=None,end
 
 import json
 with open("output/data.json", "w") as file:
-    json.dump(get_live_data_from_api(), file, indent=2)
+    json.dump(get_live_data_from_api(start_date="2022-12-11", end_date="2022-12-14"), file, indent=2)
 
 
 def rm_function_1(*args,**kwargs):
