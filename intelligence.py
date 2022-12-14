@@ -8,7 +8,16 @@ from matplotlib import cm
 
 
 def find_red_pixels(map_filename, upper_threshold = 100, lower_threshold = 50):
-    # TODO: documentation
+    """Reads an rgb image and returns a 2D numpy array representing a binary image of all red pixels in the image.
+    A pixel being red is based upon rgb thresholds.
+
+    Keyword arguments:
+        (String) map_filename: String representing the image file to be read.
+        (Int) upper_threshold: Upper rgb threshold to determine pixel colour. It is given a default value of 100.
+        (Int) lower_threshold: Lower rgb threshold to determine pixel colour. It is given a default value of 50.
+    
+    Returns:
+        (NDarray) binaryImg: 2D ndarray representing the binary image."""
 
     rgb_img = mat_plot.imread(map_filename)
     rgb_img *= 255 #scale rgb values
@@ -41,7 +50,16 @@ def find_red_pixels(map_filename, upper_threshold = 100, lower_threshold = 50):
 
 
 def find_cyan_pixels(map_filename, upper_threshold = 100, lower_threshold = 50):
-    # TODO: documentation
+    """Reads an rgb image and returns a 2D numpy array representing a binary image of all cyan pixels in the image.
+    A pixel being cyan is based upon rgb thresholds.
+
+    Keyword arguments:
+        (String) map_filename: String representing the image file to be read.
+        (Int) upper_threshold: Upper rgb threshold to determine pixel colour. It is given a default value of 100.
+        (Int) lower_threshold: Lower rgb threshold to determine pixel colour. It is given a default value of 50.
+    
+    Returns:
+        (NDarray) binaryImg: 2D ndarray representing the binary image."""
 
     rgb_img = mat_plot.imread(map_filename)
     rgb_img *= 255 #scale rgb values
@@ -74,8 +92,30 @@ def find_cyan_pixels(map_filename, upper_threshold = 100, lower_threshold = 50):
 
 
 def detect_connected_components(IMG):
-    # TODO: documentation
-    # TODO: explain how algorithm was improved and modified in documentation
+    """Reads a binary image and returns an array containing positional information on each connected component.
+    The number of pixels inside each connected component is written to a .txt file.
+    
+    Keyword arguments:
+        (NDarray) IMG: 2D ndarray representing the binary image.
+    
+    Returns:
+        (NDarray) mark: 2D ndarray containing positional information on each connected component.
+    
+    Algorithm Improvements/Modifications:
+        The first modification is when setting the position in mark as visited.
+        Instead of setting it to the same value each time, the value is incremented for every different connected component.
+        This means that it is clear which connected component is which when reading mark.
+        
+        In addition, when looking at the 8-neighbours around the current pixel, firstly the indexes of the pixels around are checked to ensure that they fit within the bounds of the 2d array.
+        If they do not fit within the bounds then they are not checked as a pavement pixel.
+        This means that errors do not occur when checking the 8-neighbour pixels.
+
+        Another modification to the algorithm is that the size of each connected component is tracked as they are discovered.
+        This prevents the mark array having to be searched again afterwards since the information of component size has already been calculated.
+        
+        The final improvement to the algorithm is that the information about the connected component to be displayed to the .txt file can be immediately be appended to the list that contains all the information.
+        This prevents another search through mark, significantly reducing the execution time of the program.
+        The data in the list can then be easily written to the .txt file."""
 
     #empty 2d array, size of binary image to mark if pixels have been visited or not
     mark = np.zeros([len(IMG), len(IMG[0])], dtype = int)
@@ -141,6 +181,11 @@ def detect_connected_components(IMG):
 
 def detect_connected_components_sorted(MARK):
     # TODO: documentation
+    """Iterates through a 2D ndarray containing positional information on each connected component, writing information on all connected components in a .txt file in descending order of size.
+    It also saves the two largest connected components to a .jpg file as a binary image.
+    
+    Keyword arguments:
+        (NDarray) MARK: 2D ndarray containing positional information on each connected component."""
 
     componentsDict = {} #dictionary to store all component information
     
@@ -197,7 +242,14 @@ def detect_connected_components_sorted(MARK):
 
   
 def bubble2d(items):
-    # TODO: documentation (note this is for array with shape (x, 2))
+    """Orders a 2D array of shape (x, 2), where x is any value, in descending order according to each second index.
+    It sorts the data by using a bubble sort.
+    
+    Keyword arguments:
+        (2Darray) items: The array of items to be sorted.
+        
+    Returns:
+        (2Darray) items: The array of items after being sorted in descending order according to each second index."""
 
     swap = False #no swaps occured and we assume the values are sorted
     #for each item in list of values
