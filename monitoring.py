@@ -31,7 +31,7 @@ def get_live_data_from_api(site_code='MY1',species_code='NO',start_date=None,end
         start_date = start_date,
         end_date = end_date
     )
-    
+
     res = requests.get(url)
     return res.json()
 
@@ -56,3 +56,12 @@ def rm_function_3(*args,**kwargs):
 def rm_function_4(*args,**kwargs):
     """Your documentation goes here"""
     # Your code goes here
+
+
+# TODO: IDEAS
+    # call and retrieve list of groups for user to select
+    # call and retrieve list of monitoring sites for group for user to select
+    # call and retrieve list of species for user to select
+
+    # once all information is retrieved, displayed and specific ones selected by user
+        # create graphs (BAR_CHARACTER * length of data) representing values of data at chosen dates
