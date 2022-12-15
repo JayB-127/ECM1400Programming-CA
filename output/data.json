@@ -1,296 +1,351 @@
 {
-  "RawAQData": {
-    "@SiteCode": "MY1",
-    "@SpeciesCode": "NO",
-    "Data": [
-      {
-        "@MeasurementDateGMT": "2022-12-11 00:00:00",
-        "@Value": "113.8"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-11 01:00:00",
-        "@Value": "150.7"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-11 02:00:00",
-        "@Value": "177.8"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-11 03:00:00",
-        "@Value": "201.9"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-11 04:00:00",
-        "@Value": "161.8"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-11 05:00:00",
-        "@Value": "130.1"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-11 06:00:00",
-        "@Value": "92.2"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-11 07:00:00",
-        "@Value": "90.7"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-11 08:00:00",
-        "@Value": "69.2"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-11 09:00:00",
-        "@Value": "52.3"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-11 10:00:00",
-        "@Value": "46.8"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-11 11:00:00",
-        "@Value": "41.2"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-11 12:00:00",
-        "@Value": "42.5"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-11 13:00:00",
-        "@Value": "34"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-11 14:00:00",
-        "@Value": "35.5"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-11 15:00:00",
-        "@Value": "39.9"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-11 16:00:00",
-        "@Value": "50.8"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-11 17:00:00",
-        "@Value": "31.5"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-11 18:00:00",
-        "@Value": "21.9"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-11 19:00:00",
-        "@Value": "22.4"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-11 20:00:00",
-        "@Value": "20.7"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-11 21:00:00",
-        "@Value": "17.9"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-11 22:00:00",
-        "@Value": "11.7"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-11 23:00:00",
-        "@Value": "9"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-12 00:00:00",
-        "@Value": "8.7"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-12 01:00:00",
-        "@Value": "5.7"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-12 02:00:00",
-        "@Value": "3.3"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-12 03:00:00",
-        "@Value": "4.8"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-12 04:00:00",
-        "@Value": "6.9"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-12 05:00:00",
-        "@Value": "10.7"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-12 06:00:00",
-        "@Value": "38.8"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-12 07:00:00",
-        "@Value": "67.7"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-12 08:00:00",
-        "@Value": "64.6"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-12 09:00:00",
-        "@Value": "69.3"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-12 10:00:00",
-        "@Value": "78.4"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-12 11:00:00",
-        "@Value": "80.3"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-12 12:00:00",
-        "@Value": "62.7"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-12 13:00:00",
-        "@Value": "80"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-12 14:00:00",
-        "@Value": "64.8"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-12 15:00:00",
-        "@Value": "41.2"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-12 16:00:00",
-        "@Value": "74.3"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-12 17:00:00",
-        "@Value": "51.1"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-12 18:00:00",
-        "@Value": "34.6"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-12 19:00:00",
-        "@Value": "23.1"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-12 20:00:00",
-        "@Value": "21.6"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-12 21:00:00",
-        "@Value": "24.9"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-12 22:00:00",
-        "@Value": "23.3"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-12 23:00:00",
-        "@Value": "13.2"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-13 00:00:00",
-        "@Value": "7"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-13 01:00:00",
-        "@Value": "6.5"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-13 02:00:00",
-        "@Value": "4.7"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-13 03:00:00",
-        "@Value": "5"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-13 04:00:00",
-        "@Value": "6"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-13 05:00:00",
-        "@Value": "7.4"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-13 06:00:00",
-        "@Value": "16"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-13 07:00:00",
-        "@Value": "34.3"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-13 08:00:00",
-        "@Value": "101.1"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-13 09:00:00",
-        "@Value": "100.3"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-13 10:00:00",
-        "@Value": "54.8"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-13 11:00:00",
-        "@Value": "55.2"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-13 12:00:00",
-        "@Value": "68.3"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-13 13:00:00",
-        "@Value": "58.9"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-13 14:00:00",
-        "@Value": "64.6"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-13 15:00:00",
-        "@Value": "66.1"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-13 16:00:00",
-        "@Value": "72.3"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-13 17:00:00",
-        "@Value": "49.6"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-13 18:00:00",
-        "@Value": "49.5"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-13 19:00:00",
-        "@Value": "31.5"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-13 20:00:00",
-        "@Value": "32.2"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-13 21:00:00",
-        "@Value": "28.1"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-13 22:00:00",
-        "@Value": "10.4"
-      },
-      {
-        "@MeasurementDateGMT": "2022-12-13 23:00:00",
-        "@Value": "11.2"
-      }
-    ]
-  }
+   "Groups": {
+      "Group": [
+         {
+            "@GroupName": "All",
+            "@Description": "All current network LAs",
+            "@WebsiteURL": "http://www.erg.kcl.ac.uk/"
+         },
+         {
+            "@GroupName": "AroundLondon",
+            "@Description": "Selection of boroughs around London",
+            "@WebsiteURL": "http://www.londonair.org.uk/"
+         },
+         {
+            "@GroupName": "CambridgeCity",
+            "@Description": "Demo group for tender",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "Cambridgeshire",
+            "@Description": "Demo group for tender",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "Essex",
+            "@Description": "All 14 councils in Essex",
+            "@WebsiteURL": "http://www.essexair.org.uk/"
+         },
+         {
+            "@GroupName": "Hampshire",
+            "@Description": "Various local authorities in Hampshire",
+            "@WebsiteURL": "http://www.hantsair.org.uk/"
+         },
+         {
+            "@GroupName": "Leicester",
+            "@Description": "Leicester Council",
+            "@WebsiteURL": "http://www.leicester.gov.uk/"
+         },
+         {
+            "@GroupName": "London",
+            "@Description": "All currently active boroughs of London",
+            "@WebsiteURL": "http://www.londonair.org.uk/"
+         },
+         {
+            "@GroupName": "LondonAirApps",
+            "@Description": "A selection of boroughs in and around London to be used by various iPhone/Android/Chrome/Widget apps. Boroughs who are not in LAQN not included but London Mean is (LAID 600)",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "Sussex",
+            "@Description": "All 13 councils in Sussex",
+            "@WebsiteURL": "http://www.sussex-air.net/"
+         },
+         {
+            "@GroupName": "SussexAirApps",
+            "@Description": "A selection of boroughs in and around Sussex to be used by various iPhone/Android/Chrome/Widget apps. LAs who are not in SussexAir not included but Sussex Mean (LAID 601) is",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "adur",
+            "@Description": "Adur",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "almbridget",
+            "@Description": "Elmbridge",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "arun",
+            "@Description": "Arun",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "barkinganddagenham",
+            "@Description": "Barking and Dagenham",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "barnet",
+            "@Description": "Barnet",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "bexley",
+            "@Description": "Bexley",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "brent",
+            "@Description": "Brent",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "brentwood",
+            "@Description": "Brentwood",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "brightonandhove",
+            "@Description": "Brighton and Hove",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "bromley",
+            "@Description": "Bromley",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "camden",
+            "@Description": "Camden",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "castlepoint",
+            "@Description": "Castle Point",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "chichester",
+            "@Description": "Chichester",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "cityoflondon",
+            "@Description": "City of London",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "crawley",
+            "@Description": "Crawley",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "croydon",
+            "@Description": "Croydon",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "dacorum",
+            "@Description": "Dacorum",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "ealing",
+            "@Description": "Ealing",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "eastbourne",
+            "@Description": "Eastbourne",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "enfield",
+            "@Description": "Enfield",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "engie",
+            "@Description": "All Engie's AQMesh's",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "greenwich",
+            "@Description": "Greenwich",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "hackney",
+            "@Description": "Hackney",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "hammersmithandfulham",
+            "@Description": "Hammersmith and Fulham",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "haringey",
+            "@Description": "Haringey",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "harrow",
+            "@Description": "Harrow",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "hastings",
+            "@Description": "Hastings",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "havering",
+            "@Description": "Havering",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "hillingdon",
+            "@Description": "Hillingdon",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "horsham",
+            "@Description": "Horsham",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "hounslow",
+            "@Description": "Hounslow",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "islington",
+            "@Description": "Islington",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "kensingtonandchelsea",
+            "@Description": "Kensington and Chelsea",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "kingston",
+            "@Description": "Kingston",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "lambeth",
+            "@Description": "Lambeth",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "lewes",
+            "@Description": "Lewes",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "lewisham",
+            "@Description": "Lewisham",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "merton",
+            "@Description": "Merton",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "midsussex",
+            "@Description": "Mid Sussex",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "molevalley",
+            "@Description": "Mole Valley",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "newham",
+            "@Description": "Newham",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "redbridge",
+            "@Description": "Redbridge",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "reigateandbanstead",
+            "@Description": "Reigate and Banstead",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "richmond",
+            "@Description": "Richmond",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "rother",
+            "@Description": "Rother",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "runnymeade",
+            "@Description": "Runnymede",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "sevenoaks",
+            "@Description": "Sevenoaks",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "singlela",
+            "@Description": "sub domain test",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "southwark",
+            "@Description": "Southwark",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "sutton",
+            "@Description": "Sutton",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "thurrock",
+            "@Description": "Thurrock",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "towerhamlets",
+            "@Description": "Tower Hamlets",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "walthamforest",
+            "@Description": "Waltham Forest",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "wandsworth",
+            "@Description": "Wandsworth",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "wealden",
+            "@Description": "Wealden",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "westminster",
+            "@Description": "Westminster",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "windsorandmaidenhead",
+            "@Description": "Windsor and Maidenhead",
+            "@WebsiteURL": ""
+         },
+         {
+            "@GroupName": "worthing",
+            "@Description": "Worthing",
+            "@WebsiteURL": ""
+         }
+      ]
+   }
 }

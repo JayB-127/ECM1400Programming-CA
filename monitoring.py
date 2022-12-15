@@ -36,32 +36,57 @@ def get_live_data_from_api(site_code='MY1',species_code='NO',start_date=None,end
     return res.json()
 
 
-import json
-with open("output/data.json", "w") as file:
-    json.dump(get_live_data_from_api(start_date="2022-12-11", end_date="2022-12-14"), file, indent=2)
-
-
-def rm_function_1(*args,**kwargs):
-    """Your documentation goes here"""
-    # Your code goes here
-
-def rm_function_2(*args,**kwargs):
-    """Your documentation goes here"""
-    # Your code goes here
-
-def rm_function_3(*args,**kwargs):
-    """Your documentation goes here"""
-    # Your code goes here
-
-def rm_function_4(*args,**kwargs):
-    """Your documentation goes here"""
-    # Your code goes here
-
-
-# TODO: IDEAS
-    # call and retrieve list of groups for user to select
+#IDEAS
+    # call and retrieve list of groups of monitoring sites for user to select
     # call and retrieve list of monitoring sites for group for user to select
     # call and retrieve list of species for user to select
 
-    # once all information is retrieved, displayed and specific ones selected by user
-        # create graphs (BAR_CHARACTER * length of data) representing values of data at chosen dates
+    # once all information is retrieved, user can select monitoring site and species
+        #create different funcs for different options
+            #pollutant value every hour for chosen dates
+            #find more different options
+
+    # create graphs with ❚ character
+
+def callGroups(): #retrieves list of groups
+    # TODO: documentation
+
+    import requests
+
+    url = "https://api.erg.ic.ac.uk/AirQuality/Information/Groups/Json"
+
+    res = requests.get(url).json()
+    return res
+
+
+def callSitesSpecies(groupName): #retrieves list of monitoring sites and species for group
+    # TODO: documentation
+
+    import requests
+
+    url = f"https://api.erg.ic.ac.uk/AirQuality/Information/MonitoringSiteSpecies/GroupName={groupName}/Json"
+
+    res = requests.get(url).json()
+    return res
+
+
+import json
+with open("output/data.json", "w") as file:
+    json.dump(callGroups(), file, indent = 3)
+
+# TODO: func -> display groups to choose
+
+# TODO: func -> display sites in group to choose
+
+# TODO: func -> display species for specific site
+
+# TODO: func -> display data (bar chart) for pollutant level every hour depending on date
+
+
+
+
+#EXAMPLE BAR CHART DISPLAY
+str = "item1"
+print("| " + "❚" * 21 + f" <- {str}")
+print("| " + "❚" * 34 + " <- item2")
+print("| " + "❚" * 16 + " <- item3")
