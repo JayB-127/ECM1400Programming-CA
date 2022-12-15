@@ -48,6 +48,7 @@ def get_live_data_from_api(site_code='MY1',species_code='NO',start_date=None,end
 
     # create graphs with ❚ character
 
+
 def callGroups(): #retrieves list of groups
     # TODO: documentation
 
@@ -70,23 +71,76 @@ def callSitesSpecies(groupName): #retrieves list of monitoring sites and species
     return res
 
 
-import json
-with open("output/data.json", "w") as file:
-    json.dump(callGroups(), file, indent = 3)
+def selectGroup():
+    # TODO: documentation
 
-# TODO: func -> display groups to choose
+    data = callGroups()
+    data = data["Groups"]["Group"] #retrieve list of dicts of information on each group
 
-# TODO: func -> display sites in group to choose
+    print("--- Groups ---")
+    count = 0
+    for dict in data:
+        print(str(count) + " - " + dict["@GroupName"])
+        count += 1
 
-# TODO: func -> display species for specific site
+    group = input("Select a group: ")
+    
+    groupName = [data[i]["@GroupName"] for i in range(count) if group == str(i)] #list comprehension for finding group chosen
+    print(f"[{groupName[0]} SELECTED]")
+    return groupName[0]
+
+
+def selectSite():
+    # TODO: documentation
+
+    groupName = selectGroup()
+    data = callSitesSpecies(groupName)
+    data = data["Sites"]["Site"] #retrieve list of dicts of information on each site
+    
+    print("--- Monitoring Sites ---")
+    count = 0
+    for dict in data:
+        print(str(count) + " - " + dict["@SiteName"])
+        count += 1
+
+    site = input("Select a monitoring site: ")
+
+    siteCode = [data[i]["@SiteCode"] for i in range(count) if site == str(i)] #list comprehension for finding the site chosen
+    print(f"[{siteCode[0]} SELECTED]")
+    return siteCode[0], data
+
+
+def selectSpecies():
+    # TODO: documentation
+
+    siteCode, data = selectSite()
+
+    for dict in data:
+        if dict["@SiteCode"] == siteCode:
+            if len(dict["Species"]) != 0:
+                count = 0
+                for speciesDict in dict["Species"]:
+                    print(str(count) + " - " + speciesDict["@SpeciesDescription"])
+                    count += 1
+                speciesIndex = input("Select a species: ")
+            else:
+                return
+            break
+
+    species = [dict["Species"][i]["@SpeciesCode"] for i in range(count) if speciesIndex == str(i)]
+    print(f"[{species[0]} SELECTED]")
+    return species[0]
+
 
 # TODO: func -> display data (bar chart) for pollutant level every hour depending on date
 
 
-
+"""import json
+with open("output/data.json", "w") as file:
+    json.dump(callSitesSpecies("Essex"), file, indent = 3)"""
 
 #EXAMPLE BAR CHART DISPLAY
-str = "item1"
+str = "species1"
 print("| " + "❚" * 21 + f" <- {str}")
-print("| " + "❚" * 34 + " <- item2")
-print("| " + "❚" * 16 + " <- item3")
+print("| " + "❚" * 34 + " <- species2")
+print("| " + "❚" * 16 + " <- species3")

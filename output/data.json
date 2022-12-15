@@ -1,350 +1,807 @@
 {
-   "Groups": {
-      "Group": [
-         {
-            "@GroupName": "All",
-            "@Description": "All current network LAs",
-            "@WebsiteURL": "http://www.erg.kcl.ac.uk/"
-         },
-         {
-            "@GroupName": "AroundLondon",
-            "@Description": "Selection of boroughs around London",
-            "@WebsiteURL": "http://www.londonair.org.uk/"
-         },
-         {
-            "@GroupName": "CambridgeCity",
-            "@Description": "Demo group for tender",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "Cambridgeshire",
-            "@Description": "Demo group for tender",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "Essex",
-            "@Description": "All 14 councils in Essex",
-            "@WebsiteURL": "http://www.essexair.org.uk/"
-         },
-         {
-            "@GroupName": "Hampshire",
-            "@Description": "Various local authorities in Hampshire",
-            "@WebsiteURL": "http://www.hantsair.org.uk/"
-         },
-         {
-            "@GroupName": "Leicester",
-            "@Description": "Leicester Council",
-            "@WebsiteURL": "http://www.leicester.gov.uk/"
-         },
-         {
-            "@GroupName": "London",
-            "@Description": "All currently active boroughs of London",
-            "@WebsiteURL": "http://www.londonair.org.uk/"
-         },
-         {
-            "@GroupName": "LondonAirApps",
-            "@Description": "A selection of boroughs in and around London to be used by various iPhone/Android/Chrome/Widget apps. Boroughs who are not in LAQN not included but London Mean is (LAID 600)",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "Sussex",
-            "@Description": "All 13 councils in Sussex",
-            "@WebsiteURL": "http://www.sussex-air.net/"
-         },
-         {
-            "@GroupName": "SussexAirApps",
-            "@Description": "A selection of boroughs in and around Sussex to be used by various iPhone/Android/Chrome/Widget apps. LAs who are not in SussexAir not included but Sussex Mean (LAID 601) is",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "adur",
-            "@Description": "Adur",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "almbridget",
-            "@Description": "Elmbridge",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "arun",
-            "@Description": "Arun",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "barkinganddagenham",
-            "@Description": "Barking and Dagenham",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "barnet",
-            "@Description": "Barnet",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "bexley",
-            "@Description": "Bexley",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "brent",
-            "@Description": "Brent",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "brentwood",
-            "@Description": "Brentwood",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "brightonandhove",
-            "@Description": "Brighton and Hove",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "bromley",
-            "@Description": "Bromley",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "camden",
-            "@Description": "Camden",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "castlepoint",
-            "@Description": "Castle Point",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "chichester",
-            "@Description": "Chichester",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "cityoflondon",
-            "@Description": "City of London",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "crawley",
-            "@Description": "Crawley",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "croydon",
-            "@Description": "Croydon",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "dacorum",
-            "@Description": "Dacorum",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "ealing",
-            "@Description": "Ealing",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "eastbourne",
-            "@Description": "Eastbourne",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "enfield",
-            "@Description": "Enfield",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "engie",
-            "@Description": "All Engie's AQMesh's",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "greenwich",
-            "@Description": "Greenwich",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "hackney",
-            "@Description": "Hackney",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "hammersmithandfulham",
-            "@Description": "Hammersmith and Fulham",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "haringey",
-            "@Description": "Haringey",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "harrow",
-            "@Description": "Harrow",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "hastings",
-            "@Description": "Hastings",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "havering",
-            "@Description": "Havering",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "hillingdon",
-            "@Description": "Hillingdon",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "horsham",
-            "@Description": "Horsham",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "hounslow",
-            "@Description": "Hounslow",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "islington",
-            "@Description": "Islington",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "kensingtonandchelsea",
-            "@Description": "Kensington and Chelsea",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "kingston",
-            "@Description": "Kingston",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "lambeth",
-            "@Description": "Lambeth",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "lewes",
-            "@Description": "Lewes",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "lewisham",
-            "@Description": "Lewisham",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "merton",
-            "@Description": "Merton",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "midsussex",
-            "@Description": "Mid Sussex",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "molevalley",
-            "@Description": "Mole Valley",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "newham",
-            "@Description": "Newham",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "redbridge",
-            "@Description": "Redbridge",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "reigateandbanstead",
-            "@Description": "Reigate and Banstead",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "richmond",
-            "@Description": "Richmond",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "rother",
-            "@Description": "Rother",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "runnymeade",
-            "@Description": "Runnymede",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "sevenoaks",
-            "@Description": "Sevenoaks",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "singlela",
-            "@Description": "sub domain test",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "southwark",
-            "@Description": "Southwark",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "sutton",
-            "@Description": "Sutton",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "thurrock",
-            "@Description": "Thurrock",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "towerhamlets",
-            "@Description": "Tower Hamlets",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "walthamforest",
-            "@Description": "Waltham Forest",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "wandsworth",
-            "@Description": "Wandsworth",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "wealden",
-            "@Description": "Wealden",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "westminster",
-            "@Description": "Westminster",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "windsorandmaidenhead",
-            "@Description": "Windsor and Maidenhead",
-            "@WebsiteURL": ""
-         },
-         {
-            "@GroupName": "worthing",
-            "@Description": "Worthing",
-            "@WebsiteURL": ""
+   "Sites": {
+      "Site": [
+         {
+            "@LocalAuthorityCode": "226",
+            "@LocalAuthorityName": "Basildon",
+            "@SiteCode": "BA1",
+            "@SiteName": "Basildon - Gloucester Park",
+            "@SiteType": "Roadside",
+            "@DateClosed": "",
+            "@DateOpened": "2007-01-01 00:00:00",
+            "@Latitude": "51.5787292983549",
+            "@Longitude": "0.45060774010083",
+            "@LatitudeWGS84": "6724309.81492",
+            "@LongitudeWGS84": "50161.4241755",
+            "@DataOwner": "Basildon",
+            "@DataManager": "King's College London",
+            "@SiteLink": "http://www.londonair.org.uk/london/asp/publicdetails.asp?site=BA1",
+            "Species": [
+               {
+                  "@SpeciesCode": "NO2",
+                  "@SpeciesDescription": "Nitrogen Dioxide",
+                  "@DateMeasurementStarted": "2007-01-01 00:00:00",
+                  "@DateMeasurementFinished": ""
+               },
+               {
+                  "@SpeciesCode": "PM10",
+                  "@SpeciesDescription": "PM10 Particulate",
+                  "@DateMeasurementStarted": "2007-01-01 00:00:00",
+                  "@DateMeasurementFinished": ""
+               },
+               {
+                  "@SpeciesCode": "SO2",
+                  "@SpeciesDescription": "Sulphur Dioxide",
+                  "@DateMeasurementStarted": "2007-01-01 00:00:00",
+                  "@DateMeasurementFinished": ""
+               }
+            ]
+         },
+         {
+            "@LocalAuthorityCode": "42",
+            "@LocalAuthorityName": "Brentwood",
+            "@SiteCode": "BW1",
+            "@SiteName": "Brentwood - Brentwood Town Hall",
+            "@SiteType": "Urban Background",
+            "@DateClosed": "2017-10-30 00:00:00",
+            "@DateOpened": "1995-08-08 00:00:00",
+            "@Latitude": "51.618686",
+            "@Longitude": "0.307746",
+            "@LatitudeWGS84": "6731470.48365",
+            "@LongitudeWGS84": "34258.1280137",
+            "@DataOwner": "Brentwood",
+            "@DataManager": "King's College London",
+            "@SiteLink": "http://www.londonair.org.uk/london/asp/publicdetails.asp?site=BW1",
+            "Species": {
+               "@SpeciesCode": "NO2",
+               "@SpeciesDescription": "Nitrogen Dioxide",
+               "@DateMeasurementStarted": "2008-01-01 15:00:00",
+               "@DateMeasurementFinished": "2017-10-30 00:00:00"
+            }
+         },
+         {
+            "@LocalAuthorityCode": "43",
+            "@LocalAuthorityName": "Castle Point",
+            "@SiteCode": "CP1",
+            "@SiteName": "Castle Point - Canvey Island",
+            "@SiteType": "Urban Background",
+            "@DateClosed": "2010-07-16 00:00:00",
+            "@DateOpened": "1996-05-18 10:00:00",
+            "@Latitude": "51.520955",
+            "@Longitude": "0.594919",
+            "@LatitudeWGS84": "6713967.16605",
+            "@LongitudeWGS84": "66226.0801432",
+            "@DataOwner": "Castle Point",
+            "@DataManager": "King's College London",
+            "@SiteLink": "http://www.londonair.org.uk/london/asp/publicdetails.asp?site=CP1",
+            "Species": [
+               {
+                  "@SpeciesCode": "NO2",
+                  "@SpeciesDescription": "Nitrogen Dioxide",
+                  "@DateMeasurementStarted": "2008-01-01 00:00:00",
+                  "@DateMeasurementFinished": "2010-07-15 00:00:00"
+               },
+               {
+                  "@SpeciesCode": "SO2",
+                  "@SpeciesDescription": "Sulphur Dioxide",
+                  "@DateMeasurementStarted": "1996-05-01 00:00:00",
+                  "@DateMeasurementFinished": "2010-07-16 00:00:00"
+               }
+            ]
+         },
+         {
+            "@LocalAuthorityCode": "43",
+            "@LocalAuthorityName": "Castle Point",
+            "@SiteCode": "CP2",
+            "@SiteName": "Castle Point - Hadleigh",
+            "@SiteType": "Roadside",
+            "@DateClosed": "2020-03-24 00:00:00",
+            "@DateOpened": "2011-06-14 00:00:00",
+            "@Latitude": "51.5532732312085",
+            "@Longitude": "0.606051296833252",
+            "@LatitudeWGS84": "6719892.6716",
+            "@LongitudeWGS84": "67466.2905902",
+            "@DataOwner": "Castle Point",
+            "@DataManager": "King's College London",
+            "@SiteLink": "http://www.londonair.org.uk/london/asp/publicdetails.asp?site=CP2",
+            "Species": {
+               "@SpeciesCode": "NO2",
+               "@SpeciesDescription": "Nitrogen Dioxide",
+               "@DateMeasurementStarted": "2011-06-14 00:00:00",
+               "@DateMeasurementFinished": "2020-03-24 00:00:00"
+            }
+         },
+         {
+            "@LocalAuthorityCode": "228",
+            "@LocalAuthorityName": "Chelmsford",
+            "@SiteCode": "CB4",
+            "@SiteName": "Chelmsford - Baddow Road",
+            "@SiteType": "Roadside",
+            "@DateClosed": "",
+            "@DateOpened": "2010-04-01 00:00:00",
+            "@Latitude": "51.7246085042838",
+            "@Longitude": "0.483889615291595",
+            "@LatitudeWGS84": "6750483.49233",
+            "@LongitudeWGS84": "53866.3455744",
+            "@DataOwner": "Chelmsford",
+            "@DataManager": "King's College London",
+            "@SiteLink": "http://www.londonair.org.uk/london/asp/publicdetails.asp?site=CB4",
+            "Species": {
+               "@SpeciesCode": "NO2",
+               "@SpeciesDescription": "Nitrogen Dioxide",
+               "@DateMeasurementStarted": "2010-04-01 00:00:00",
+               "@DateMeasurementFinished": ""
+            }
+         },
+         {
+            "@LocalAuthorityCode": "228",
+            "@LocalAuthorityName": "Chelmsford",
+            "@SiteCode": "CB3",
+            "@SiteName": "Chelmsford - Chignal St James",
+            "@SiteType": "Urban Background",
+            "@DateClosed": "",
+            "@DateOpened": "2007-04-01 00:00:00",
+            "@Latitude": "51.771366209587",
+            "@Longitude": "0.411210699839304",
+            "@LatitudeWGS84": "6758890.63739",
+            "@LongitudeWGS84": "45775.7657149",
+            "@DataOwner": "Chelmsford",
+            "@DataManager": "King's College London",
+            "@SiteLink": "http://www.londonair.org.uk/london/asp/publicdetails.asp?site=CB3",
+            "Species": [
+               {
+                  "@SpeciesCode": "NO2",
+                  "@SpeciesDescription": "Nitrogen Dioxide",
+                  "@DateMeasurementStarted": "2007-04-01 00:00:00",
+                  "@DateMeasurementFinished": ""
+               },
+               {
+                  "@SpeciesCode": "O3",
+                  "@SpeciesDescription": "Ozone",
+                  "@DateMeasurementStarted": "2007-04-01 00:00:00",
+                  "@DateMeasurementFinished": ""
+               },
+               {
+                  "@SpeciesCode": "PM10",
+                  "@SpeciesDescription": "PM10 Particulate",
+                  "@DateMeasurementStarted": "2007-04-01 00:00:00",
+                  "@DateMeasurementFinished": ""
+               }
+            ]
+         },
+         {
+            "@LocalAuthorityCode": "228",
+            "@LocalAuthorityName": "Chelmsford",
+            "@SiteCode": "CB1",
+            "@SiteName": "Chelmsford - Fire Station",
+            "@SiteType": "Roadside",
+            "@DateClosed": "",
+            "@DateOpened": "2006-06-01 00:00:00",
+            "@Latitude": "51.7348580046953",
+            "@Longitude": "0.459220894545019",
+            "@LatitudeWGS84": "6752325.63201",
+            "@LongitudeWGS84": "51120.2361424",
+            "@DataOwner": "Chelmsford",
+            "@DataManager": "King's College London",
+            "@SiteLink": "http://www.londonair.org.uk/london/asp/publicdetails.asp?site=CB1",
+            "Species": [
+               {
+                  "@SpeciesCode": "NO2",
+                  "@SpeciesDescription": "Nitrogen Dioxide",
+                  "@DateMeasurementStarted": "2006-01-01 00:00:00",
+                  "@DateMeasurementFinished": ""
+               },
+               {
+                  "@SpeciesCode": "PM10",
+                  "@SpeciesDescription": "PM10 Particulate",
+                  "@DateMeasurementStarted": "2003-06-01 00:00:00",
+                  "@DateMeasurementFinished": ""
+               }
+            ]
+         },
+         {
+            "@LocalAuthorityCode": "228",
+            "@LocalAuthorityName": "Chelmsford",
+            "@SiteCode": "CB2",
+            "@SiteName": "Chelmsford - Springfield Road",
+            "@SiteType": "Roadside",
+            "@DateClosed": "",
+            "@DateOpened": "2006-05-01 00:00:00",
+            "@Latitude": "51.7369737900902",
+            "@Longitude": "0.484321588444547",
+            "@LatitudeWGS84": "6752705.95352",
+            "@LongitudeWGS84": "53914.4326058",
+            "@DataOwner": "Chelmsford",
+            "@DataManager": "King's College London",
+            "@SiteLink": "http://www.londonair.org.uk/london/asp/publicdetails.asp?site=CB2",
+            "Species": [
+               {
+                  "@SpeciesCode": "NO2",
+                  "@SpeciesDescription": "Nitrogen Dioxide",
+                  "@DateMeasurementStarted": "2006-05-01 00:00:00",
+                  "@DateMeasurementFinished": ""
+               },
+               {
+                  "@SpeciesCode": "PM10",
+                  "@SpeciesDescription": "PM10 Particulate",
+                  "@DateMeasurementStarted": "2006-05-01 00:00:00",
+                  "@DateMeasurementFinished": ""
+               }
+            ]
+         },
+         {
+            "@LocalAuthorityCode": "229",
+            "@LocalAuthorityName": "Colchester",
+            "@SiteCode": "CC2",
+            "@SiteName": "Colchester - Brook Street",
+            "@SiteType": "Roadside",
+            "@DateClosed": "",
+            "@DateOpened": "2006-01-01 00:00:00",
+            "@Latitude": "51.8886812267727",
+            "@Longitude": "0.913221031024663",
+            "@LatitudeWGS84": "6780022.56516",
+            "@LongitudeWGS84": "101659.300155",
+            "@DataOwner": "Colchester",
+            "@DataManager": "King's College London",
+            "@SiteLink": "http://www.londonair.org.uk/london/asp/publicdetails.asp?site=CC2",
+            "Species": {
+               "@SpeciesCode": "NO2",
+               "@SpeciesDescription": "Nitrogen Dioxide",
+               "@DateMeasurementStarted": "2007-01-01 00:00:00",
+               "@DateMeasurementFinished": ""
+            }
+         },
+         {
+            "@LocalAuthorityCode": "229",
+            "@LocalAuthorityName": "Colchester",
+            "@SiteCode": "CC1",
+            "@SiteName": "Colchester - Lucy Lane South",
+            "@SiteType": "Roadside",
+            "@DateClosed": "",
+            "@DateOpened": "2006-01-01 00:00:00",
+            "@Latitude": "51.8902645330155",
+            "@Longitude": "0.833701036844169",
+            "@LatitudeWGS84": "6780308.14265",
+            "@LongitudeWGS84": "92807.1748953",
+            "@DataOwner": "Colchester",
+            "@DataManager": "King's College London",
+            "@SiteLink": "http://www.londonair.org.uk/london/asp/publicdetails.asp?site=CC1",
+            "Species": [
+               {
+                  "@SpeciesCode": "NO2",
+                  "@SpeciesDescription": "Nitrogen Dioxide",
+                  "@DateMeasurementStarted": "2006-01-01 00:00:00",
+                  "@DateMeasurementFinished": ""
+               },
+               {
+                  "@SpeciesCode": "PM10",
+                  "@SpeciesDescription": "PM10 Particulate",
+                  "@DateMeasurementStarted": "2006-01-01 00:00:00",
+                  "@DateMeasurementFinished": ""
+               }
+            ]
+         },
+         {
+            "@LocalAuthorityCode": "229",
+            "@LocalAuthorityName": "Colchester",
+            "@SiteCode": "CC3",
+            "@SiteName": "Colchester - Mersea Road",
+            "@SiteType": "Roadside",
+            "@DateClosed": "",
+            "@DateOpened": "2007-01-01 00:00:00",
+            "@Latitude": "51.8853134713473",
+            "@Longitude": "0.903570938311254",
+            "@LatitudeWGS84": "6779415.16392",
+            "@LongitudeWGS84": "100585.056748",
+            "@DataOwner": "Colchester",
+            "@DataManager": "King's College London",
+            "@SiteLink": "http://www.londonair.org.uk/london/asp/publicdetails.asp?site=CC3",
+            "Species": {
+               "@SpeciesCode": "NO2",
+               "@SpeciesDescription": "Nitrogen Dioxide",
+               "@DateMeasurementStarted": "2007-01-01 00:00:00",
+               "@DateMeasurementFinished": ""
+            }
+         },
+         {
+            "@LocalAuthorityCode": "233",
+            "@LocalAuthorityName": "Rochford",
+            "@SiteCode": "RO2",
+            "@SiteName": "Rochford - Rawreth Industrial Estate",
+            "@SiteType": "Urban Background",
+            "@DateClosed": "",
+            "@DateOpened": "2011-06-01 00:00:00",
+            "@Latitude": "51.6006753045779",
+            "@Longitude": "0.591536676878398",
+            "@LatitudeWGS84": "",
+            "@LongitudeWGS84": "",
+            "@DataOwner": "Rochford",
+            "@DataManager": "King's College London",
+            "@SiteLink": "http://www.londonair.org.uk/london/asp/publicdetails.asp?site=RO2",
+            "Species": {
+               "@SpeciesCode": "PM10",
+               "@SpeciesDescription": "PM10 Particulate",
+               "@DateMeasurementStarted": "2011-06-01 00:00:00",
+               "@DateMeasurementFinished": ""
+            }
+         },
+         {
+            "@LocalAuthorityCode": "233",
+            "@LocalAuthorityName": "Rochford",
+            "@SiteCode": "RO1",
+            "@SiteName": "Rochford - Rayleigh High Street",
+            "@SiteType": "Roadside",
+            "@DateClosed": "",
+            "@DateOpened": "2010-01-01 00:00:00",
+            "@Latitude": "51.5855666578907",
+            "@Longitude": "0.604521242772868",
+            "@LatitudeWGS84": "",
+            "@LongitudeWGS84": "",
+            "@DataOwner": "Rochford",
+            "@DataManager": "King's College London",
+            "@SiteLink": "http://www.londonair.org.uk/london/asp/publicdetails.asp?site=RO1",
+            "Species": {
+               "@SpeciesCode": "NO2",
+               "@SpeciesDescription": "Nitrogen Dioxide",
+               "@DateMeasurementStarted": "2009-09-16 00:00:00",
+               "@DateMeasurementFinished": ""
+            }
+         },
+         {
+            "@LocalAuthorityCode": "234",
+            "@LocalAuthorityName": "Southend On Sea",
+            "@SiteCode": "SD1",
+            "@SiteName": "Southend-on-Sea AURN",
+            "@SiteType": "Urban Background",
+            "@DateClosed": "",
+            "@DateOpened": "2003-01-01 00:00:00",
+            "@Latitude": "51.5435262816468",
+            "@Longitude": "0.674668595611693",
+            "@LatitudeWGS84": "6718006.27233",
+            "@LongitudeWGS84": "75103.7645177",
+            "@DataOwner": "Southend On Sea",
+            "@DataManager": "King's College London",
+            "@SiteLink": "http://www.londonair.org.uk/london/asp/publicdetails.asp?site=SD1",
+            "Species": [
+               {
+                  "@SpeciesCode": "CO",
+                  "@SpeciesDescription": "Carbon Monoxide",
+                  "@DateMeasurementStarted": "2007-12-01 00:00:00",
+                  "@DateMeasurementFinished": ""
+               },
+               {
+                  "@SpeciesCode": "NO2",
+                  "@SpeciesDescription": "Nitrogen Dioxide",
+                  "@DateMeasurementStarted": "2007-12-01 00:00:00",
+                  "@DateMeasurementFinished": ""
+               },
+               {
+                  "@SpeciesCode": "O3",
+                  "@SpeciesDescription": "Ozone",
+                  "@DateMeasurementStarted": "2007-12-01 00:00:00",
+                  "@DateMeasurementFinished": ""
+               },
+               {
+                  "@SpeciesCode": "PM10",
+                  "@SpeciesDescription": "PM10 Particulate",
+                  "@DateMeasurementStarted": "2007-01-01 00:00:00",
+                  "@DateMeasurementFinished": "2009-01-30 00:00:00"
+               },
+               {
+                  "@SpeciesCode": "PM25",
+                  "@SpeciesDescription": "PM2.5 Particulate",
+                  "@DateMeasurementStarted": "2007-01-01 00:00:00",
+                  "@DateMeasurementFinished": ""
+               },
+               {
+                  "@SpeciesCode": "SO2",
+                  "@SpeciesDescription": "Sulphur Dioxide",
+                  "@DateMeasurementStarted": "2007-12-01 00:00:00",
+                  "@DateMeasurementFinished": ""
+               }
+            ]
+         },
+         {
+            "@LocalAuthorityCode": "236",
+            "@LocalAuthorityName": "Uttlesford",
+            "@SiteCode": "UT4",
+            "@SiteName": "Stansted Hall",
+            "@SiteType": "Rural",
+            "@DateClosed": "",
+            "@DateOpened": "2010-02-09 00:00:00",
+            "@Latitude": "51.8941453712101",
+            "@Longitude": "0.21259369077346",
+            "@LatitudeWGS84": "",
+            "@LongitudeWGS84": "",
+            "@DataOwner": "Uttlesford",
+            "@DataManager": "King's College London",
+            "@SiteLink": "http://www.londonair.org.uk/london/asp/publicdetails.asp?site=UT4",
+            "Species": [
+               {
+                  "@SpeciesCode": "NO2",
+                  "@SpeciesDescription": "Nitrogen Dioxide",
+                  "@DateMeasurementStarted": "2011-01-01 00:00:00",
+                  "@DateMeasurementFinished": ""
+               },
+               {
+                  "@SpeciesCode": "PM10",
+                  "@SpeciesDescription": "PM10 Particulate",
+                  "@DateMeasurementStarted": "2011-01-01 00:00:00",
+                  "@DateMeasurementFinished": ""
+               }
+            ]
+         },
+         {
+            "@LocalAuthorityCode": "235",
+            "@LocalAuthorityName": "Tendring",
+            "@SiteCode": "TE1",
+            "@SiteName": "Tendring - Town Hall",
+            "@SiteType": "Roadside",
+            "@DateClosed": "",
+            "@DateOpened": "2001-01-01 00:00:00",
+            "@Latitude": "51.7934662474003",
+            "@Longitude": "1.1562312103883",
+            "@LatitudeWGS84": "6762867.30731",
+            "@LongitudeWGS84": "128711.06958",
+            "@DataOwner": "Tendring",
+            "@DataManager": "King's College London",
+            "@SiteLink": "http://www.londonair.org.uk/london/asp/publicdetails.asp?site=TE1",
+            "Species": [
+               {
+                  "@SpeciesCode": "NO2",
+                  "@SpeciesDescription": "Nitrogen Dioxide",
+                  "@DateMeasurementStarted": "2001-01-01 00:00:00",
+                  "@DateMeasurementFinished": ""
+               },
+               {
+                  "@SpeciesCode": "PM10",
+                  "@SpeciesDescription": "PM10 Particulate",
+                  "@DateMeasurementStarted": "2001-01-01 00:00:00",
+                  "@DateMeasurementFinished": ""
+               }
+            ]
+         },
+         {
+            "@LocalAuthorityCode": "235",
+            "@LocalAuthorityName": "Tendring",
+            "@SiteCode": "TE0",
+            "@SiteName": "Tendring St Osyth AURN",
+            "@SiteType": "Rural",
+            "@DateClosed": "",
+            "@DateOpened": "2002-05-11 00:00:00",
+            "@Latitude": "51.7779742837066",
+            "@Longitude": "1.04634518982586",
+            "@LatitudeWGS84": "6760079.48686",
+            "@LongitudeWGS84": "116478.613725",
+            "@DataOwner": "Tendring",
+            "@DataManager": "King's College London",
+            "@SiteLink": "http://www.londonair.org.uk/london/asp/publicdetails.asp?site=TE0",
+            "Species": [
+               {
+                  "@SpeciesCode": "CO",
+                  "@SpeciesDescription": "Carbon Monoxide",
+                  "@DateMeasurementStarted": "2002-05-11 00:00:00",
+                  "@DateMeasurementFinished": ""
+               },
+               {
+                  "@SpeciesCode": "NO2",
+                  "@SpeciesDescription": "Nitrogen Dioxide",
+                  "@DateMeasurementStarted": "2002-05-11 00:00:00",
+                  "@DateMeasurementFinished": ""
+               },
+               {
+                  "@SpeciesCode": "O3",
+                  "@SpeciesDescription": "Ozone",
+                  "@DateMeasurementStarted": "2002-05-11 00:00:00",
+                  "@DateMeasurementFinished": ""
+               }
+            ]
+         },
+         {
+            "@LocalAuthorityCode": "34",
+            "@LocalAuthorityName": "Thurrock",
+            "@SiteCode": "TK4",
+            "@SiteName": "Thurrock - Calcutta Road Tilbury",
+            "@SiteType": "Roadside",
+            "@DateClosed": "2019-12-03 00:00:00",
+            "@DateOpened": "2010-01-01 00:00:00",
+            "@Latitude": "51.4617571252861",
+            "@Longitude": "0.357953197319231",
+            "@LatitudeWGS84": "6703383.27203203",
+            "@LongitudeWGS84": "39847.167653401",
+            "@DataOwner": "Thurrock",
+            "@DataManager": "King's College London",
+            "@SiteLink": "http://www.londonair.org.uk/london/asp/publicdetails.asp?site=TK4",
+            "Species": [
+               {
+                  "@SpeciesCode": "NO2",
+                  "@SpeciesDescription": "Nitrogen Dioxide",
+                  "@DateMeasurementStarted": "2012-01-01 00:00:00",
+                  "@DateMeasurementFinished": "2019-12-03 00:00:00"
+               },
+               {
+                  "@SpeciesCode": "SO2",
+                  "@SpeciesDescription": "Sulphur Dioxide",
+                  "@DateMeasurementStarted": "2013-02-14 12:00:00",
+                  "@DateMeasurementFinished": "2016-06-22 00:00:00"
+               }
+            ]
+         },
+         {
+            "@LocalAuthorityCode": "34",
+            "@LocalAuthorityName": "Thurrock",
+            "@SiteCode": "TK9",
+            "@SiteName": "Thurrock - Dock Road Tilbury",
+            "@SiteType": "Roadside",
+            "@DateClosed": "",
+            "@DateOpened": "2020-12-10 00:00:00",
+            "@Latitude": "51.4638074287966",
+            "@Longitude": "0.352141545594137",
+            "@LatitudeWGS84": "6703749.61290885",
+            "@LongitudeWGS84": "39200.2175426956",
+            "@DataOwner": "Thurrock",
+            "@DataManager": "King's College London",
+            "@SiteLink": "http://www.londonair.org.uk/london/asp/publicdetails.asp?site=TK9",
+            "Species": [
+               {
+                  "@SpeciesCode": "NO2",
+                  "@SpeciesDescription": "Nitrogen Dioxide",
+                  "@DateMeasurementStarted": "2021-09-08 13:00:00",
+                  "@DateMeasurementFinished": ""
+               },
+               {
+                  "@SpeciesCode": "PM25",
+                  "@SpeciesDescription": "PM2.5 Particulate",
+                  "@DateMeasurementStarted": "2020-12-10 00:00:00",
+                  "@DateMeasurementFinished": ""
+               }
+            ]
+         },
+         {
+            "@LocalAuthorityCode": "34",
+            "@LocalAuthorityName": "Thurrock",
+            "@SiteCode": "TK1",
+            "@SiteName": "Thurrock - London Road (Grays)",
+            "@SiteType": "Urban Background",
+            "@DateClosed": "",
+            "@DateOpened": "1995-01-01 00:00:00",
+            "@Latitude": "51.477076",
+            "@Longitude": "0.317938",
+            "@LatitudeWGS84": "6706120.79163",
+            "@LongitudeWGS84": "35392.6962638",
+            "@DataOwner": "Thurrock",
+            "@DataManager": "King's College London",
+            "@SiteLink": "http://www.londonair.org.uk/london/asp/publicdetails.asp?site=TK1",
+            "Species": [
+               {
+                  "@SpeciesCode": "CO",
+                  "@SpeciesDescription": "Carbon Monoxide",
+                  "@DateMeasurementStarted": "1995-01-10 00:00:00",
+                  "@DateMeasurementFinished": "2008-03-31 00:00:00"
+               },
+               {
+                  "@SpeciesCode": "NO2",
+                  "@SpeciesDescription": "Nitrogen Dioxide",
+                  "@DateMeasurementStarted": "1995-01-10 00:00:00",
+                  "@DateMeasurementFinished": ""
+               },
+               {
+                  "@SpeciesCode": "O3",
+                  "@SpeciesDescription": "Ozone",
+                  "@DateMeasurementStarted": "1995-10-01 00:00:00",
+                  "@DateMeasurementFinished": ""
+               },
+               {
+                  "@SpeciesCode": "PM10",
+                  "@SpeciesDescription": "PM10 Particulate",
+                  "@DateMeasurementStarted": "1995-01-01 00:00:00",
+                  "@DateMeasurementFinished": ""
+               },
+               {
+                  "@SpeciesCode": "SO2",
+                  "@SpeciesDescription": "Sulphur Dioxide",
+                  "@DateMeasurementStarted": "1996-01-10 00:00:00",
+                  "@DateMeasurementFinished": ""
+               }
+            ]
+         },
+         {
+            "@LocalAuthorityCode": "34",
+            "@LocalAuthorityName": "Thurrock",
+            "@SiteCode": "TK8",
+            "@SiteName": "Thurrock - London Road (Purfleet)",
+            "@SiteType": "Roadside",
+            "@DateClosed": "",
+            "@DateOpened": "2008-04-04 01:00:00",
+            "@Latitude": "51.478697",
+            "@Longitude": "0.255133",
+            "@LatitudeWGS84": "6706410.522",
+            "@LongitudeWGS84": "28401.2756446",
+            "@DataOwner": "Thurrock",
+            "@DataManager": "King's College London",
+            "@SiteLink": "http://www.londonair.org.uk/london/asp/publicdetails.asp?site=TK8",
+            "Species": [
+               {
+                  "@SpeciesCode": "NO2",
+                  "@SpeciesDescription": "Nitrogen Dioxide",
+                  "@DateMeasurementStarted": "2008-04-15 11:00:00",
+                  "@DateMeasurementFinished": ""
+               },
+               {
+                  "@SpeciesCode": "PM10",
+                  "@SpeciesDescription": "PM10 Particulate",
+                  "@DateMeasurementStarted": "2015-01-01 00:00:00",
+                  "@DateMeasurementFinished": ""
+               }
+            ]
+         },
+         {
+            "@LocalAuthorityCode": "34",
+            "@LocalAuthorityName": "Thurrock",
+            "@SiteCode": "TK2",
+            "@SiteName": "Thurrock - Purfleet",
+            "@SiteType": "Roadside",
+            "@DateClosed": "2008-04-04 00:00:00",
+            "@DateOpened": "2003-05-01 14:00:00",
+            "@Latitude": "51.478572549698",
+            "@Longitude": "0.255673282805438",
+            "@LatitudeWGS84": "6706388.27794",
+            "@LongitudeWGS84": "28461.4196513",
+            "@DataOwner": "Thurrock",
+            "@DataManager": "King's College London",
+            "@SiteLink": "http://www.londonair.org.uk/london/asp/publicdetails.asp?site=TK2",
+            "Species": [
+               {
+                  "@SpeciesCode": "NO2",
+                  "@SpeciesDescription": "Nitrogen Dioxide",
+                  "@DateMeasurementStarted": "2003-05-01 14:00:00",
+                  "@DateMeasurementFinished": "2008-04-04 00:00:00"
+               },
+               {
+                  "@SpeciesCode": "PM10",
+                  "@SpeciesDescription": "PM10 Particulate",
+                  "@DateMeasurementStarted": "2003-05-01 14:00:00",
+                  "@DateMeasurementFinished": "2008-04-04 00:00:00"
+               }
+            ]
+         },
+         {
+            "@LocalAuthorityCode": "34",
+            "@LocalAuthorityName": "Thurrock",
+            "@SiteCode": "TK3",
+            "@SiteName": "Thurrock - Stanford-le-Hope",
+            "@SiteType": "Roadside",
+            "@DateClosed": "",
+            "@DateOpened": "2003-08-24 04:00:00",
+            "@Latitude": "51.518162",
+            "@Longitude": "0.439548",
+            "@LatitudeWGS84": "6713467.50095",
+            "@LongitudeWGS84": "48930.2595392",
+            "@DataOwner": "Thurrock",
+            "@DataManager": "King's College London",
+            "@SiteLink": "http://www.londonair.org.uk/london/asp/publicdetails.asp?site=TK3",
+            "Species": [
+               {
+                  "@SpeciesCode": "NO2",
+                  "@SpeciesDescription": "Nitrogen Dioxide",
+                  "@DateMeasurementStarted": "2008-01-01 00:00:00",
+                  "@DateMeasurementFinished": ""
+               },
+               {
+                  "@SpeciesCode": "PM10",
+                  "@SpeciesDescription": "PM10 Particulate",
+                  "@DateMeasurementStarted": "2010-02-19 10:00:00",
+                  "@DateMeasurementFinished": ""
+               },
+               {
+                  "@SpeciesCode": "PM25",
+                  "@SpeciesDescription": "PM2.5 Particulate",
+                  "@DateMeasurementStarted": "2009-04-01 00:00:00",
+                  "@DateMeasurementFinished": ""
+               },
+               {
+                  "@SpeciesCode": "SO2",
+                  "@SpeciesDescription": "Sulphur Dioxide",
+                  "@DateMeasurementStarted": "2003-01-01 14:00:00",
+                  "@DateMeasurementFinished": "2013-02-14 00:00:00"
+               }
+            ]
+         },
+         {
+            "@LocalAuthorityCode": "236",
+            "@LocalAuthorityName": "Uttlesford",
+            "@SiteCode": "UT3",
+            "@SiteName": "Uttlesford - Broxted Farm",
+            "@SiteType": "Rural",
+            "@DateClosed": "2011-01-01 00:00:00",
+            "@DateOpened": "2007-01-01 00:00:00",
+            "@Latitude": "51.8988043942606",
+            "@Longitude": "0.307568574302033",
+            "@LatitudeWGS84": "6781848.63229",
+            "@LongitudeWGS84": "34238.3770753",
+            "@DataOwner": "Uttlesford",
+            "@DataManager": "King's College London",
+            "@SiteLink": "http://www.londonair.org.uk/london/asp/publicdetails.asp?site=UT3",
+            "Species": [
+               {
+                  "@SpeciesCode": "NO2",
+                  "@SpeciesDescription": "Nitrogen Dioxide",
+                  "@DateMeasurementStarted": "2007-01-01 00:00:00",
+                  "@DateMeasurementFinished": "2011-01-01 00:00:00"
+               },
+               {
+                  "@SpeciesCode": "PM10",
+                  "@SpeciesDescription": "PM10 Particulate",
+                  "@DateMeasurementStarted": "2007-01-01 00:00:00",
+                  "@DateMeasurementFinished": "2011-01-01 00:00:00"
+               }
+            ]
+         },
+         {
+            "@LocalAuthorityCode": "236",
+            "@LocalAuthorityName": "Uttlesford",
+            "@SiteCode": "UT1",
+            "@SiteName": "Uttlesford - Saffron Walden Fire Station",
+            "@SiteType": "Roadside",
+            "@DateClosed": "",
+            "@DateOpened": "2007-01-01 00:00:00",
+            "@Latitude": "52.0205464219742",
+            "@Longitude": "0.239932227889456",
+            "@LatitudeWGS84": "6803841.36393",
+            "@LongitudeWGS84": "26709.1334335",
+            "@DataOwner": "Uttlesford",
+            "@DataManager": "King's College London",
+            "@SiteLink": "http://www.londonair.org.uk/london/asp/publicdetails.asp?site=UT1",
+            "Species": [
+               {
+                  "@SpeciesCode": "NO2",
+                  "@SpeciesDescription": "Nitrogen Dioxide",
+                  "@DateMeasurementStarted": "2007-01-01 00:00:00",
+                  "@DateMeasurementFinished": ""
+               },
+               {
+                  "@SpeciesCode": "PM10",
+                  "@SpeciesDescription": "PM10 Particulate",
+                  "@DateMeasurementStarted": "2007-01-01 00:00:00",
+                  "@DateMeasurementFinished": ""
+               }
+            ]
+         },
+         {
+            "@LocalAuthorityCode": "236",
+            "@LocalAuthorityName": "Uttlesford",
+            "@SiteCode": "UT2",
+            "@SiteName": "Uttlesford - Takeley",
+            "@SiteType": "Urban Background",
+            "@DateClosed": "",
+            "@DateOpened": "2007-01-01 00:00:00",
+            "@Latitude": "51.8681567817872",
+            "@Longitude": "0.263655317647568",
+            "@LatitudeWGS84": "6776321.52595",
+            "@LongitudeWGS84": "29349.9757055",
+            "@DataOwner": "Uttlesford",
+            "@DataManager": "King's College London",
+            "@SiteLink": "http://www.londonair.org.uk/london/asp/publicdetails.asp?site=UT2",
+            "Species": [
+               {
+                  "@SpeciesCode": "NO2",
+                  "@SpeciesDescription": "Nitrogen Dioxide",
+                  "@DateMeasurementStarted": "2007-01-01 00:00:00",
+                  "@DateMeasurementFinished": ""
+               },
+               {
+                  "@SpeciesCode": "O3",
+                  "@SpeciesDescription": "Ozone",
+                  "@DateMeasurementStarted": "2011-01-01 00:00:00",
+                  "@DateMeasurementFinished": ""
+               },
+               {
+                  "@SpeciesCode": "PM10",
+                  "@SpeciesDescription": "PM10 Particulate",
+                  "@DateMeasurementStarted": "2007-01-01 00:00:00",
+                  "@DateMeasurementFinished": "2011-01-01 00:00:00"
+               }
+            ]
          }
       ]
    }
