@@ -303,7 +303,7 @@ def displayHourlyData():
         return
 
     #get user input for start data
-    startDateInput = input("Enter a start date (type 'today' for current date): ")
+    startDateInput = input("Enter a start date (type 'today' for current date) in format YYYY-MM-DD: ")
     #if start date is set to current date
     if startDateInput.lower() == "today" or startDateInput == str(datetime.date.today()):
         startDate = datetime.date.today()
@@ -311,7 +311,7 @@ def displayHourlyData():
         endDate = (datetime.datetime.strptime(str(startDate), "%Y-%m-%d") + datetime.timedelta(days = 1)).strftime("%Y-%m-%d")
     else:
         startDate = startDateInput
-        endDateInput = input("Enter an end date (type 'today' for current date): ")
+        endDateInput = input("Enter an end date (type 'today' for current date) in format YYYY-MM-DD: ")
         #if start date and end data are chosen to be the same
         if endDateInput == startDate:
             #set end date to one more than start date
@@ -319,6 +319,9 @@ def displayHourlyData():
         #if end date is set to current date
         elif endDateInput.lower() == "today":
             endDate = datetime.date.today()
+        elif endDateInput < startDate:
+            print("End date cannot be before start date. Try again.")
+            return
         else:
             endDate = endDateInput
 
