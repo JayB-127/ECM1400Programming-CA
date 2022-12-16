@@ -128,14 +128,28 @@ def displayHourlyData():
     # TODO: documentation
 
     import requests
+    import datetime
 
     group = selectGroup()
     site = selectSite(group)
     species = selectSpecies(group, site)
 
-    # TODO: take input for start and end dates
-    startDate = "2022-12-15"
-    endDate = "2022-12-16"
+    startDateInput = input("Enter a start date (type 'today' for current date): ")
+    
+    startDate = datetime.date.today() if startDateInput.lower() == "today" else startDateInput
+    print(startDate)
+
+    endDateInput = input("Enter a end date (type 'today' for current date): ")
+
+    if startDateInput.lower() == endDateInput.lower() or str(startDate) == endDateInput:
+        endDate = (datetime.datetime.strptime(str(startDate), "%Y-%m-%d") + datetime.timedelta(days = 1)).strftime("%Y-%m-%d")
+    elif endDateInput.lower() == "today":
+        endDate = datetime.date.today()
+    else:
+        endDate = endDateInput
+
+    print(endDate)
+
 
     url = f"https://api.erg.ic.ac.uk/AirQuality/Data/SiteSpecies/SiteCode={site}/SpeciesCode={species}/StartDate={startDate}/EndDate={endDate}/Json"
 
@@ -143,11 +157,11 @@ def displayHourlyData():
 
     data = response["RawAQData"]["Data"]
 
-    print("--- Hourly Data ---")
+    print(f"--- Hourly Data ({site}, {species}) ---")
 
     values = []
     for hour in data:
-        hourTime = hour["@MeasurementDateGMT"][-8::]
+        hourTime = hour["@MeasurementDateGMT"]
         if hour["@Value"] == "":
             print(f"{hourTime} | -")
         else:
@@ -158,7 +172,7 @@ def displayHourlyData():
             else:
                 print(f"{hourTime} | " + "❚" * round(value) + f" {value}")
 
-    print("--- Average Value ---")
+    print(f"--- Average Value ({site}, {species}) ---")
 
     from utils import meannvalue
 
