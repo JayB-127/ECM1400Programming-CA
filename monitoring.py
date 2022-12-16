@@ -32,43 +32,30 @@ def get_live_data_from_api(site_code='MY1',species_code='NO',start_date=None,end
         end_date = end_date
     )
 
-    res = requests.get(url)
-    return res.json()
+    response= requests.get(url)
+    return response.json()
 
 
-#IDEAS
-    # call and retrieve list of groups of monitoring sites for user to select
-    # call and retrieve list of monitoring sites for group for user to select
-    # call and retrieve list of species for user to select
-
-    # once all information is retrieved, user can select monitoring site and species
-        #create different funcs for different options
-            #pollutant value every hour for chosen dates
-            #find more different options
-
-    # create graphs with ❚ character
-
-
-def callGroups(): #retrieves list of groups
+def callGroups():
     # TODO: documentation
 
     import requests
 
     url = "https://api.erg.ic.ac.uk/AirQuality/Information/Groups/Json"
 
-    res = requests.get(url).json()
-    return res
+    response = requests.get(url).json()
+    return response
 
 
-def callSitesSpecies(groupName): #retrieves list of monitoring sites and species for group
+def callSitesSpecies(groupName):
     # TODO: documentation
 
     import requests
 
     url = f"https://api.erg.ic.ac.uk/AirQuality/Information/MonitoringSiteSpecies/GroupName={groupName}/Json"
 
-    res = requests.get(url).json()
-    return res
+    response= requests.get(url).json()
+    return response
 
 
 def selectGroup():
@@ -79,8 +66,8 @@ def selectGroup():
 
     print("--- Groups ---")
     count = 0
-    for dict in data:
-        print(str(count) + " - " + dict["@GroupName"])
+    for dictionary in data:
+        print(str(count) + " - " + dictionary["@GroupName"])
         count += 1
 
     group = input("Select a group: ")
@@ -90,57 +77,86 @@ def selectGroup():
     return groupName[0]
 
 
-def selectSite():
+def selectSite(groupName):
     # TODO: documentation
 
-    groupName = selectGroup()
     data = callSitesSpecies(groupName)
     data = data["Sites"]["Site"] #retrieve list of dicts of information on each site
     
     print("--- Monitoring Sites ---")
     count = 0
-    for dict in data:
-        print(str(count) + " - " + dict["@SiteName"])
+    for dictionary in data:
+        print(str(count) + " - " + dictionary["@SiteName"])
         count += 1
 
     site = input("Select a monitoring site: ")
 
     siteCode = [data[i]["@SiteCode"] for i in range(count) if site == str(i)] #list comprehension for finding the site chosen
     print(f"[{siteCode[0]} SELECTED]")
-    return siteCode[0], data
+    return siteCode[0]
 
 
-def selectSpecies():
+def selectSpecies(groupName, siteCode):
     # TODO: documentation
 
-    siteCode, data = selectSite()
+    data = callSitesSpecies(groupName)
+    data = data["Sites"]["Site"]
 
-    for dict in data:
-        if dict["@SiteCode"] == siteCode:
-            if len(dict["Species"]) != 0:
-                count = 0
-                for speciesDict in dict["Species"]:
-                    print(str(count) + " - " + speciesDict["@SpeciesDescription"])
-                    count += 1
+    for dictionary in data:
+        if dictionary["@SiteCode"] == siteCode:
+            if isinstance(dictionary["Species"], list):
+                if len(dictionary["Species"]) != 0:
+                    count = 0
+                    for speciesDict in dictionary["Species"]:
+                        print(str(count) + " - " + speciesDict["@SpeciesDescription"])
+                        count += 1
+                    speciesIndex = input("Select a species: ")
+                    species = [dictionary["Species"][i]["@SpeciesCode"] for i in range(count) if speciesIndex == str(i)]
+                    print(f"[{species[0]} SELECTED]")
+                    return species[0]
+                else:
+                    return
+            elif isinstance(dictionary["Species"], dict):
+                print("0 - " + dictionary["Species"]["@SpeciesCode"])
                 speciesIndex = input("Select a species: ")
+                species = dictionary["Species"]["@SpeciesCode"]
+                print(f"[{species} SELECTED]")
+                return species
+
+
+def displayHourlyData():
+    # TODO: documentation
+
+    import requests
+
+    group = selectGroup()
+    site = selectSite(group)
+    species = selectSpecies(group, site)
+
+    # TODO: take input for start and end dates
+    startDate = "2022-12-15"
+    endDate = "2022-12-16"
+
+    url = f"https://api.erg.ic.ac.uk/AirQuality/Data/SiteSpecies/SiteCode={site}/SpeciesCode={species}/StartDate={startDate}/EndDate={endDate}/Json"
+
+    response= requests.get(url).json()
+
+    data = response["RawAQData"]["Data"]
+
+    print("--- Hourly Data ---")
+
+    for hour in data:
+        hourTime = hour["@MeasurementDateGMT"][-8::]
+        if hour["@Value"] == "":
+            print(f"{hourTime} | -")
+        else:
+            value = float(hour["@Value"])
+            if round(value) == 0:
+                print(f"{hourTime} | " + "❚" *  + f" {value}")
             else:
-                return
-            break
+                print(f"{hourTime} | " + "❚" * round(value) + f" {value}")
 
-    species = [dict["Species"][i]["@SpeciesCode"] for i in range(count) if speciesIndex == str(i)]
-    print(f"[{species[0]} SELECTED]")
-    return species[0]
+    print("--- Average Value ---")
+    # TODO: average for time period
 
-
-# TODO: func -> display data (bar chart) for pollutant level every hour depending on date
-
-
-"""import json
-with open("output/data.json", "w") as file:
-    json.dump(callSitesSpecies("Essex"), file, indent = 3)"""
-
-#EXAMPLE BAR CHART DISPLAY
-str = "species1"
-print("| " + "❚" * 21 + f" <- {str}")
-print("| " + "❚" * 34 + " <- species2")
-print("| " + "❚" * 16 + " <- species3")
+    return response

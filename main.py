@@ -298,7 +298,11 @@ def intelligence_menu():
 
 def monitoring_menu():
     # TODO: documentation
-    pass
+
+    from monitoring import displayHourlyData
+
+    print("--- Real-time Monitoring ---")
+    displayHourlyData()
 
 
 def about():
