@@ -37,7 +37,10 @@ def get_live_data_from_api(site_code='MY1',species_code='NO',start_date=None,end
 
 
 def callGroups():
-    # TODO: documentation
+    """Creates a get request and returns data about the different groups available in the API.
+    
+    Returns:
+        (JSON Obj) response: JSON object containing information on the different groups available."""
 
     import requests
 
@@ -48,7 +51,13 @@ def callGroups():
 
 
 def callSitesSpecies(groupName):
-    # TODO: documentation
+    """Creates a get request and returns data about the different sites and species available in the API.
+    
+    Keyword arguments:
+        (String) groupName: String representing the name of the group chosen by the user.
+
+    Returns:
+        (JSON Obj) response: JSON object containing information on the different sites and species available."""
 
     import requests
 
@@ -59,7 +68,11 @@ def callSitesSpecies(groupName):
 
 
 def selectGroup():
-    # TODO: documentation
+    """Displays a list of the groups available, taking a user input for a certain group. The name of the chosen group is returned.
+    
+    Returns:
+        (String) groupName[0]: String representing the group name chosen by the user.
+    """
 
     data = callGroups()
     data = data["Groups"]["Group"] #retrieve list of dicts of information on each group
@@ -83,7 +96,14 @@ def selectGroup():
 
 
 def selectSite(groupName):
-    # TODO: documentation
+    """Displays a list of the sites available, taking a user input for a certain site. The code of the chosen site is returned.
+    
+    Keyword arguments:
+        (String) groupName: String representing the name of the group chosen by the user.
+        
+    Returns:
+        (String) siteCode[0]: String representing the code of the site chosen by the user.
+        (String) siteCode: String representing the code of the site chosen by the user."""
 
     data = callSitesSpecies(groupName)
     data = data["Sites"]["Site"] #retrieve list of dicts of information on each site
@@ -118,13 +138,17 @@ def selectSite(groupName):
         print(f"[{siteCode} SELECTED]")
         return siteCode
 
-import json
-with open("data.json", "w") as file:
-    json.dump(callSitesSpecies("All"), file, indent = 3)
-
 
 def selectSpecies(groupName, siteCode):
-    # TODO: documentation
+    """Displays a list of the species available for a specific site, taking a user input for a certain species. The code of the species is returned.
+    
+    Keyword arguments:
+        (String) groupName: String representing the name of the group chosen by the user.
+        (String) siteCode: String representing the code of the site chosen by the user.
+        
+    Returns:
+        (String) species[0]: String representing the code of the species chosen by the user.
+        (String) species: String representing the code of the species chosen by the user."""
 
     data = callSitesSpecies(groupName)
     data = data["Sites"]["Site"]
@@ -190,7 +214,8 @@ def selectSpecies(groupName, siteCode):
 
 
 def displayHourlyData():
-    # TODO: documentation
+    """Allows the user to select a certain group, site and species, displaying live data for the specified group, site and species in a bar chart.
+    An hourly average is also calculated and displayed."""
 
     import requests
     import datetime
@@ -238,7 +263,7 @@ def displayHourlyData():
             value = float(hour["@Value"])
             values.append(value)
             if round(value) == 0:
-                print(f"{hourTime} | " + "❚" + f" {value}")
+                print(f"{hourTime} | ❚" + f" {value}")
             else:
                 print(f"{hourTime} | " + "❚" * round(value) + f" {value}")
 
