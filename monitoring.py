@@ -89,19 +89,20 @@ def selectSite(groupName):
     data = data["Sites"]["Site"] #retrieve list of dicts of information on each site
     
     print("--- Monitoring Sites ---")
+    print(type(data))
     if isinstance(data, list):
         if len(data) != 0:
             count = 0
             for dictionary in data:
                 print(str(count) + " - " + dictionary["@SiteName"])
                 count += 1
-                print("? - Main Menu")
-                site = input("Select a monitoring site: ")
-                if site == "?":
-                    return
-                siteCode = [data[i]["@SiteCode"] for i in range(count) if site == str(i)] #list comprehension for finding the site chosen
-                print(f"[{siteCode[0]} SELECTED]")
-                return siteCode[0]
+            print("? - Main Menu")
+            site = input("Select a monitoring site: ")
+            if site == "?":
+                return
+            siteCode = [data[i]["@SiteCode"] for i in range(count) if site == str(i)] #list comprehension for finding the site chosen
+            print(f"[{siteCode[0]} SELECTED]")
+            return siteCode[0]
         else:
             return
     elif isinstance(data, dict):
@@ -116,6 +117,10 @@ def selectSite(groupName):
         siteCode = data["@SiteCode"]
         print(f"[{siteCode} SELECTED]")
         return siteCode
+
+import json
+with open("data.json", "w") as file:
+    json.dump(callSitesSpecies("All"), file, indent = 3)
 
 
 def selectSpecies(groupName, siteCode):
