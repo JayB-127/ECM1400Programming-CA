@@ -89,21 +89,33 @@ def selectSite(groupName):
     data = data["Sites"]["Site"] #retrieve list of dicts of information on each site
     
     print("--- Monitoring Sites ---")
-    count = 0
-    for dictionary in data:
-        print(str(count) + " - " + dictionary["@SiteName"])
-        count += 1
-
-    print("? - Main Menu")
-
-    site = input("Select a monitoring site: ")
-
-    if site == "?":
-        return
-
-    siteCode = [data[i]["@SiteCode"] for i in range(count) if site == str(i)] #list comprehension for finding the site chosen
-    print(f"[{siteCode[0]} SELECTED]")
-    return siteCode[0]
+    if isinstance(data, list):
+        if len(data) != 0:
+            count = 0
+            for dictionary in data:
+                print(str(count) + " - " + dictionary["@SiteName"])
+                count += 1
+                print("? - Main Menu")
+                site = input("Select a monitoring site: ")
+                if site == "?":
+                    return
+                siteCode = [data[i]["@SiteCode"] for i in range(count) if site == str(i)] #list comprehension for finding the site chosen
+                print(f"[{siteCode[0]} SELECTED]")
+                return siteCode[0]
+        else:
+            return
+    elif isinstance(data, dict):
+        print("0 - " + data["@SiteName"])
+        print("? - Main Menu")
+        site = input("Select a monitoring site: ")
+        if site == "?":
+            return
+        elif site != "0":
+            print("Invalid input. Try again.")
+            return
+        siteCode = data["@SiteCode"]
+        print(f"[{siteCode} SELECTED]")
+        return siteCode
 
 
 def selectSpecies(groupName, siteCode):
@@ -112,32 +124,68 @@ def selectSpecies(groupName, siteCode):
     data = callSitesSpecies(groupName)
     data = data["Sites"]["Site"]
 
-    for dictionary in data:
-        if dictionary["@SiteCode"] == siteCode:
-            if isinstance(dictionary["Species"], list):
-                if len(dictionary["Species"]) != 0:
-                    count = 0
-                    for speciesDict in dictionary["Species"]:
-                        print(str(count) + " - " + speciesDict["@SpeciesDescription"])
-                        count += 1
+    if isinstance(data, list):
+        for item in data:
+            if item["@SiteCode"] == siteCode:
+                if isinstance(item["Species"], list):
+                    if len(item["Species"]) != 0:
+                        count = 0
+                        for speciesDict in item["Species"]:
+                            print(str(count) + " - " + speciesDict["@SpeciesDescription"])
+                            count += 1
+                        print("? - Main Menu")
+                        speciesIndex = input("Select a species: ")
+                        if speciesIndex == "?":
+                            return
+                        species = [item["Species"][i]["@SpeciesCode"] for i in range(count) if speciesIndex == str(i)]
+                        print(f"[{species[0]} SELECTED]")
+                        return species[0]
+                    else:
+                        return
+                elif isinstance(item["Species"], dict):
+                    print("0 - " + item["Species"]["@SpeciesDescription"])
                     print("? - Main Menu")
                     speciesIndex = input("Select a species: ")
                     if speciesIndex == "?":
                         return
-                    species = [dictionary["Species"][i]["@SpeciesCode"] for i in range(count) if speciesIndex == str(i)]
-                    print(f"[{species[0]} SELECTED]")
-                    return species[0]
-                else:
-                    return
-            elif isinstance(dictionary["Species"], dict):
-                print("0 - " + dictionary["Species"]["@SpeciesCode"])
+                    elif speciesIndex != "0":
+                        print("Invalid input. Try again.")
+                        return
+                    species = item["Species"]["@SpeciesCode"]
+                    print(f"[{species} SELECTED]")
+                    return species
+    elif isinstance(data, dict):
+        if isinstance(data["Species"], list):
+            if len(data["Species"]) != 0:
+                count = 0
+                for speciesDict in data["Species"]:
+                    print(str(count) + " - " + speciesDict["@SpeciesDescription"])
+                    count += 1
                 print("? - Main Menu")
                 speciesIndex = input("Select a species: ")
                 if speciesIndex == "?":
                     return
-                species = dictionary["Species"]["@SpeciesCode"]
-                print(f"[{species} SELECTED]")
-                return species
+                species = [data["Species"][i]["@SpeciesCode"] for i in range(count) if speciesIndex == str(i)]
+                print(f"[{species[0]} SELECTED]")
+                return species[0]
+            else:
+                        return
+        elif isinstance(data["Species"], dict):
+            print("0 - " + data["Species"]["@SpeciesDescription"])
+            print("? - Main Menu")
+            speciesIndex = input("Select a species: ")
+            if speciesIndex == "?":
+                return
+            elif speciesIndex != "0":
+                print("Invalid input. Try again.")
+                return
+            species = data["Species"]["@SpeciesCode"]
+            print(f"[{species} SELECTED]")
+            return species
+
+import json
+with open("data.json", "w") as file:
+    json.dump(callSitesSpecies("adur"), file, indent=3)
 
 
 def displayHourlyData():
