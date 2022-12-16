@@ -172,10 +172,16 @@ def reporting_menu():
                 print(f"Month {i}: {x}")
                 i += 1
         elif funcChoice == "5":
+            import datetime
             validFunc = True
             from reporting import peak_hour_date, get_data
             #get user input
             date = input("Enter a date in YYYY-MM-DD format: ")
+            try:
+                datetime.datetime.strptime(date, '%Y-%m-%d')
+            except ValueError:
+                print("Incorrect input. Try again.")
+                return
             hour, value = peak_hour_date(get_data(), date, station , pollutant)
             #display data appropriately
             print(f"Peak hour for {date}: {hour} with a value of {value}")
