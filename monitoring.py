@@ -145,18 +145,25 @@ def displayHourlyData():
 
     print("--- Hourly Data ---")
 
+    values = []
     for hour in data:
         hourTime = hour["@MeasurementDateGMT"][-8::]
         if hour["@Value"] == "":
             print(f"{hourTime} | -")
         else:
             value = float(hour["@Value"])
+            values.append(value)
             if round(value) == 0:
-                print(f"{hourTime} | " + "❚" *  + f" {value}")
+                print(f"{hourTime} | " + "❚" + f" {value}")
             else:
                 print(f"{hourTime} | " + "❚" * round(value) + f" {value}")
 
     print("--- Average Value ---")
-    # TODO: average for time period
 
-    return response
+    from utils import meannvalue
+
+    if len(values) != 0:
+        mean = round(meannvalue(values), 2)
+        print(f"Average value for {species} at {site} = {mean}")
+    else:
+        print("No data available for average to be calculated.")
