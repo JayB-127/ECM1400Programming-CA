@@ -44,8 +44,10 @@ def callGroups():
 
     import requests
 
+    #create url to retrieve data from
     url = "https://api.erg.ic.ac.uk/AirQuality/Information/Groups/Json"
 
+    #send get request
     response = requests.get(url).json()
     return response
 
@@ -61,8 +63,10 @@ def callSitesSpecies(groupName):
 
     import requests
 
+    #create url to retrieve data from
     url = f"https://api.erg.ic.ac.uk/AirQuality/Information/MonitoringSiteSpecies/GroupName={groupName}/Json"
 
+    #send get request
     response= requests.get(url).json()
     return response
 
@@ -75,22 +79,24 @@ def selectGroup():
     """
 
     data = callGroups()
-    data = data["Groups"]["Group"] #retrieve list of dicts of information on each group
+    #isolate only necessary data
+    data = data["Groups"]["Group"]
 
     print("--- Groups ---")
     count = 0
+    #for each group
     for dictionary in data:
+        #display the group name with a number for the user to select
         print(str(count) + " - " + dictionary["@GroupName"])
         count += 1
 
     print("? - Main Menu")
-
     group = input("Select a group: ")
-
     if group == "?":
         return
     
-    groupName = [data[i]["@GroupName"] for i in range(count) if group == str(i)] #list comprehension for finding group chosen
+    #find group chosen and return group name
+    groupName = [data[i]["@GroupName"] for i in range(count) if group == str(i)]
     print(f"[{groupName[0]} SELECTED]")
     return groupName[0]
 
@@ -106,26 +112,32 @@ def selectSite(groupName):
         (String) siteCode: String representing the code of the site chosen by the user."""
 
     data = callSitesSpecies(groupName)
-    data = data["Sites"]["Site"] #retrieve list of dicts of information on each site
+    #isolate only necessary data
+    data = data["Sites"]["Site"]
     
     print("--- Monitoring Sites ---")
-    print(type(data))
+    #check if there is one (dict) or more (list) sites for the group
     if isinstance(data, list):
         if len(data) != 0:
             count = 0
+            #for each site
             for dictionary in data:
+                #display the site name with a number for the user to select
                 print(str(count) + " - " + dictionary["@SiteName"])
                 count += 1
             print("? - Main Menu")
             site = input("Select a monitoring site: ")
             if site == "?":
                 return
+            #find site chosen and return site code
             siteCode = [data[i]["@SiteCode"] for i in range(count) if site == str(i)] #list comprehension for finding the site chosen
             print(f"[{siteCode[0]} SELECTED]")
             return siteCode[0]
         else:
             return
+    #check if there is one (dict) or more (list) sites for the group
     elif isinstance(data, dict):
+        #display the site name with a number for the user to select
         print("0 - " + data["@SiteName"])
         print("? - Main Menu")
         site = input("Select a monitoring site: ")
@@ -134,6 +146,7 @@ def selectSite(groupName):
         elif site != "0":
             print("Invalid input. Try again.")
             return
+        #find site chosen and return site code
         siteCode = data["@SiteCode"]
         print(f"[{siteCode} SELECTED]")
         return siteCode
@@ -151,27 +164,36 @@ def selectSpecies(groupName, siteCode):
         (String) species: String representing the code of the species chosen by the user."""
 
     data = callSitesSpecies(groupName)
+    #isolate only necessary data
     data = data["Sites"]["Site"]
 
+    #check if there is one (dict) or more (list) sites for the group
     if isinstance(data, list):
+        #for each species
         for item in data:
             if item["@SiteCode"] == siteCode:
+                #check if there is one(dict) or more (list) species for the site
                 if isinstance(item["Species"], list):
                     if len(item["Species"]) != 0:
                         count = 0
+                        #for each species
                         for speciesDict in item["Species"]:
+                            #display the species name with a number for the user to select
                             print(str(count) + " - " + speciesDict["@SpeciesDescription"])
                             count += 1
                         print("? - Main Menu")
                         speciesIndex = input("Select a species: ")
                         if speciesIndex == "?":
                             return
+                        #find species chosen and return species code
                         species = [item["Species"][i]["@SpeciesCode"] for i in range(count) if speciesIndex == str(i)]
                         print(f"[{species[0]} SELECTED]")
                         return species[0]
                     else:
                         return
+                #check if there is one(dict) or more (list) species for the site
                 elif isinstance(item["Species"], dict):
+                    #display the species name with a number for the user to select
                     print("0 - " + item["Species"]["@SpeciesDescription"])
                     print("? - Main Menu")
                     speciesIndex = input("Select a species: ")
@@ -180,26 +202,34 @@ def selectSpecies(groupName, siteCode):
                     elif speciesIndex != "0":
                         print("Invalid input. Try again.")
                         return
+                    #find species chosen and return species code
                     species = item["Species"]["@SpeciesCode"]
                     print(f"[{species} SELECTED]")
                     return species
+    #check if there is one (dict) or more (list) sites for the group
     elif isinstance(data, dict):
+        #check if there is one(dict) or more (list) species for the site
         if isinstance(data["Species"], list):
             if len(data["Species"]) != 0:
                 count = 0
+                #for each species
                 for speciesDict in data["Species"]:
+                    #display the species name with a number for the user to select
                     print(str(count) + " - " + speciesDict["@SpeciesDescription"])
                     count += 1
                 print("? - Main Menu")
                 speciesIndex = input("Select a species: ")
                 if speciesIndex == "?":
                     return
+                #find species chosen and return species code
                 species = [data["Species"][i]["@SpeciesCode"] for i in range(count) if speciesIndex == str(i)]
                 print(f"[{species[0]} SELECTED]")
                 return species[0]
             else:
-                        return
+                return
+        #check if there is one(dict) or more (list) species for the site
         elif isinstance(data["Species"], dict):
+            #display the species name with a number for the user to select
             print("0 - " + data["Species"]["@SpeciesDescription"])
             print("? - Main Menu")
             speciesIndex = input("Select a species: ")
@@ -208,6 +238,7 @@ def selectSpecies(groupName, siteCode):
             elif speciesIndex != "0":
                 print("Invalid input. Try again.")
                 return
+            #find species chosen and return species code
             species = data["Species"]["@SpeciesCode"]
             print(f"[{species} SELECTED]")
             return species
@@ -220,46 +251,61 @@ def displayHourlyData():
     import requests
     import datetime
 
+    #get group chosen by user
     group = selectGroup()
     if group is None:
         return
 
+    #get site chosen by user
     site = selectSite(group)
     if site is None:
         return
 
+    #get species chosen by user
     species = selectSpecies(group, site)
     if species is None:
         return
 
+    #get user input for start data
     startDateInput = input("Enter a start date (type 'today' for current date): ")
+    #if start date is set to current date
     if startDateInput.lower() == "today" or startDateInput == str(datetime.date.today()):
         startDate = datetime.date.today()
+        #set end date to one more than start data
         endDate = (datetime.datetime.strptime(str(startDate), "%Y-%m-%d") + datetime.timedelta(days = 1)).strftime("%Y-%m-%d")
     else:
         startDate = startDateInput
         endDateInput = input("Enter an end date (type 'today' for current date): ")
+        #if start date and end data are chosen to be the same
         if endDateInput == startDate:
+            #set end date to one more than start date
             endDate = (datetime.datetime.strptime(str(startDate), "%Y-%m-%d") + datetime.timedelta(days = 1)).strftime("%Y-%m-%d")
+        #if end date is set to current date
         elif endDateInput.lower() == "today":
             endDate = datetime.date.today()
         else:
             endDate = endDateInput
 
+    #create url to retrieve date from
     url = f"https://api.erg.ic.ac.uk/AirQuality/Data/SiteSpecies/SiteCode={site}/SpeciesCode={species}/StartDate={startDate}/EndDate={endDate}/Json"
 
-    response= requests.get(url).json()
+    #send get request
+    response = requests.get(url).json()
 
+    #isolate only necessary data
     data = response["RawAQData"]["Data"]
 
     print(f"--- Hourly Data ({site}, {species}) ---")
 
     values = []
+    #for each hour between dates chosen
     for hour in data:
         hourTime = hour["@MeasurementDateGMT"]
+        #if there is no data for that hour
         if hour["@Value"] == "":
             print(f"{hourTime} | -")
         else:
+            #display data value as bar graph
             value = float(hour["@Value"])
             values.append(value)
             if round(value) == 0:
@@ -272,6 +318,7 @@ def displayHourlyData():
     from utils import meannvalue
 
     if len(values) != 0:
+        #calculate average, rounding to 2 decimal places
         mean = round(meannvalue(values), 2)
         print(f"Average value for {species} at {site} = {mean}")
     else:

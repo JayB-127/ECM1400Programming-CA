@@ -297,11 +297,12 @@ def intelligence_menu():
 
 
 def monitoring_menu():
-    # TODO: documentation
+    """Provides an interface for the real-time monitoring module."""
 
     from monitoring import displayHourlyData
 
     print("--- Real-time Monitoring ---")
+    #call necessary function
     displayHourlyData()
 
 
