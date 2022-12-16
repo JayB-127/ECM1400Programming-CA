@@ -135,21 +135,18 @@ def displayHourlyData():
     species = selectSpecies(group, site)
 
     startDateInput = input("Enter a start date (type 'today' for current date): ")
-    
-    startDate = datetime.date.today() if startDateInput.lower() == "today" else startDateInput
-    print(startDate)
-
-    endDateInput = input("Enter a end date (type 'today' for current date): ")
-
-    if startDateInput.lower() == endDateInput.lower() or str(startDate) == endDateInput:
+    if startDateInput.lower() == "today" or startDateInput == str(datetime.date.today()):
+        startDate = datetime.date.today()
         endDate = (datetime.datetime.strptime(str(startDate), "%Y-%m-%d") + datetime.timedelta(days = 1)).strftime("%Y-%m-%d")
-    elif endDateInput.lower() == "today":
-        endDate = datetime.date.today()
     else:
-        endDate = endDateInput
-
-    print(endDate)
-
+        startDate = startDateInput
+        endDateInput = input("Enter an end date (type 'today' for current date): ")
+        if endDateInput == startDate:
+            endDate = (datetime.datetime.strptime(str(startDate), "%Y-%m-%d") + datetime.timedelta(days = 1)).strftime("%Y-%m-%d")
+        elif endDateInput.lower() == "today":
+            endDate = datetime.date.today()
+        else:
+            endDate = endDateInput
 
     url = f"https://api.erg.ic.ac.uk/AirQuality/Data/SiteSpecies/SiteCode={site}/SpeciesCode={species}/StartDate={startDate}/EndDate={endDate}/Json"
 
