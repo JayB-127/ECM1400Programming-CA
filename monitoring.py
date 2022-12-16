@@ -309,8 +309,9 @@ def displayHourlyData():
     try:
         datetime.datetime.strptime(startDateInput, '%Y-%m-%d')
     except ValueError:
-        print("Incorrect data format, should be YYYY-MM-DD")
-        return
+        if startDateInput.lower() != "today":
+            print("Incorrect data format, should be YYYY-MM-DD")
+            return
 
     #if start date is set to current date
     if startDateInput.lower() == "today" or startDateInput == str(datetime.date.today()):
@@ -324,8 +325,9 @@ def displayHourlyData():
         try:
             datetime.datetime.strptime(endDateInput, '%Y-%m-%d')
         except ValueError:
-            print("Incorrect data format, should be YYYY-MM-DD")
-            return
+            if endDateInput.lower() != "today":
+                print("Incorrect data format, should be YYYY-MM-DD")
+                return
         #if start date and end data are chosen to be the same
         if endDateInput == startDate:
             #set end date to one more than start date
