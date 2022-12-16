@@ -70,7 +70,12 @@ def selectGroup():
         print(str(count) + " - " + dictionary["@GroupName"])
         count += 1
 
+    print("? - Main Menu")
+
     group = input("Select a group: ")
+
+    if group == "?":
+        return
     
     groupName = [data[i]["@GroupName"] for i in range(count) if group == str(i)] #list comprehension for finding group chosen
     print(f"[{groupName[0]} SELECTED]")
@@ -89,7 +94,12 @@ def selectSite(groupName):
         print(str(count) + " - " + dictionary["@SiteName"])
         count += 1
 
+    print("? - Main Menu")
+
     site = input("Select a monitoring site: ")
+
+    if site == "?":
+        return
 
     siteCode = [data[i]["@SiteCode"] for i in range(count) if site == str(i)] #list comprehension for finding the site chosen
     print(f"[{siteCode[0]} SELECTED]")
@@ -110,7 +120,10 @@ def selectSpecies(groupName, siteCode):
                     for speciesDict in dictionary["Species"]:
                         print(str(count) + " - " + speciesDict["@SpeciesDescription"])
                         count += 1
+                    print("? - Main Menu")
                     speciesIndex = input("Select a species: ")
+                    if speciesIndex == "?":
+                        return
                     species = [dictionary["Species"][i]["@SpeciesCode"] for i in range(count) if speciesIndex == str(i)]
                     print(f"[{species[0]} SELECTED]")
                     return species[0]
@@ -118,7 +131,10 @@ def selectSpecies(groupName, siteCode):
                     return
             elif isinstance(dictionary["Species"], dict):
                 print("0 - " + dictionary["Species"]["@SpeciesCode"])
+                print("? - Main Menu")
                 speciesIndex = input("Select a species: ")
+                if speciesIndex == "?":
+                    return
                 species = dictionary["Species"]["@SpeciesCode"]
                 print(f"[{species} SELECTED]")
                 return species
@@ -131,8 +147,16 @@ def displayHourlyData():
     import datetime
 
     group = selectGroup()
+    if group is None:
+        return
+
     site = selectSite(group)
+    if site is None:
+        return
+
     species = selectSpecies(group, site)
+    if species is None:
+        return
 
     startDateInput = input("Enter a start date (type 'today' for current date): ")
     if startDateInput.lower() == "today" or startDateInput == str(datetime.date.today()):
