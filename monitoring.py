@@ -94,6 +94,15 @@ def selectGroup():
     group = input("Select a group: ")
     if group == "?":
         return
+    #check for invalid input
+    valid = False
+    for x in range(count):
+        if group == str(x):
+            valid = True
+            break
+    if valid == False:
+        print("Invalid input. Try again.")
+        return
     
     #find group chosen and return group name
     groupName = [data[i]["@GroupName"] for i in range(count) if group == str(i)]
@@ -128,6 +137,15 @@ def selectSite(groupName):
             print("? - Main Menu")
             site = input("Select a monitoring site: ")
             if site == "?":
+                return
+            #check invalid input
+            valid = False
+            for x in range(count):
+                if site == str(x):
+                    valid = True
+                    break
+            if valid == False:
+                print("Invalid input. Try again.")
                 return
             #find site chosen and return site code
             siteCode = [data[i]["@SiteCode"] for i in range(count) if site == str(i)] #list comprehension for finding the site chosen
@@ -185,6 +203,15 @@ def selectSpecies(groupName, siteCode):
                         speciesIndex = input("Select a species: ")
                         if speciesIndex == "?":
                             return
+                        #check for invalid input
+                        valid = False
+                        for x in range(count):
+                            if speciesIndex == str(x):
+                                valid = True
+                                break
+                        if valid == False:
+                            print("Invalid input. Try again.")
+                            return
                         #find species chosen and return species code
                         species = [item["Species"][i]["@SpeciesCode"] for i in range(count) if speciesIndex == str(i)]
                         print(f"[{species[0]} SELECTED]")
@@ -220,6 +247,15 @@ def selectSpecies(groupName, siteCode):
                 print("? - Main Menu")
                 speciesIndex = input("Select a species: ")
                 if speciesIndex == "?":
+                    return
+                #check for invalid input
+                valid = False
+                for x in range(count):
+                    if speciesIndex == str(x):
+                        valid = True
+                        break
+                if valid == False:
+                    print("Invalid input. Try again.")
                     return
                 #find species chosen and return species code
                 species = [data["Species"][i]["@SpeciesCode"] for i in range(count) if speciesIndex == str(i)]
