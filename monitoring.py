@@ -183,10 +183,6 @@ def selectSpecies(groupName, siteCode):
             print(f"[{species} SELECTED]")
             return species
 
-import json
-with open("data.json", "w") as file:
-    json.dump(callSitesSpecies("adur"), file, indent=3)
-
 
 def displayHourlyData():
     # TODO: documentation
