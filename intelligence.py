@@ -239,7 +239,7 @@ def detect_connected_components_sorted(MARK):
     #create binary image from MARK array
     mat_plot.imsave("output/cc-top-2b.jpg", MARK, cmap = cm.gray)
 
-  
+
 def bubble2d(items):
     """Orders a 2D array of shape (x, 2), where x is any value, in descending order according to each second index.
     It sorts the data by using a bubble sort.
